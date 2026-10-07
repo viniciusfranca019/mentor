@@ -32,7 +32,9 @@ curso para a seção "Trilha", todas desmarcadas.
 - **O diário só cresce.** Acrescente ao fim e nunca reescreva entradas antigas. Ele é o
   registro do que aconteceu.
 - **O progresso reflete o agora.** Pode ser editado: marcar lição, mover o "Onde parei",
-  atualizar "Para revisar".
+  atualizar "Para revisar" e os "Níveis por eixo".
+- **Camadas em toda resposta.** Cada pergunta no diário registra a camada que ela pedia e as
+  camadas que a resposta demonstrou (`references/niveis.md`). É a evidência da reavaliação de nível.
 - **Resumo fiel da resposta.** No diário, resuma o que ele disse com as palavras dele.
   Não melhore a resposta: o `/mentor:feedback` precisa ver o que ele de fato respondeu.
 - **Curso novo, diretório novo.** Trocar de curso não apaga o outro; o `perfil.md` muda

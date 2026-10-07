@@ -56,32 +56,39 @@ Feche com: "Alguma dúvida? Se não, começo o diagnóstico."
 
 ## Bloco 3 — Diagnóstico
 
-O `curso.md` traz as perguntas de diagnóstico. Faça uma por vez. Avise antes: "Não é
-prova, não tem nota. É para eu saber de onde você parte."
+O diagnóstico mede o nível dele **em cada eixo do curso**, com as escadas da seção "Eixos
+e diagnóstico" do `curso.md` e as regras de `<raiz>/skills/mentor/references/niveis.md`.
+Avise antes: "Não é prova, não tem nota. É para eu saber de onde você parte em cada
+assunto."
 
-- Não corrija as respostas do diagnóstico agora. Agradeça e siga. O diagnóstico mede o
-  ponto de partida, não ensina.
-- Ao final, resuma para ele em três linhas: o que ele já tem, o que vai ser novo, onde a
-  curva vai ser mais íngreme.
-- O diagnóstico não pula módulos. Ele só ajusta o tom: com quem já sabe, as Aberturas
-  andam mais rápido.
+- Uma pergunta por vez, duas por eixo: a **M** e, conforme a resposta, a **D** ou a **R**.
+- Não corrija as respostas agora. Agradeça e siga. O diagnóstico mede o ponto de partida,
+  não ensina.
+- Ao final, mostre a tabela do resultado: eixo, nível, a próxima camada que falta e o que
+  isso muda na trilha dele. Se ele contestar um nível, siga a seção Contestação de
+  `niveis.md`.
 
 ## Bloco 4 — Objetivo e ritmo
 
-1. "Por que você quer fazer esse curso? Onde quer estar daqui a um ano?" Anote com as
+Uma pergunta por vez, na ordem, esperando a resposta entre elas.
+
+1. Como ele quer ser chamado. Vai para o `perfil.md`.
+2. "Por que você quer fazer esse curso? Onde quer estar daqui a um ano?" Anote com as
    palavras dele: o feedback vai lembrar ele disso nos dias difíceis.
-2. Combine o ritmo: quais dias, quanto tempo por sessão. Recomende pelo menos 3 sessões
+3. Combine o ritmo: quais dias, quanto tempo por sessão. Recomende pelo menos 3 sessões
    de 1 hora por semana. Constância vale mais que maratona.
-3. Pergunte qual máquina ele usa (Windows, Linux, macOS). O módulo 00 do curso depende
+4. Pergunte qual máquina ele usa (Windows, Linux, macOS). O módulo 00 do curso depende
    disso.
 
 ## Bloco 5 — Criar o estado e fechar
 
 1. Crie `~/.mentor/perfil.md` a partir do template, com tudo o que foi combinado.
 2. Crie `~/.mentor/<curso>/progresso.md` a partir do template, com a trilha copiada do
-   `curso.md` e o "Onde parei" na primeira lição.
-3. Crie o diário do dia com uma seção "Onboarding" que registra o diagnóstico (perguntas
-   e respostas resumidas).
+   `curso.md`, o "Onde parei" na primeira lição e a seção "Níveis por eixo" preenchida
+   com o resultado do diagnóstico.
+3. Crie o diário do dia com uma seção "Onboarding" que registra o diagnóstico: cada
+   pergunta, a resposta resumida, a camada que ela pedia e as camadas que a resposta
+   demonstrou.
 4. Mostre a ele os caminhos criados e feche: "Quando quiser começar, é só `/mentor:mentor-mode`."
 
 ## Revisão — quando o perfil já existe
@@ -105,4 +112,4 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 | Continuar | Sugira `/mentor:mentor-mode` e encerre |
 | Voltar para um curso iniciado | Troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
 | Começar um curso novo | Faça só o bloco 3 com o diagnóstico desse curso, crie `~/.mentor/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
-| Ajustar o ritmo | Refaça o passo 2 do bloco 4 e atualize o `perfil.md` |
+| Ajustar o ritmo | Refaça o passo 3 do bloco 4 e atualize o `perfil.md` |

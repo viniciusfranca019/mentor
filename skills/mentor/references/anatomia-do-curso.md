@@ -8,7 +8,7 @@ estrutura.
 cursos/
 ├── catalogo.md                      # tabela de cursos disponíveis
 └── <curso>/                         # nome em kebab-case, ex.: security-engineer
-    ├── curso.md                     # visão, trilha, diagnóstico
+    ├── curso.md                     # visão, eixos e diagnóstico, trilha
     └── modulos/
         ├── 00-<nome>.md             # um arquivo por módulo
         └── 01-<nome>.md
@@ -28,7 +28,7 @@ cursos/
 | **Para quem é** | O aluno-alvo e o ponto de partida esperado |
 | **Aonde chega** | O que ele sabe fazer ao terminar |
 | **Princípio do curso** | A ideia que costura o curso inteiro |
-| **Diagnóstico** | 5 a 8 perguntas de ponto de partida, usadas no onboarding |
+| **Eixos e diagnóstico** | De 3 a 6 eixos, cada um ligado a fases da trilha. Por eixo, uma escada de três perguntas: **R** (reconhecer, camadas 1 e 2), **M** (mecanismo, camada 3) e **D** (diagnóstico e decisão, camadas 4 e 5), cada uma com o critério da camada, mais uma **D2** (outro problema de diagnóstico e decisão) para quem contesta o nível 3. Escala e regras em `references/niveis.md` |
 | **Trilha** | Fases → módulos → lições, com o status de cada módulo (`disponível` ou `planejado`) |
 
 ## Módulo (`modulos/NN-nome.md`)
