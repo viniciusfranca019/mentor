@@ -15,6 +15,9 @@ existir ou estiver vazio, diga isso e sugira um `/mentor:mentor-mode`. Não inve
 4. Escreva a avaliação no formato abaixo, mostre para ele e acrescente-a ao fim do diário,
    na seção "Avaliação do dia".
 5. Atualize o "Para revisar" do `progresso.md` com os conceitos que ficaram fracos.
+6. Se o dia fechou a última lição de uma fase da trilha, reavalie o nível do eixo dessa
+   fase lendo **todos** os diários da fase, não só os de hoje, como manda a seção
+   Reavaliação de `niveis.md`, e atualize "Níveis por eixo" no `progresso.md`.
 
 ## Rubrica
 
@@ -52,6 +55,10 @@ engenheiro do operador de ferramenta. Dê a ela o destaque correspondente.
 
 ### O que melhorar
 <1 a 3 itens, cada um com o que fazer de diferente na próxima sessão.>
+
+### Nível do eixo
+<Só quando o dia fechou uma fase: o eixo, o nível anterior, o nível agora e a resposta
+que justificou a mudança, ou "mantido" e por quê.>
 
 ### Para revisar
 <Os conceitos que entraram no "Para revisar" do progresso.>

@@ -16,8 +16,8 @@
 
 ## Diagnóstico inicial
 
-<Resumo das respostas do diagnóstico do onboarding: o que ele já sabe, o que é novo,
-onde a curva vai ser mais íngreme.>
+<Resumo em três linhas: o que ele já sabe, o que é novo, onde a curva vai ser mais
+íngreme. Os níveis por eixo de cada curso ficam no progresso.md dele.>
 
 ## Cursos
 

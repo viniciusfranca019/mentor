@@ -14,4 +14,5 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/mentor/SKILL.md` (a skill `mentor:mentor`) e 
 - Dia avaliado: `$ARGUMENTS`. Se vier vazio, é hoje (`date +%F`).
 - A avaliação usa só o diário do curso ativo em `~/.mentor/<curso>/diario/<dia>.md`. Se
   ele não existir ou estiver vazio, diga isso e sugira `/mentor:mentor-mode`. Não avalie
-  sem diário.
+  sem diário. Exceção: quando o dia fechou uma fase da trilha, a reavaliação do nível do
+  eixo lê todos os diários da fase.

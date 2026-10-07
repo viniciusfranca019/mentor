@@ -9,6 +9,8 @@
 - **Pergunta:** <pergunta>
 - **Resposta:** <resumo fiel do que ele disse>
 - **Feedback:** <o que estava certo, o que faltou, o que estava errado>
+- **Camada pedida:** <a mais funda que o critério da pergunta exige, ex.: 3>
+- **Camadas:** <as camadas que a resposta demonstrou, ex.: 1–3; vazio se nenhuma>
 - **Resultado:** <sozinho | com pista (degrau N) | precisou de explicação>
 
 ### <Fase> — pergunta <N>
@@ -16,6 +18,8 @@
 - **Pergunta:** <pergunta>
 - **Resposta:** <resumo fiel>
 - **Feedback:** <feedback>
+- **Camada pedida:** <a mais funda que o critério da pergunta exige, ex.: 3>
+- **Camadas:** <as camadas que a resposta demonstrou, ex.: 1–3; vazio se nenhuma>
 - **Resultado:** <sozinho | com pista (degrau N) | precisou de explicação>
 
 ### Especificação para o Claude

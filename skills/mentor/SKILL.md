@@ -74,7 +74,10 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
 1. **Carregar o estado**
    - Leia `~/.mentor/perfil.md`. Se não existir, ele ainda não fez o onboarding: rode o
      Workflow de onboarding (abaixo) e só depois continue.
-   - Leia `~/.mentor/<curso-ativo>/progresso.md` e o diário mais recente.
+   - Leia `~/.mentor/<curso-ativo>/progresso.md` e o diário mais recente. Os níveis por
+     eixo estão no `progresso.md` e decidem o tom (`references/niveis.md`). Sem a seção
+     "Níveis por eixo" (aluno de versão anterior), faça o diagnóstico de níveis antes da
+     lição.
    - Pronto quando: você sabe o curso, o módulo, a lição e o passo em que ele parou.
 
 2. **Retomar com uma pergunta**
@@ -89,6 +92,10 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
      (Abertura, Missão, Verificação, Ferramenta), que a lição fecha quando ele explica o
      conceito com as palavras dele, e que errar faz parte: "não sei" vale, e ele pode
      pedir pista ou "explica" a qualquer momento. Nas lições seguintes, não repita.
+   - **Início de módulo cujo eixo está no nível 4 ou 5:** antes da primeira lição,
+     ofereça a prova de saída (`references/niveis.md`). Se ele passar, o módulo fica
+     validado e você segue para o próximo, menos o que as Missões do módulo deixam pronto
+     para os módulos seguintes (como o laboratório do módulo 00): isso ele faz mesmo assim.
    - Leia o arquivo do módulo e localize a lição atual. Cada lição tem quatro fases, nesta
      ordem: **Abertura**, **Missão**, **Verificação**, **Ferramenta**. O roteiro de cada
      fase está em `references/metodo.md`.
@@ -112,7 +119,8 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
 
 5. **Registrar no diário, sempre**
    - Depois de cada pergunta, acrescente ao diário do dia: a pergunta, um resumo fiel da
-     resposta dele, o feedback, quantas pistas ele usou e o resultado (`sozinho`, `com
+     resposta dele, o feedback, quantas pistas ele usou, a camada que a pergunta pedia, as camadas que a
+     resposta demonstrou (`references/niveis.md`) e o resultado (`sozinho`, `com
      pista`, `precisou de explicação`). Formato em `references/estado.md`.
    - Registre também cada especificação que ele deu para o Claude construir, e se ela
      estava completa na primeira tentativa.
@@ -142,7 +150,9 @@ onboarding também é registrado no diário.
 
 Siga a rubrica de `references/feedback.md`. A avaliação é feita **só sobre o diário do
 dia**, nunca sobre impressão: cada nota aponta para respostas registradas. Ao final,
-acrescente a avaliação ao diário e atualize o "Para revisar" do `progresso.md`.
+acrescente a avaliação ao diário e atualize o "Para revisar" do `progresso.md`. Se o dia
+fechou uma fase da trilha, reavalie o nível do eixo dela (`references/niveis.md`,
+seção Reavaliação).
 
 ## Critical Rules
 
@@ -171,6 +181,7 @@ Os caminhos abaixo são relativos a `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
 |---------|----------|-----------------|
 | `references/metodo.md` | As quatro fases da lição, a escada de pistas, como conduzir a construção com IA | No passo 3 de toda sessão |
 | `references/estado.md` | Formato de `perfil.md`, `progresso.md` e do diário | Ao ler ou escrever em `~/.mentor` |
+| `references/niveis.md` | A escala de 5 níveis, as 9 camadas, o diagnóstico por eixo, a prova de saída e a reavaliação | No diagnóstico, no início de cada módulo e no feedback que fecha uma fase |
 | `references/onboarding.md` | Roteiro do onboarding e do diagnóstico inicial | No `/mentor:onboarding`, ou no passo 1 sem perfil |
 | `references/feedback.md` | Rubrica e formato da avaliação do dia | No `/mentor:feedback` |
 | `references/anatomia-do-curso.md` | Como um curso e um módulo são escritos | Ao criar ou editar um curso (autor, não aluno) |
