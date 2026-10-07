@@ -29,18 +29,124 @@ Na era da IA isso vale em dobro: o Claude é a ferramenta mais poderosa que o al
 usar, e também a mais fácil de virar muleta. Aqui ele usa a IA o tempo todo, mas sempre
 como o arquiteto que especifica e revisa.
 
-## Diagnóstico
+## Eixos e diagnóstico
 
-Perguntas do onboarding, uma por vez. Não corrigir, só registrar.
+Eixos do curso e a escada de perguntas de cada um. Como usar a escada está em
+`<raiz>/skills/mentor/references/niveis.md`.
 
-1. Quando você digita um endereço no navegador e aperta Enter, o que acontece até a
-   página aparecer? Conte do jeito que souber.
-2. Qual a diferença entre um programa e um processo?
-3. Você já usou um terminal (Linux, PowerShell, cmd)? Para quê?
-4. Já escreveu algum programa? Em qual linguagem e o que ele fazia?
-5. O que você entende por "máquina virtual" e por "container"?
-6. Se um sistema "foi hackeado", o que você imagina que aconteceu?
-7. O que você já usou de IA para estudar ou trabalhar, e como foi?
+| Eixo | Fases da trilha |
+|------|-----------------|
+| Sistemas | 1. A máquina |
+| Redes | 2. A rede |
+| Construir com IA | 3. Construir com IA |
+| Infraestrutura | 4. Arquitetura e infraestrutura |
+| Segurança | 5 a 8, e o projeto final |
+
+### Sistemas
+
+- **R:** O que é um processo?
+  - Camada 2: um programa em execução, com memória e recursos próprios.
+- **M:** Você dá dois cliques num programa. O que acontece dentro do computador até a
+  janela aparecer? Conte do jeito que souber.
+  - Camada 3: o arquivo sai do disco para a memória, o sistema operacional cria o
+    processo e divide a CPU e a memória entre ele e os outros. Com as palavras dele.
+- **D:** Um programa que funcionava ontem hoje diz "permissão negada" ao abrir um arquivo.
+  Onde você investiga, e como resolveria sem liberar o arquivo para todo mundo?
+  - Camada 4: hipóteses concretas: o dono e as permissões do arquivo mudaram, o programa
+    roda com outro usuário, o caminho mudou.
+  - Camada 5: dar a permissão só a quem precisa, e por que liberar para todos ou rodar
+    como administrador custa caro.
+- **D2:** Um programa fica cada vez mais lento até travar a máquina, e só volta ao normal
+  depois de reiniciar. Onde você investiga, e o que faria?
+  - Camada 4: olha o uso de memória e de CPU do processo ao longo do tempo e suspeita de
+    vazamento de memória ou de um processo que se multiplica.
+  - Camada 5: compara reiniciar o programa periodicamente, limitar a memória dele e
+    corrigir a causa, e o custo de cada um.
+
+### Redes
+
+- **R:** O que é um endereço IP?
+  - Camada 2: o endereço que identifica uma máquina na rede, para os dados chegarem a ela.
+- **M:** Você digita o endereço de um site e aperta Enter. Como o computador descobre
+  para onde mandar o pedido, e o que volta?
+  - Camada 3: o nome vira um IP (DNS), o computador abre uma conexão com aquele IP e
+    manda um pedido HTTP, o servidor devolve a página.
+- **D:** O site abre quando você digita o IP, mas não abre pelo nome. Onde você procura o
+  problema, e qual correção escolheria?
+  - Camada 4: o problema está na tradução do nome: o servidor DNS configurado, o cache, ou
+    um arquivo `hosts` que sobrescreve o nome.
+  - Camada 5: compara as correções, como trocar o DNS, limpar o cache ou editar o `hosts`,
+    e o custo de cada uma.
+- **D2:** Seu computador acessa sites normalmente, mas não consegue acessar a impressora
+  da rede de casa. Onde você procura, e o que mudaria?
+  - Camada 4: hipóteses na rede local: a impressora mudou de IP, está em outra rede, ou
+    um firewall bloqueia.
+  - Camada 5: compara fixar o IP da impressora, reservar no roteador ou usar o nome, e o
+    custo de cada um.
+
+### Construir com IA
+
+- **R:** O que é uma função num programa?
+  - Camada 2: um trecho de código com nome, que recebe entradas, faz uma tarefa e
+    devolve um resultado.
+- **M:** Você pede ao Claude um script que lê um arquivo e conta as linhas. Antes de
+  rodar, como você confere que ele faz o que você pediu?
+  - Camada 3: ler o código e achar a parte que conta, prever a saída para um arquivo que
+    ele conhece, e testar com esse arquivo.
+- **D:** O script funciona no seu arquivo, mas quebra no arquivo de um colega. Como você
+  acha a causa, e você corrige o código ou pede de novo à IA? Por quê?
+  - Camada 4: comparar as duas entradas (arquivo vazio, codificação, quebra de linha,
+    caminho) e reproduzir o erro com a menor entrada possível.
+  - Camada 5: corrigir entendendo a causa, ou pedir de novo dizendo a causa à IA, e o
+    risco de pedir de novo sem saber a causa.
+- **D2:** A IA escreveu uma função que funciona, mas você não entende uma parte dela. O
+  código vai para produção amanhã. O que você faz?
+  - Camada 4: isola o trecho e testa com entradas para ver o que ele faz de verdade.
+  - Camada 5: decide entre reescrever de um jeito que entende, pedir explicação e
+    conferir, ou atrasar a entrega, e o risco de cada um.
+
+### Infraestrutura
+
+- **R:** O que é um container?
+  - Camada 2: um jeito de empacotar e rodar uma aplicação isolada, com tudo de que ela
+    precisa.
+- **M:** Qual a diferença entre uma máquina virtual e um container? O que cada um isola?
+  - Camada 3: a máquina virtual tem um sistema operacional inteiro sobre um hipervisor; o
+    container compartilha o kernel da máquina e isola os processos e os arquivos.
+- **D:** Uma aplicação num container precisa da senha do banco de dados. Onde você guarda
+  essa senha, e o que muda se alguém invadir o container?
+  - Camada 4: os lugares onde a senha vaza: dentro da imagem, no código, em variável de
+    ambiente visível, no log.
+  - Camada 5: compara variável de ambiente, arquivo montado e cofre de segredos, e diz o
+    estrago de cada um se o container for invadido.
+- **D2:** Uma aplicação funciona na sua máquina mas não no servidor. Os dois rodam o
+  mesmo container. Onde você procura?
+  - Camada 4: o que está fora da imagem: variáveis de ambiente, volumes, rede, a versão do
+    kernel ou a arquitetura do processador.
+  - Camada 5: compara levar a configuração para a imagem ou mantê-la fora, e o custo de
+    cada um.
+
+### Segurança
+
+- **R:** O que é uma vulnerabilidade?
+  - Camada 2: uma falha num sistema que alguém pode usar para fazer o que não devia.
+- **M:** Um site tem login. Como alguém poderia entrar na conta de outra pessoa sem saber
+  a senha dela?
+  - Camada 3: um caminho concreto, explicado: roubar a sessão (o cookie), reaproveitar
+    uma senha vazada de outro site, enganar a pessoa com phishing, ou uma falha que deixa
+    ver a conta de outro mudando um número no endereço.
+- **D:** O chatbot de uma empresa lê os e-mails dos clientes e pode enviar respostas.
+  Que risco isso cria, e como você reduziria sem desligar o chatbot?
+  - Camada 4: um e-mail pode trazer instruções que o modelo obedece (prompt injection
+    indireta) e fazer o chatbot vazar dados ou mandar o que não devia.
+  - Camada 5: mitigação pela arquitetura, como aprovação humana antes de enviar, só as
+    permissões necessárias e separar o que é dado do que é instrução, com o custo de cada.
+- **D2:** Um funcionário recebe um e-mail do "suporte" pedindo para instalar um programa.
+  Ele instalou. O que você investiga primeiro, e o que faz agora?
+  - Camada 4: o que o programa fez: processos, conexões de rede, contas usadas, o que
+    ele alcançou na máquina e na rede.
+  - Camada 5: compara isolar a máquina, trocar as senhas e investigar antes, e o custo de
+    cada ordem.
 
 ## Trilha
 

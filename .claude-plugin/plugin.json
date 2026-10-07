@@ -2,7 +2,7 @@
   "name": "mentor",
   "displayName": "Mentor",
   "description": "Mentor socrático dentro do Claude Code: conduz um curso lição a lição com perguntas, deixa o aluno construir com IA enquanto questiona cada decisão e avalia o dia. Primeiro curso: engenheiro de segurança na era da IA.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": { "name": "Vinicius" },
   "license": "Apache-2.0",
   "keywords": ["mentoria", "educação", "socrático", "segurança", "security-engineer", "pt-br"]
