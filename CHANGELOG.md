@@ -5,6 +5,21 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-06
+
+### Adicionado
+
+- Níveis por eixo do curso, de 1 (leigo) a 5 (expert), com pesos de profundidade
+  1, 2, 3, 5 e 9 medidos em nove camadas de conhecimento e prática
+  (`skills/mentor/references/niveis.md`).
+- Diagnóstico adaptativo por eixo no onboarding: duas perguntas por eixo, com o
+  resultado mostrado ao aluno e registrado no `progresso.md`. No `security-engineer`,
+  os eixos são Sistemas, Redes, Construir com IA, Infraestrutura e Segurança.
+- Prova de saída: num eixo de nível 4 ou 5, o módulo pode ser validado provando as
+  camadas 6 a 9, sem pular conteúdo por declaração.
+- Reavaliação do nível do eixo pelo `/mentor:feedback` ao fim de cada fase. O diário
+  registra as camadas de cada resposta.
+
 ### Alterado
 
 - Onboarding direto ao ponto: a primeira mensagem mostra o catálogo de cursos e pergunta
@@ -27,5 +42,6 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Curso `security-engineer`: trilha de 42 módulos em 8 fases, diagnóstico inicial,
   módulo 00 (Seu laboratório) e módulo 01 (Como o computador representa as coisas).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/viniciusfranca019/mentor/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/v0.1.0
