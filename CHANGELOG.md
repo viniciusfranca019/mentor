@@ -5,6 +5,17 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+### Alterado
+
+- Onboarding direto ao ponto: a primeira mensagem mostra o catálogo de cursos e pergunta
+  qual o aluno quer, e o bloco "O caminho" mostra em uma tela o uso no dia a dia e como
+  trocar de curso depois.
+- As quatro fases da lição passam a ser explicadas no início da primeira lição, e não no
+  onboarding.
+- Rever o onboarding com perfil já criado mostra os cursos com a situação de cada um
+  (ativo, iniciado, não iniciado) e as opções: continuar, voltar a um curso, começar um
+  curso novo ou ajustar o ritmo. Começar outro curso faz só o diagnóstico dele.
+
 ## [0.1.0] - 2026-10-06
 
 ### Adicionado

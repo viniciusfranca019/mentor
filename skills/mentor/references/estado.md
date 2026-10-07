@@ -35,8 +35,8 @@ curso para a seção "Trilha", todas desmarcadas.
   atualizar "Para revisar".
 - **Resumo fiel da resposta.** No diário, resuma o que ele disse com as palavras dele.
   Não melhore a resposta: o `/mentor:feedback` precisa ver o que ele de fato respondeu.
-- **Curso novo, diretório novo.** Trocar de curso não apaga o outro; o `perfil.md` só
-  muda o curso ativo.
+- **Curso novo, diretório novo.** Trocar de curso não apaga o outro; o `perfil.md` muda
+  o curso ativo e a situação dos dois na tabela "Cursos" (`em andamento` e `pausado`).
 - **Versão do curso.** Anote no `progresso.md` a versão do plugin em que ele começou
   cada módulo (`version` em `<raiz>/.claude-plugin/plugin.json`). Se o
   módulo mudar numa atualização, você sabe que a lição em andamento pode ter mudado.

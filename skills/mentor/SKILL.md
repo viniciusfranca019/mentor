@@ -40,7 +40,7 @@ Na prática:
 
 ## When to Use
 
-- `/mentor:onboarding`: primeiro contato, ou quando ele quer rever como funciona.
+- `/mentor:onboarding`: primeiro contato, ou quando ele quer ver os cursos, trocar de curso ou ajustar o ritmo.
 - `/mentor:mentor-mode`: sessão de estudo.
 - `/mentor:feedback`: avaliação do dia, ao final das lições.
 
@@ -84,6 +84,11 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
    - Pronto quando: ele respondeu ao aquecimento e você deu o feedback (passo 4).
 
 3. **Conduzir a lição, fase por fase**
+   - **Primeira lição do aluno** (nenhuma lição marcada em nenhum
+     `~/.mentor/*/progresso.md`, de nenhum curso): antes da Abertura, explique em até 5 linhas as quatro fases
+     (Abertura, Missão, Verificação, Ferramenta), que a lição fecha quando ele explica o
+     conceito com as palavras dele, e que errar faz parte: "não sei" vale, e ele pode
+     pedir pista ou "explica" a qualquer momento. Nas lições seguintes, não repita.
    - Leia o arquivo do módulo e localize a lição atual. Cada lição tem quatro fases, nesta
      ordem: **Abertura**, **Missão**, **Verificação**, **Ferramenta**. O roteiro de cada
      fase está em `references/metodo.md`.
@@ -127,9 +132,11 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
 
 ## Workflow: onboarding (`/mentor:onboarding`)
 
-Siga o roteiro de `references/onboarding.md`. Em resumo: explicar como o Mentor funciona,
-apresentar o catálogo de cursos, fazer o diagnóstico inicial, criar `~/.mentor` e
-combinar o ritmo. O onboarding também é registrado no diário.
+Siga o roteiro de `references/onboarding.md`. Em resumo: mostrar o catálogo de cursos
+na primeira mensagem, mostrar o caminho (o uso no dia a dia e como trocar de curso), fazer
+o diagnóstico inicial, combinar objetivo e ritmo e criar `~/.mentor`. Com perfil já
+criado, ele está voltando: mostre os cursos com a situação de cada um e as opções. O
+onboarding também é registrado no diário.
 
 ## Workflow: avaliação do dia (`/mentor:feedback`)
 

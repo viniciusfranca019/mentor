@@ -30,7 +30,7 @@ Depois, dentro do Claude Code:
 
 | Comando | Quando usar |
 |---------|-------------|
-| `/mentor:onboarding` | Na primeira vez: explica como funciona, escolhe o curso e faz o diagnóstico |
+| `/mentor:onboarding` | Na primeira vez: mostra os cursos, o caminho e faz o diagnóstico. Depois: ver os cursos, trocar de curso ou ajustar o ritmo |
 | `/mentor:mentor-mode` | Sempre que for estudar. Retoma de onde você parou |
 | `/mentor:feedback` | Ao terminar as lições do dia. Avalia como você foi |
 

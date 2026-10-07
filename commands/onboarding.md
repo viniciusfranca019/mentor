@@ -1,5 +1,5 @@
 ---
-description: Apresenta o Mentor, escolhe o curso, faz o diagnóstico e combina o ritmo
+description: Mostra os cursos, explica o caminho, faz o diagnóstico e combina o ritmo; depois, troca de curso
 disable-model-invocation: true
 allowed-tools: Read(~/.mentor/**), Write(~/.mentor/**), Edit(~/.mentor/**), Bash(mkdir -p ~/.mentor:*), Bash(date:*), Bash(ls ~/.mentor:*)
 ---
@@ -11,5 +11,6 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/mentor/SKILL.md` (a skill `mentor:mentor`) e 
 outro.
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- Se `~/.mentor/perfil.md` já existir, ele está revendo: faça só o bloco 1 e pergunte se
-  quer trocar de curso ou ajustar o ritmo.
+- Sem `~/.mentor/perfil.md`, é a primeira vez: blocos 1 a 5 do roteiro.
+- Se `~/.mentor/perfil.md` já existir, ele está voltando: siga a seção **Revisão** do
+  roteiro (os cursos com a situação de cada um e as quatro opções).
