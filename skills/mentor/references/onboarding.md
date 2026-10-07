@@ -1,52 +1,58 @@
 # Onboarding
 
-Primeiro contato do aluno com o Mentor. Em 20 a 30 minutos, ele sai sabendo como o
-Mentor funciona, com o curso escolhido, o diagnóstico feito e o `~/.mentor` criado.
-Conduza em blocos curtos e espere a resposta dele entre um bloco e outro. Não despeje o
-roteiro inteiro de uma vez.
+Primeiro contato do aluno com o Mentor. Ele sai sabendo qual curso vai fazer, como usar o
+Mentor no dia a dia e como trocar de curso depois, com o diagnóstico feito e o
+`~/.mentor` criado.
 
-Se `~/.mentor/perfil.md` já existir, ele está revendo o onboarding: faça só o bloco 1 e
-pergunte se ele quer trocar de curso ou ajustar o ritmo.
+**Mostre o que existe antes de explicar como funciona.** Ele escolhe primeiro e entende o
+método quando for usar: as quatro fases da lição são explicadas na primeira lição, não
+aqui. Conduza em blocos curtos e espere a resposta dele entre um bloco e outro.
 
-## Bloco 1 — Como o Mentor funciona
+Antes de tudo, veja se `~/.mentor/perfil.md` existe:
 
-Explique, com suas palavras e em mensagens curtas:
+| Situação | Caminho |
+|----------|---------|
+| Não existe | Primeira vez: blocos 1 a 5, em ordem |
+| Existe | Ele está voltando: vá para **Revisão**, no fim deste arquivo |
 
-1. **O que é.** "Eu sou seu mentor dentro do Claude Code. Não vou te dar aula expositiva:
-   vou te fazer perguntas, você vai construir coisas comigo e vai explicar o que construiu."
-2. **O acordo principal.** "Você pode e deve usar o Claude para escrever código. Mas quem
-   decide o que construir é você. Antes de eu gerar qualquer coisa, você me diz o que
-   quer. Depois, você me explica o que eu gerei. Um engenheiro que só aperta botão de
-   ferramenta, inclusive de IA, quebra no primeiro problema que a ferramenta não conhece."
-3. **Como é uma lição.** As quatro fases: Abertura (o que você já sabe), Missão (construir),
-   Verificação (prever, quebrar, explicar), Ferramenta (o que o mercado usa para isso).
-   Fecha quando você explica o conceito com as suas palavras.
-4. **Errar faz parte.** "Responda o que você acha, mesmo sem certeza. Resposta errada me
-   mostra onde focar. 'Não sei' também vale. Se travar, eu te dou pistas, e você pode
-   pedir 'explica' a qualquer momento."
-5. **Os comandos.**
+## Bloco 1 — Os cursos
 
-   | Comando | Quando usar |
-   |---------|-------------|
-   | `/mentor:mentor-mode` | Quando for estudar. Retoma exatamente de onde você parou |
-   | `/mentor:feedback` | Ao terminar as lições do dia. Avalia como você foi e o que revisar |
-   | `/mentor:onboarding` | Para rever este roteiro, trocar de curso ou mudar o ritmo |
+A primeira mensagem tem só isto, nesta ordem:
 
-   Os comandos de plugin levam o prefixo `mentor:`. Digitando `/mentor` o menu já mostra
-   os três. O prefixo importa no `/mentor:feedback`: o `/feedback` sem prefixo é o comando
-   do próprio Claude Code para mandar feedback à Anthropic.
+1. **O que é o Mentor, em até 3 linhas.** Um mentor dentro do Claude Code que conduz um
+   curso lição a lição: pergunta em vez de dar a resposta, ele constrói com a IA e explica
+   o que construiu.
+2. **O catálogo.** Leia `<raiz>/cursos/catalogo.md` e mostre a tabela: curso, para quem é,
+   aonde chega, o que já está disponível.
+3. **Uma pergunta:** qual curso ele quer fazer. Com um curso só no catálogo, pergunte se é
+   esse.
 
-6. **Onde fica o seu histórico.** Em `~/.mentor`: seu perfil, seu progresso e um diário
-   por dia. "Abra quando quiser. O 'Explicações de volta' do progresso é o seu caderno."
+Nada de fases da lição, comandos ou histórico nesta mensagem: cada coisa aparece quando
+ele precisa dela.
 
-Pergunte se ficou alguma dúvida antes de seguir.
+## Bloco 2 — A trilha e o caminho
 
-## Bloco 2 — Escolher o curso
+Escolhido o curso, responda numa **mensagem só**, sem parar no meio para perguntar:
 
-Leia `<raiz>/cursos/catalogo.md` e apresente a tabela de cursos. Se houver
-um só, apresente-o e confirme. Depois leia o `curso.md` do curso escolhido e mostre as
-fases da trilha (só os nomes das fases e o que ele vai saber ao fim de cada uma, não a
-lista de lições).
+1. **A trilha.** Leia o `curso.md` do curso e liste as fases: o nome de cada uma e o que
+   ele vai saber ao fim dela, em uma linha cada, sem a lista de lições.
+2. **O caminho.** Como o Mentor entra na rotina dele:
+
+| Quando | O que fazer |
+|--------|-------------|
+| **Hoje, uma vez** | Diagnóstico e ritmo, uns 20 minutos. É o que vem agora |
+| **Cada dia de estudo** | `/mentor:mentor-mode`: retoma exatamente de onde ele parou |
+| **Fim do dia** | `/mentor:feedback`: avalia o dia e diz o que revisar |
+| **Outro curso, quando quiser** | `/mentor:onboarding`: mostra o catálogo com a situação de cada curso. Trocar de curso não apaga o progresso do outro |
+
+Logo abaixo, o acordo em duas linhas: ele usa o Claude para escrever o código, mas antes
+diz o que quer construir, e depois explica o que recebeu.
+
+Avise que digitando `/mentor` o menu mostra os três comandos, e que no feedback o
+prefixo importa: o `/feedback` sem `mentor:` é o comando do Claude Code para mandar
+feedback à Anthropic. O histórico dele fica em `~/.mentor`, para abrir quando quiser.
+
+Feche com: "Alguma dúvida? Se não, começo o diagnóstico."
 
 ## Bloco 3 — Diagnóstico
 
@@ -77,3 +83,27 @@ prova, não tem nota. É para eu saber de onde você parte."
 3. Crie o diário do dia com uma seção "Onboarding" que registra o diagnóstico (perguntas
    e respostas resumidas).
 4. Mostre a ele os caminhos criados e feche: "Quando quiser começar, é só `/mentor:mentor-mode`."
+
+## Revisão — quando o perfil já existe
+
+Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
+
+1. **Os cursos, com a situação dele.** Mostre o catálogo com uma coluna a mais, lida de
+   `~/.mentor/perfil.md` e de cada `~/.mentor/<curso>/progresso.md`:
+
+   | Situação | Quando |
+   |----------|--------|
+   | **ativo**, em `<lição>` | É o curso ativo do perfil |
+   | **iniciado**, parado em `<lição>` | Tem diretório em `~/.mentor`, mas não é o ativo |
+   | **não iniciado** | Não tem diretório em `~/.mentor` |
+
+2. **O caminho**, a tabela do bloco 2, numa linha por comando.
+3. **Uma pergunta, com quatro opções:** continuar no curso ativo, voltar para um curso
+   iniciado, começar um curso novo, ou ajustar o ritmo.
+
+| Opção | O que fazer |
+|-------|-------------|
+| Continuar | Sugira `/mentor:mentor-mode` e encerre |
+| Voltar para um curso iniciado | Troque o curso ativo no `perfil.md`. O progresso dele está intacto |
+| Começar um curso novo | Faça só o bloco 3 com o diagnóstico desse curso, crie `~/.mentor/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
+| Ajustar o ritmo | Refaça o passo 2 do bloco 4 e atualize o `perfil.md` |
