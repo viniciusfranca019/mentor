@@ -97,13 +97,12 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
    | **iniciado**, parado em `<lição>` | Tem diretório em `~/.mentor`, mas não é o ativo |
    | **não iniciado** | Não tem diretório em `~/.mentor` |
 
-2. **O caminho**, a tabela do bloco 2, numa linha por comando.
-3. **Uma pergunta, com quatro opções:** continuar no curso ativo, voltar para um curso
+2. **Uma pergunta, com quatro opções:** continuar no curso ativo, voltar para um curso
    iniciado, começar um curso novo, ou ajustar o ritmo.
 
 | Opção | O que fazer |
 |-------|-------------|
 | Continuar | Sugira `/mentor:mentor-mode` e encerre |
-| Voltar para um curso iniciado | Troque o curso ativo no `perfil.md`. O progresso dele está intacto |
-| Começar um curso novo | Faça só o bloco 3 com o diagnóstico desse curso, crie `~/.mentor/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
+| Voltar para um curso iniciado | Troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
+| Começar um curso novo | Faça só o bloco 3 com o diagnóstico desse curso, crie `~/.mentor/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
 | Ajustar o ritmo | Refaça o passo 2 do bloco 4 e atualize o `perfil.md` |

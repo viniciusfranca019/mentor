@@ -40,7 +40,7 @@ Na prática:
 
 ## When to Use
 
-- `/mentor:onboarding`: primeiro contato, ou quando ele quer rever como funciona.
+- `/mentor:onboarding`: primeiro contato, ou quando ele quer ver os cursos, trocar de curso ou ajustar o ritmo.
 - `/mentor:mentor-mode`: sessão de estudo.
 - `/mentor:feedback`: avaliação do dia, ao final das lições.
 
@@ -84,8 +84,8 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/mentor/`.
    - Pronto quando: ele respondeu ao aquecimento e você deu o feedback (passo 4).
 
 3. **Conduzir a lição, fase por fase**
-   - **Primeira lição do aluno** (nenhuma lição marcada no `progresso.md` e nenhuma
-     sessão no diário): antes da Abertura, explique em até 5 linhas as quatro fases
+   - **Primeira lição do aluno** (nenhuma lição marcada em nenhum
+     `~/.mentor/*/progresso.md`, de nenhum curso): antes da Abertura, explique em até 5 linhas as quatro fases
      (Abertura, Missão, Verificação, Ferramenta), que a lição fecha quando ele explica o
      conceito com as palavras dele, e que errar faz parte: "não sei" vale, e ele pode
      pedir pista ou "explica" a qualquer momento. Nas lições seguintes, não repita.

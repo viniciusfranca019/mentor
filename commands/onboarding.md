@@ -11,6 +11,6 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/mentor/SKILL.md` (a skill `mentor:mentor`) e 
 outro.
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- A primeira mensagem já mostra o catálogo de cursos e pergunta qual ele quer.
+- Sem `~/.mentor/perfil.md`, é a primeira vez: blocos 1 a 5 do roteiro.
 - Se `~/.mentor/perfil.md` já existir, ele está voltando: siga a seção **Revisão** do
   roteiro (os cursos com a situação de cada um e as quatro opções).
