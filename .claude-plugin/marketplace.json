@@ -1,0 +1,8 @@
+{
+  "name": "mentor",
+  "owner": { "name": "Vinicius" },
+  "description": "Mentor: cursos guiados por um mentor socrático dentro do Claude Code.",
+  "plugins": [
+    { "name": "mentor", "source": "./", "description": "Mentor socrático e seus cursos." }
+  ]
+}
