@@ -2,7 +2,7 @@
 description: Avaliação do Mentor sobre as suas lições de hoje
 argument-hint: "[AAAA-MM-DD]"
 disable-model-invocation: true
-allowed-tools: Read(~/.mentor/**), Write(~/.mentor/**), Edit(~/.mentor/**), Bash(mkdir -p ~/.mentor:*), Bash(date:*), Bash(ls ~/.mentor:*)
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.mentor/**), Write(~/.mentor/**), Edit(~/.mentor/**), Bash(mkdir -p ~/.mentor:*), Bash(date:*), Bash(ls ~/.mentor:*)
 ---
 
 # Feedback do dia
