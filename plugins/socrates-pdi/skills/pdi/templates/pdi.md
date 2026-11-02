@@ -35,5 +35,6 @@
 ### <AAAA-MM-DD>
 
 - **Ações fechadas:** <ação — evidência>
+- **Revisão:** <competência · camada N · sozinho | com pista | precisou de explicação>
 - **Camadas e níveis que mudaram:** <competência: camadas 1–3 → 1–4, nível 3 mantido, por quê>
 - **O que muda no plano:** <...>

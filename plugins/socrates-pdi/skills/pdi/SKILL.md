@@ -73,11 +73,15 @@ Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
      reavaliação mais recente do curso. O PDI não mede o que o curso já mede;
    - **`declarado: N`:** faça o diagnóstico (M e depois D ou R), como no passo 3 do montar.
      A declaração não escolhe a pergunta;
-   - **medida, sem curso:** pergunte pelas camadas que faltam para o nível seguinte, a
-     partir da "Próxima camada", uma por vez, sem pista. A camada que ele demonstrar entra
-     em "Camadas demonstradas", e o nível só sobe quando **todas** as camadas até o peso
-     do nível seguinte estão lá (regra cumulativa), no máximo até 4. Desce pela regra de
-     descida da seção Reavaliação de `niveis.md`.
+   - **medida, sem curso:** primeiro a **revisão**: uma pergunta da camada mais alta já
+     demonstrada, registrada no check-in com o resultado (`sozinho`, `com pista` ou
+     `precisou de explicação`). Se a revisão desta camada terminou em `precisou de
+     explicação` neste check-in e no anterior, a camada sai das demonstradas e o nível
+     recalcula (regra de descida da Reavaliação de `niveis.md`, aplicada às revisões).
+     Depois, pergunte pelas camadas que faltam para o nível seguinte, a partir da
+     "Próxima camada", uma por vez, sem pista. A camada que ele demonstrar entra em
+     "Camadas demonstradas", e o nível só sobe quando **todas** as camadas até o peso do
+     nível seguinte estão lá (regra cumulativa), no máximo até 4.
 4. **Atualize o plano e registre.** No `pdi.md`, atualize as tabelas para o agora:
    Situação de cada ação (`aberta`, `fechada` com a evidência, ou `cancelada` com o
    motivo), Nível atual, Camadas demonstradas, Evidência do nível, Próxima camada e
