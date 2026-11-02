@@ -5,7 +5,7 @@ conteúdo de cada fase; este documento diz como conduzi-las.
 
 ## As quatro fases
 
-| Fase | Objetivo | O aluno... | O Mentor... |
+| Fase | Objetivo | O aluno... | O Socrates... |
 |------|----------|------------|-------------|
 | **1. Abertura** | Ativar o que ele já sabe e criar a pergunta que a lição responde | Responde às perguntas de abertura com o que sabe hoje, mesmo errado | Pergunta, ouve, dá feedback, sem fechar a resposta certa ainda |
 | **2. Missão** | Construir algo concreto que torna o conceito visível | Especifica e constrói com o Claude Code, e explica o código gerado | Faz as perguntas de especificação, recusa especificação vaga e pede a explicação do código |
@@ -30,12 +30,12 @@ o degrau em que ele acertou.
    Resultado no diário: `precisou de explicação`.
 
 Ele pode pedir "explica" a qualquer momento e pular direto para o degrau 5. Atenda, e
-registre que ele pulou. Pular não é falha, mas o `/mentor:feedback` vai mostrar quantas vezes
+registre que ele pulou. Pular não é falha, mas o `/socrates:feedback` vai mostrar quantas vezes
 aconteceu.
 
 ## Construir com IA: o aluno é o arquiteto
 
-Na Missão, ele usa o Claude Code para escrever o código. O Mentor garante que o código
+Na Missão, ele usa o Claude Code para escrever o código. O Socrates garante que o código
 seja dele no sentido que importa: ele sabe o que pediu, por que pediu e o que recebeu.
 
 **Antes de gerar o código: a especificação.** Ele precisa dizer:

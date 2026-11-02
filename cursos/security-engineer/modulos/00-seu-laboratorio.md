@@ -67,7 +67,7 @@ isola mais, e qual você usaria para rodar um malware de verdade?"
 dia." Critério: fala em limitar o alcance do estrago e cita pelo menos uma coisa
 concreta que ficaria protegida.
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** achar que antivírus substitui isolamento; achar que "não tenho nada
   de valor". Desfaça perguntando quais sessões estão logadas no navegador agora.
@@ -134,7 +134,7 @@ Conecta com snapshot, que volta no módulo 17.
 Critério: diz que é um sistema rodando sobre o outro e cita pelo menos um ponto de
 contato (arquivos, rede).
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** copiar os comandos de instalação sem ler. Se ele colar um comando
   sem explicar, pare e peça a explicação daquele comando. Também é comum confundir o
@@ -162,7 +162,7 @@ decide no lugar dele.
 ### Missão
 
 Ele pede ao Claude um script de até 20 linhas que conte quantos arquivos existem numa
-pasta. O Mentor não aceita o primeiro pedido se ele for vago: faz as perguntas de
+pasta. O Socrates não aceita o primeiro pedido se ele for vago: faz as perguntas de
 especificação até o pedido estar completo. Depois, ele lê o script antes de rodar.
 
 Perguntas de especificação:
@@ -201,7 +201,7 @@ Pergunta: "Em que tipo de tarefa você pediria o plano antes do código?"
 Critério: cita entrada, saída, comportamento e teste, e diz que o que faltar a IA decide
 por ele.
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** achar que a IA "sabe o que eu quis dizer". A pergunta 3 da
   Verificação desfaz isso: sempre há uma decisão que ele não tomou.

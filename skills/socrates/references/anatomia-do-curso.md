@@ -1,6 +1,6 @@
 # Anatomia de um curso
 
-Leitura para quem **escreve** cursos, não para o aluno. O motor (`skills/mentor`) é o
+Leitura para quem **escreve** cursos, não para o aluno. O motor (`skills/socrates`) é o
 mesmo para todos os cursos. Um curso é só dado: um diretório em `cursos/` que segue esta
 estrutura.
 
@@ -65,7 +65,7 @@ Perguntas de especificação (antes de gerar o código):
 ### Explicar de volta
 <O pedido final. Critério: o que a explicação precisa conter para a lição fechar.>
 
-### Para o Mentor
+### Para o Socrates
 - **Erros comuns:** <confusões típicas e como desfazê-las>
 - **Ponte para segurança:** <por que este conceito importa para o objetivo do curso>
 ```

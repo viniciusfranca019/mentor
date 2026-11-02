@@ -1,15 +1,15 @@
-# CLAUDE.md — Mentor
+# CLAUDE.md — Socrates
 
 Plugin do Claude Code com um mentor socrático e seus cursos. Tudo em PT-BR.
 
 ## Estrutura
 
-- `skills/mentor/`: o motor, igual para todos os cursos. Método em `references/`,
+- `skills/socrates/`: o motor, igual para todos os cursos. Método em `references/`,
   templates do estado do aluno em `templates/`.
 - `cursos/<curso>/`: conteúdo puro (`curso.md` + `modulos/NN-nome.md`). Curso novo não
-  mexe no motor. Formato: `skills/mentor/references/anatomia-do-curso.md`.
-- `commands/`: as entradas `/mentor:onboarding`, `/mentor:mentor-mode`, `/mentor:feedback`.
-- O estado do aluno mora em `~/.mentor`, nunca dentro do plugin.
+  mexe no motor. Formato: `skills/socrates/references/anatomia-do-curso.md`.
+- `commands/`: as entradas `/socrates:onboarding`, `/socrates:mentor-mode`, `/socrates:feedback`.
+- O estado do aluno mora em `~/.socrates`, nunca dentro do plugin.
 
 ## Caminhos
 
@@ -25,7 +25,7 @@ atualização chegar ao aluno: sem subir a versão, ninguém recebe a mudança.
 |---------|--------|
 | Correção de texto, de pergunta ou de critério | PATCH |
 | Módulo ou lição nova, curso novo, comando novo; mudar perguntas de lição publicada | MINOR |
-| Mudar o formato de `~/.mentor` de um jeito que quebra o progresso de quem já começou | MAJOR |
+| Mudar o formato de `~/.socrates` de um jeito que quebra o progresso de quem já começou | MAJOR |
 
 Release: atualizar `CHANGELOG.md` (mover `Unreleased` para a versão, com a data ISO do
 dia), subir `version` no `plugin.json`, `claude plugin validate .`, PR, merge, e só então
