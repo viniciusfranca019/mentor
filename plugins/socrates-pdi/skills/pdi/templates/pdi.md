@@ -12,11 +12,15 @@
 
 ## Competências
 
-| Competência | Por que importa | Curso e eixo | Nível atual | Evidência do nível | Nível alvo | Próxima camada |
-|-------------|-----------------|--------------|-------------|--------------------|------------|----------------|
-| <competência> | <ligação com o objetivo> | <curso · eixo, ou —> | <1 a 5, ou declarado: N> | <AAAA-MM-DD, a pergunta ou o registro do curso> | <1 a 5> | <ex.: 4. Diagnóstico> |
+<As tabelas refletem o agora: o check-in as atualiza. Sem curso, o nível alvo vai até 4.>
+
+| Competência | Por que importa | Curso e eixo | Nível atual | Camadas demonstradas | Evidência do nível | Nível alvo | Próxima camada |
+|-------------|-----------------|--------------|-------------|----------------------|--------------------|------------|----------------|
+| <competência> | <ligação com o objetivo> | <curso · eixo, ou —> | <1 a 5, ou declarado: N> | <ex.: 1–3, ou — se declarado> | <AAAA-MM-DD, a pergunta ou o registro do curso> | <1 a 5; sem curso, até 4> | <ex.: 4. Diagnóstico> |
 
 ## Ações
+
+<Situação: `aberta`, `fechada` (com a evidência no check-in) ou `cancelada` (com o motivo).>
 
 | Competência | Tipo | Ação | Prazo | Evidência de conclusão | Situação |
 |-------------|------|------|-------|------------------------|----------|
@@ -26,10 +30,10 @@
 
 ## Check-ins
 
-<Um por data, o mais novo no fim. Nunca reescreva um check-in antigo.>
+<Um por data, o mais novo no fim. Só esta seção cresce: nunca reescreva um check-in antigo.>
 
 ### <AAAA-MM-DD>
 
 - **Ações fechadas:** <ação — evidência>
-- **Níveis que mudaram:** <competência: N → M, por quê>
+- **Camadas e níveis que mudaram:** <competência: camadas 1–3 → 1–4, nível 3 mantido, por quê>
 - **O que muda no plano:** <...>
