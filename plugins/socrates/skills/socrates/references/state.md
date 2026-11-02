@@ -30,15 +30,18 @@ exist shows up as an error, which is the answer):
 
 The commands, for the student to type as they are:
 
-- From `~/.mentor`: `! mv ~/.mentor ~/.socrates && cd ~/.socrates && mv perfil.md profile.md && find . -mindepth 2 -maxdepth 2 -name progresso.md -execdir mv progresso.md progress.md \; && find . -mindepth 2 -maxdepth 2 -type d -name diario -execdir mv diario journal \;`
-- Only the names: `! cd ~/.socrates && mv perfil.md profile.md && find . -mindepth 2 -maxdepth 2 -name progresso.md -execdir mv progresso.md progress.md \; && find . -mindepth 2 -maxdepth 2 -type d -name diario -execdir mv diario journal \;`
+- From `~/.mentor`: `! mv ~/.mentor ~/.socrates && sh -c 'set -e; cd ~/.socrates; for d in */; do if [ -f "${d}progresso.md" ]; then mv "${d}progresso.md" "${d}progress.md"; fi; if [ -d "${d}diario" ]; then mv "${d}diario" "${d}journal"; fi; done; mv perfil.md profile.md'`
+- Only the names: `! sh -c 'set -e; cd ~/.socrates; for d in */; do if [ -f "${d}progresso.md" ]; then mv "${d}progresso.md" "${d}progress.md"; fi; if [ -d "${d}diario" ]; then mv "${d}diario" "${d}journal"; fi; done; mv perfil.md profile.md'`
 
-You do not move or rename anything: writing outside the session folder asks for an approval
+The profile is renamed last, so a rename that fails midway leaves `perfil.md` in place and the
+next check asks for the command again; running it twice is harmless. You do not move or rename anything: writing outside the session folder asks for an approval
 that does not always show up. The files keep their content. After the rename, read the old
 Portuguese headings by meaning (`Onde parei` is "Where I stopped", `Níveis por eixo` is
 "Levels by axis", and so on); the next time you edit `profile.md` or `progress.md`, rewrite
 their headings to the English template. Old journal entries stay as they were, because the
-journal only grows.
+journal only grows: read their Portuguese fields and values by meaning too (`Resultado:
+precisou de explicação` is `Outcome: needed explanation`, `com pista` is `with hint`,
+`sozinho` is `unaided`, `Camadas` is `Layers`).
 
 ## Language
 
