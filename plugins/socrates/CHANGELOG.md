@@ -5,6 +5,12 @@ in [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- The repository is now `viniciusfranca019/socrates`. The old name `viniciusfranca019/mentor`
+  redirects, so an existing install keeps working; new installs use
+  `claude plugin marketplace add viniciusfranca019/socrates`.
+
 ## [0.5.0] - 2026-11-02
 
 ### Changed
@@ -104,9 +110,9 @@ in [Semantic Versioning](https://semver.org/).
 - `security-engineer` course: a track of 42 modules in 8 phases, initial diagnosis,
   module 00 (Your lab) and module 01 (How the computer represents things).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.5.0...HEAD
-[0.5.0]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.4.0...socrates--v0.5.0
-[0.4.0]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.3.0...socrates--v0.4.0
-[0.3.0]: https://github.com/viniciusfranca019/mentor/compare/v0.2.0...socrates--v0.3.0
-[0.2.0]: https://github.com/viniciusfranca019/mentor/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/v0.1.0
+[Unreleased]: https://github.com/viniciusfranca019/socrates/compare/socrates--v0.5.0...HEAD
+[0.5.0]: https://github.com/viniciusfranca019/socrates/compare/socrates--v0.4.0...socrates--v0.5.0
+[0.4.0]: https://github.com/viniciusfranca019/socrates/compare/socrates--v0.3.0...socrates--v0.4.0
+[0.3.0]: https://github.com/viniciusfranca019/socrates/compare/v0.2.0...socrates--v0.3.0
+[0.2.0]: https://github.com/viniciusfranca019/socrates/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/viniciusfranca019/socrates/releases/tag/v0.1.0

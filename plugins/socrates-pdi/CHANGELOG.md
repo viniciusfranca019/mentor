@@ -29,6 +29,6 @@ in [Semantic Versioning](https://semver.org/).
   day's section; old check-ins do not change.
 - The PDI lives in `~/.socrates/pdi/pdi.md`, with the check-ins appended at the end.
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.2.0...HEAD
-[0.2.0]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.1.0...socrates-pdi--v0.2.0
-[0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/socrates-pdi--v0.1.0
+[Unreleased]: https://github.com/viniciusfranca019/socrates/compare/socrates-pdi--v0.2.0...HEAD
+[0.2.0]: https://github.com/viniciusfranca019/socrates/compare/socrates-pdi--v0.1.0...socrates-pdi--v0.2.0
+[0.1.0]: https://github.com/viniciusfranca019/socrates/releases/tag/socrates-pdi--v0.1.0

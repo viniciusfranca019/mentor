@@ -27,7 +27,7 @@ What each course already has available shows up in `/socrates:onboarding`.
 Prerequisite: [Claude Code](https://code.claude.com) installed.
 
 ```bash
-claude plugin marketplace add viniciusfranca019/mentor
+claude plugin marketplace add viniciusfranca019/socrates
 claude plugin install socrates-security-engineer@socrates
 ```
 
@@ -43,7 +43,7 @@ happens, without the move, if you used Socrates 0.3 or 0.4). Run it as given. Th
 ```bash
 claude plugin uninstall mentor@mentor
 claude plugin marketplace remove mentor
-claude plugin marketplace add viniciusfranca019/mentor
+claude plugin marketplace add viniciusfranca019/socrates
 claude plugin install socrates-security-engineer@socrates
 ```
 

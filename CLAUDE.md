@@ -1,8 +1,8 @@
 # CLAUDE.md — Socrates
 
 Claude Code marketplace with a Socratic mentor (`socrates`) and the courses it runs, each
-in its own plugin. Everything in US English. The repository is called `mentor` for
-historical reasons.
+in its own plugin. Everything in US English. The repository was called `mentor` until
+2026-11-02; GitHub redirects the old name.
 
 ## Structure
 
