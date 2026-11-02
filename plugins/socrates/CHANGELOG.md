@@ -61,7 +61,7 @@ in [Semantic Versioning](https://semver.org/).
 - The plugin is now called **Socrates**: the plugin and the marketplace are `socrates`
   (`claude plugin install socrates@socrates`), the commands become `/socrates:onboarding`,
   `/socrates:mentor-mode` and `/socrates:feedback`, and the skill becomes `socrates:socrates`
-  (`skills/socrates/`). The repository stays `viniciusfranca019/socrates`.
+  (`skills/socrates/`). The repository stays `viniciusfranca019/mentor`.
 - The student's state moves from `~/.mentor` to `~/.socrates`, in the same format. If only
   the old folder exists, the first command asks the student to run
   `! mv ~/.mentor ~/.socrates` and repeat the command.
