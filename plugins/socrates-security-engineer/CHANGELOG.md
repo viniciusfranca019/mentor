@@ -25,6 +25,6 @@ in [Semantic Versioning](https://semver.org/).
 - `curso` skill: the bridge that tells the engine where the content is (course contract,
   version 1).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-security-engineer--v0.4.0...HEAD
-[0.4.0]: https://github.com/viniciusfranca019/mentor/compare/socrates-security-engineer--v0.3.0...socrates-security-engineer--v0.4.0
-[0.3.0]: https://github.com/viniciusfranca019/mentor/releases/tag/socrates-security-engineer--v0.3.0
+[Unreleased]: https://github.com/viniciusfranca019/socrates/compare/socrates-security-engineer--v0.4.0...HEAD
+[0.4.0]: https://github.com/viniciusfranca019/socrates/compare/socrates-security-engineer--v0.3.0...socrates-security-engineer--v0.4.0
+[0.3.0]: https://github.com/viniciusfranca019/socrates/releases/tag/socrates-security-engineer--v0.3.0
