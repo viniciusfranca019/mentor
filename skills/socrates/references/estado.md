@@ -19,7 +19,7 @@ estado, veja com `ls -d ~/.mentor ~/.socrates` quais existem:
 
 | Existe | O que fazer |
 |--------|-------------|
-| Só `~/.mentor` | Pare e peça ao aluno que mova a pasta ele mesmo, digitando no Claude Code `! mv ~/.mentor ~/.socrates`, e que rode o comando de novo. Os arquivos não mudam de formato, só de lugar. Você não move: escrever fora da pasta da sessão pede uma aprovação que nem sempre aparece |
+| Só `~/.mentor` | Pare e peça ao aluno que mova a pasta ele mesmo, digitando no Claude Code `! mv ~/.mentor ~/.socrates`, e que repita o que pediu (o comando, ou o pedido que abriu a sessão). Os arquivos não mudam de formato, só de lugar. Você não move: escrever fora da pasta da sessão pede uma aprovação que nem sempre aparece |
 | As duas | Não mova nada. Use `~/.socrates` e avise em uma linha que `~/.mentor` ficou para trás e pode ser apagada quando ele quiser |
 | Só `~/.socrates`, ou nenhuma | Nada a migrar. Siga sem falar disso |
 
