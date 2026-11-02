@@ -64,8 +64,9 @@ O conteúdo dele não está aqui. Para achar um curso:
 2. **Onde estão os arquivos?** Carregue essa skill com a ferramenta Skill. Ela diz a
    **raiz do curso**, um caminho absoluto: é o que `<curso>` significa abaixo. Leia os
    arquivos de lá com Read.
-3. **Não instalado?** Diga ao aluno o comando para instalar, da coluna "Instalar" do
-   catálogo, que ele roda no Claude Code e depois `/reload-plugins`, e pare até ele voltar.
+3. **Não instalado?** Diga ao aluno o comando para instalar, que ele roda no Claude Code e
+   depois `/reload-plugins`, e pare até ele voltar. O comando é o da coluna "Instalar" do
+   catálogo, ou, se o curso não está lá, `/plugin install socrates-<curso>@socrates`.
    Não conduza lição de curso que não está instalado.
 
 | O quê | Onde | Quem escreve |

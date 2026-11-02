@@ -31,7 +31,7 @@ A primeira mensagem tem só isto, nesta ordem:
      como **não instalado**, com o comando de instalar no lugar do que está disponível.
 3. **Uma frase sobre como os cursos chegam:** o Socrates é o mentor, e cada curso é um
    plugin à parte que ele conduz. Instalar um curso é um comando só.
-4. **Uma pergunta:** qual curso ele quer fazer. Com um curso só no catálogo, pergunte se é
+4. **Uma pergunta:** qual curso ele quer fazer. Com um curso só na tabela, pergunte se é
    esse.
 
 Se o curso escolhido não está instalado, a resposta seguinte é só esta: o comando da
