@@ -5,7 +5,20 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-11-02
+
 ### Alterado
+
+- O repositório vira um marketplace com um plugin por peça: `socrates` é o motor (método,
+  níveis, avaliação, estado do aluno), e cada curso é um plugin à parte,
+  `socrates-<curso>`, que exige o `socrates`. O primeiro é `socrates-security-engineer`.
+  Versões e tags por plugin (`socrates--v0.3.0`).
+- O motor acha um curso pela skill `socrates-<curso>:curso`, que diz a raiz do conteúdo.
+  Curso não instalado: o Socrates mostra o comando de instalar e para.
+- O onboarding mostra no catálogo se cada curso está instalado e ensina que os cursos são
+  plugins. A revisão ganha a situação **não instalado**.
+- `references/anatomia-do-curso.md` vira `references/contrato-de-curso.md`: o que um
+  plugin de curso precisa ter, além do formato de curso e de módulo.
 
 - O plugin passa a se chamar **Socrates**: o plugin e o marketplace são `socrates`
   (`claude plugin install socrates@socrates`), os comandos viram `/socrates:onboarding`,
@@ -58,6 +71,7 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Curso `security-engineer`: trilha de 42 módulos em 8 fases, diagnóstico inicial,
   módulo 00 (Seu laboratório) e módulo 01 (Como o computador representa as coisas).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.3.0...HEAD
+[0.3.0]: https://github.com/viniciusfranca019/mentor/compare/v0.2.0...socrates--v0.3.0
 [0.2.0]: https://github.com/viniciusfranca019/mentor/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/v0.1.0

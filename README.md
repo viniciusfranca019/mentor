@@ -9,13 +9,15 @@ código o tempo todo, mas antes de gerar qualquer coisa você especifica o que q
 depois explica o que recebeu. Ferramenta, inclusive de IA, é atalho de algo que você já
 entende.
 
-## Cursos
+## O marketplace
 
-| Curso | Para quem | Aonde chega | Situação |
-|-------|-----------|-------------|----------|
-| `security-engineer` | Quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Engenheiro de segurança na era da IA | Módulos 00 e 01 disponíveis, de 42 |
+O Socrates é o mentor, e cada curso é um plugin à parte que ele conduz. Instalar um
+curso instala o Socrates junto.
 
-A trilha completa de cada curso está em [`cursos/`](cursos/catalogo.md).
+| Plugin | O que é | Situação |
+|--------|---------|----------|
+| `socrates` | O mentor: método socrático, níveis por eixo, avaliação do dia e o seu progresso em `~/.socrates` | 0.3.0 |
+| `socrates-security-engineer` | Curso: engenheiro de segurança na era da IA, para quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Módulos 00 e 01 disponíveis, de 42 |
 
 ## Setup
 
@@ -23,8 +25,12 @@ Pré-requisito: [Claude Code](https://code.claude.com) instalado.
 
 ```bash
 claude plugin marketplace add viniciusfranca019/mentor
-claude plugin install socrates@socrates
+claude plugin install socrates-security-engineer@socrates
 ```
+
+O segundo comando instala o curso e o `socrates`. Outro curso, depois, é só mais um
+`claude plugin install socrates-<curso>@socrates`; o `/socrates:onboarding` mostra o
+catálogo e o comando de cada um.
 
 Instalou quando ele ainda se chamava Mentor? Troque o plugin uma vez e mova o seu
 progresso com `mv ~/.mentor ~/.socrates` (o primeiro comando também te lembra disso):
@@ -33,7 +39,7 @@ progresso com `mv ~/.mentor ~/.socrates` (o primeiro comando também te lembra d
 claude plugin uninstall mentor@mentor
 claude plugin marketplace remove mentor
 claude plugin marketplace add viniciusfranca019/mentor
-claude plugin install socrates@socrates
+claude plugin install socrates-security-engineer@socrates
 ```
 
 Depois, dentro do Claude Code:
@@ -49,12 +55,14 @@ Depois, dentro do Claude Code:
 
 ### Receber atualizações
 
-Módulos e cursos novos chegam como novas versões do plugin. Para recebê-las sozinho,
+Módulos novos chegam como novas versões do plugin do curso, e melhorias do método como
+novas versões do `socrates`. Para recebê-las sozinho,
 ligue o auto-update deste marketplace (vem desligado para marketplaces de terceiros):
 `/plugin` → **Marketplaces** → `socrates` → **Enable auto-update**. Ou atualize na mão:
 
 ```bash
 claude plugin update socrates@socrates
+claude plugin update socrates-security-engineer@socrates
 ```
 
 Uma sessão aberta continua na versão antiga até `/reload-plugins` ou uma sessão nova.
@@ -75,19 +83,19 @@ Fica na sua máquina, em `~/.socrates`, e nunca é apagado por uma atualização
 
 | Peça | O que é |
 |------|---------|
-| `skills/socrates/` | O motor: o método socrático, o formato do estado, o onboarding e a rubrica do feedback. É o mesmo para todos os cursos |
-| `cursos/<curso>/` | O conteúdo: a trilha (`curso.md`) e um arquivo por módulo, com as perguntas de cada lição e o critério de uma boa resposta |
-| `commands/` | Os três comandos de entrada |
+| `plugins/socrates/` | O motor: o método socrático, os níveis, a rubrica do feedback, o formato do estado e o catálogo de cursos. É o mesmo para todos os cursos |
+| `plugins/socrates-<curso>/` | Um curso: a trilha (`curso/curso.md`), um arquivo por módulo e a skill `curso`, que diz ao motor onde está o conteúdo |
+| `.claude-plugin/marketplace.json` | A lista de plugins que o `marketplace add` traz |
 
-Para escrever um curso novo, veja
-[`skills/socrates/references/anatomia-do-curso.md`](skills/socrates/references/anatomia-do-curso.md).
+Para escrever um curso novo, veja o
+[contrato de curso](plugins/socrates/skills/socrates/references/contrato-de-curso.md).
 
 ## Versionamento
 
-[Semantic Versioning](https://semver.org/lang/pt-BR/), com tags `vX.Y.Z`. A versão em
-`.claude-plugin/plugin.json` é o que dispara a atualização para quem já instalou: um
-commit novo sem subir a versão não chega a ninguém. As mudanças estão no
-[CHANGELOG](CHANGELOG.md).
+[Semantic Versioning](https://semver.org/lang/pt-BR/) por plugin, com tags
+`<plugin>--vX.Y.Z` (ex.: `socrates--v0.3.0`). A versão no `plugin.json` de cada plugin é
+o que dispara a atualização para quem já instalou: um commit novo sem subir a versão não
+chega a ninguém. Cada plugin tem o seu `CHANGELOG.md`.
 
 ## Licença
 
