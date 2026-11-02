@@ -8,7 +8,7 @@ description: >
   lesson's prepared questions, lets the student build with Claude Code while questioning
   every decision, gives feedback on each answer, and records everything in the day's log.
   Activates for: modo mentor, mentor mode, /socrates:mentor-mode, estudar, vamos estudar, próxima
-  lição, continuar o curso, minha lição, Socrates, onboarding do Socrates, /socrates:feedback do Socrates,
+  lição, continuar o curso, minha lição, Socrates, onboarding do Socrates, feedback do Socrates,
   como fui hoje, curso de security engineer, engenheiro de segurança.
 ---
 
@@ -64,6 +64,10 @@ Na prática:
 | Perfil do aluno | `~/.socrates/perfil.md` | Socrates, no onboarding |
 | Progresso no curso | `~/.socrates/<curso>/progresso.md` | Socrates, a cada lição |
 | Diário do dia | `~/.socrates/<curso>/diario/AAAA-MM-DD.md` | Socrates, a cada resposta |
+
+**Antes de ler ou criar qualquer arquivo em `~/.socrates`**, em qualquer workflow, com ou
+sem comando, faça a checagem da seção Migração de `references/estado.md`: o plugin se
+chamava Mentor, e o progresso antigo pode estar em `~/.mentor`.
 
 O estado mora em `~/.socrates`, fora do plugin, porque atualizar ou reinstalar o plugin não
 pode apagar o progresso dele. Os formatos estão em `references/estado.md`. Todo `references/...` e `templates/...` citado

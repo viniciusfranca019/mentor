@@ -11,8 +11,8 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrate
 outro.
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- Antes de tudo, a migração do nome antigo: se `~/.mentor` existe e `~/.socrates` não,
-  siga a seção Migração de `references/estado.md`.
+- Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
+  `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
 - Sem `~/.socrates/perfil.md`, é a primeira vez: blocos 1 a 5 do roteiro.
 - Se `~/.socrates/perfil.md` já existir, ele está voltando: siga a seção **Revisão** do
   roteiro (os cursos com a situação de cada um e as quatro opções).
