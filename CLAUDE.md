@@ -12,7 +12,7 @@ historical reasons.
   `skills/socrates/references/`, templates of the student's state in `templates/`, course
   catalog in `skills/socrates/catalog.md`, the entry points in `commands/`.
 - `plugins/socrates-<course>/`: a course. Pure content in `course/`, plus the `course`
-  skill that tells the engine where it is, and `"dependencies": ["socrates"]`. A new course
+  skill that tells the engine where it is, and `"dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]`. A new course
   does not touch the engine, only the catalog. The contract:
   `plugins/socrates/skills/socrates/references/course-contract.md`.
 - `plugins/socrates-<extension>/`: a plugin that is not a course (the first is
@@ -42,11 +42,19 @@ gets the change. Each plugin has its own `CHANGELOG.md`.
 | New module or lesson, new command; changing questions of a published lesson | MINOR |
 | Changing the format of `~/.socrates`, or the course contract, in a way that breaks what already exists | MAJOR |
 
+While a plugin is in `0.x`, a breaking change is a MINOR, as SemVer allows, and its
+CHANGELOG entry says what breaks and how the student migrates. One version, three places,
+always the same number: the `version` in `plugin.json`, a `## [X.Y.Z]` heading in that
+plugin's `CHANGELOG.md`, and one tag `<plugin>--vX.Y.Z`. A course or an extension that needs
+a newer engine raises the range in its `dependencies` (`{ "name": "socrates", "version":
+">=X.Y.Z" }`), which Claude Code checks when the plugin loads.
+
 Release: in the plugin that changed, move `Unreleased` in `CHANGELOG.md` to the version
 (ISO date of the day) and bump `version` in `plugin.json`; `claude plugin validate .` at
 the root and `claude plugin validate plugins/<plugin>` in each plugin (the root one does
-not open skills and commands); PR, merge, and only then `git tag <plugin>--vX.Y.Z` on the
-merge commit and `git push --tags`.
+not open skills and commands); PR, merge, and only then, from the plugin directory on the updated
+`main`, `claude plugin tag --push` (it validates, checks the version and creates
+`<plugin>--vX.Y.Z`), or `git tag <plugin>--vX.Y.Z` on the merge commit and `git push --tags`.
 
 ## Testing
 

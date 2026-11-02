@@ -14,17 +14,13 @@
       "name": "socrates-security-engineer",
       "source": "./plugins/socrates-security-engineer",
       "description": "Course: security engineer in the age of AI. Requires socrates.",
-      "dependencies": [
-        "socrates"
-      ]
+      "dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]
     },
     {
       "name": "socrates-pdi",
       "source": "./plugins/socrates-pdi",
       "description": "Extension: PDI, the Individual Development Plan with the Socrates level scale. Requires socrates.",
-      "dependencies": [
-        "socrates"
-      ]
+      "dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]
     }
   ]
 }

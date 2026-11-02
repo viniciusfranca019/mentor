@@ -82,8 +82,12 @@ Its content is not here. To find a course:
 | Daily journal | `~/.socrates/<course>/journal/YYYY-MM-DD.md` | Socrates, at each answer |
 
 **Before reading or creating any file in `~/.socrates`**, in any workflow, with or
-without a command, run the check in the Migration from Mentor section of `references/state.md`: the plugin was
-called Mentor, and old progress may be in `~/.mentor`.
+without a command, run the check in the Migration section of `references/state.md`: the plugin was
+called Mentor, and old progress may be in `~/.mentor` or under Portuguese file names.
+
+**Speak the student's language.** It is the `Language` line of `profile.md`, `en-US` by
+default, and the student switches it by asking (`references/state.md`, Language). The course
+files are in English: translate what the student reads, never the state.
 
 The state lives in `~/.socrates`, outside the plugin, because updating or reinstalling the plugin must not
 erase the student's progress. The formats are in `references/state.md`. Every `references/...` and `templates/...` cited

@@ -11,8 +11,8 @@ Read `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (the skill `socrates:socra
 `references/feedback.md`.
 
 - Plugin root: `${CLAUDE_PLUGIN_ROOT}`.
-- First of all, the migration from the old name: run the check in the Migration from Mentor section of
-  `references/state.md` (`ls -d ~/.mentor ~/.socrates`) and do what its table says.
+- First of all, the migration from the old name: run the check in the Migration section of
+  `references/state.md` (`ls -d ~/.mentor ~/.socrates ~/.socrates/perfil.md`) and do what its table says.
 - Day evaluated: `$ARGUMENTS`. If empty, it is today (`date +%F`).
 - The evaluation uses only the active course's journal in `~/.socrates/<course>/journal/<day>.md`. If
   it does not exist or is empty, say so and suggest `/socrates:mentor-mode`. Do not evaluate

@@ -33,7 +33,9 @@ The first message has only this, in this order:
 3. **One sentence on how courses arrive:** Socrates is the mentor, and each course is a
    separate plugin that it runs. Installing a course is a single command. Do not show the
    Extensions here: they appear in block 2.
-4. **One question:** which course they want to take. With only one course in the table, ask
+4. **One line on language:** the language Socrates is speaking, and that the student can ask
+   for another one at any moment (`references/state.md`, Language).
+5. **One question:** which course they want to take. With only one course in the table, ask
    whether it is that one.
 
 If the chosen course is not installed, the next answer is only this: the command from the
@@ -100,7 +102,8 @@ One question at a time, in order, waiting for the answer between them.
 
 ## Block 5 — Create the state and close
 
-1. Create `~/.socrates/profile.md` from the template, with everything that was agreed.
+1. Create `~/.socrates/profile.md` from the template, with everything that was agreed and
+   the `Language`: the one the student asked for during the onboarding, or `en-US`.
 2. Create `~/.socrates/<course>/progress.md` from the template, with the track copied from
    `course.md`, "Where I stopped" at the first lesson and the "Levels by axis" section
    filled in with the diagnosis result.

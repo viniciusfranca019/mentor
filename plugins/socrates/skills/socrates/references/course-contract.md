@@ -13,7 +13,7 @@ written in English.
 
 ```
 plugins/socrates-<course>/                # <course> in kebab-case, e.g.: security-engineer
-├── .claude-plugin/plugin.json           # name, version, "dependencies": ["socrates"]
+├── .claude-plugin/plugin.json           # name, version, "dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]
 ├── skills/course/SKILL.md                # the bridge: tells the engine where the content is
 ├── course/
 │   ├── course.md                         # vision, axes and diagnosis, track
@@ -26,11 +26,11 @@ plugins/socrates-<course>/                # <course> in kebab-case, e.g.: securi
 
 | Piece | What the contract requires | Why |
 |-------|----------------------------|-----|
-| `plugin.json` | `name` equal to `socrates-<course>`, SemVer `version` and `"dependencies": ["socrates"]` | Installing the course installs the engine with it; the name is the prefix of the skill the engine looks for |
+| `plugin.json` | `name` equal to `socrates-<course>`, SemVer `version` and `"dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]` | Installing the course installs the engine with it, and the range keeps the course disabled on an engine older than the contract it follows (contract 2 needs `socrates` 0.5.0); the name is the prefix of the skill the engine looks for |
 | `skills/course/SKILL.md` | `name: course`. The `description` starts with `Socrates course: <course>.` and gives who it is for, where you get to and the status (what is available). It is the **only** source of this data for an installed course: update it in the same PR as each new module. The body states the **course root** with `${CLAUDE_PLUGIN_ROOT}/course` and the contract version. **No** `allowed-tools` and **no** `disable-model-invocation` | The engine does not read files from another plugin by relative path: it is by loading this skill that it finds out the absolute path. With `allowed-tools`, loading the skill starts asking for approval, and in the headless test it was denied |
 | `course/course.md` | The sections below | The diagnosis and the track come from here |
 | `course/modules/<NN-name>.md` | The module format below | The lessons come from here |
-| Marketplace | An entry in the root `.claude-plugin/marketplace.json`, with `source: "./plugins/socrates-<course>"` and `dependencies: ["socrates"]` | It is what the student installs |
+| Marketplace | An entry in the root `.claude-plugin/marketplace.json`, with `source: "./plugins/socrates-<course>"` and `dependencies: [{ "name": "socrates", "version": ">=0.5.0" }]` | It is what the student installs |
 | Catalog | A line in `plugins/socrates/skills/socrates/catalog.md`: who it is for, where you get to and the install command, without the status | It is the storefront for those who have not installed it yet. The installed course appears even without it, through the skill, so the course works without waiting for an engine release |
 
 In the course files, `<root>` is still the root of the `socrates` plugin (the engine knows

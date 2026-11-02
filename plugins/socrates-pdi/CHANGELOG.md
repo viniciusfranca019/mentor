@@ -5,6 +5,14 @@ in [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-02
+
+### Changed
+
+- The PDI is in English and speaks the student's language, the `Language` of
+  `profile.md`. It reads the criteria through `socrates:criteria` and the course levels
+  from `<course>/progress.md`. Declares `socrates` `>=0.5.0` in `dependencies`, so it stays disabled on an older engine.
+
 ## [0.1.0] - 2026-11-02
 
 ### Added
@@ -21,5 +29,6 @@ in [Semantic Versioning](https://semver.org/).
   day's section; old check-ins do not change.
 - The PDI lives in `~/.socrates/pdi/pdi.md`, with the check-ins appended at the end.
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.1.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.2.0...HEAD
+[0.2.0]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.1.0...socrates-pdi--v0.2.0
 [0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/socrates-pdi--v0.1.0

@@ -26,7 +26,8 @@ demand evidence; you do not choose the goal or the competencies for them.
 | The student's courses | `~/.socrates/profile.md` and `~/.socrates/<course>/progress.md`: **read only** |
 
 Before reading or creating any file in `~/.socrates`, run the check in the Migration
-section of Socrates' `state.md`.
+section of Socrates' `state.md`. Speak the student's language, as its Language section says:
+the `Language` line of `profile.md`, `en-US` by default, switched when the student asks.
 
 ## Workflow: build the PDI
 

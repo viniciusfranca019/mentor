@@ -2,7 +2,7 @@
   "name": "socrates",
   "displayName": "Socrates",
   "description": "A Socratic mentor inside Claude Code: runs a course lesson by lesson with questions, lets the student build with AI while questioning every decision, and evaluates the day. Courses are separate plugins in the socrates marketplace.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": {
     "name": "Vinicius"
   },

@@ -2,9 +2,9 @@
   "name": "socrates-security-engineer",
   "displayName": "Socrates · Security Engineer",
   "description": "Socrates course: security engineer in the age of AI. Requires the socrates plugin, which runs the lessons.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": { "name": "Vinicius" },
   "license": "Apache-2.0",
   "keywords": ["socrates", "course", "security", "security-engineer", "en-us"],
-  "dependencies": ["socrates"]
+  "dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]
 }

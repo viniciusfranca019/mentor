@@ -19,6 +19,6 @@ for all of them are, because one plugin does not read another by relative path.
 |-----------|------|----------|
 | Levels by axis | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/levels.md` | The 1-to-5 scale, the nine layers and the rule "by the answer, never by the claim" |
 | Evaluation | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/feedback.md` | The rubric and the tone: honest, specific, each statement tied to a record |
-| Student state | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/state.md` | The format of `~/.socrates`, the migration from Mentor and the writing rules |
+| Student state | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/state.md` | The format of `~/.socrates`, the migrations, the student's language and the writing rules |
 | Course contract | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/course-contract.md` | What a course plugin must have |
 | Extension contract | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/extension-contract.md` | What a plugin that is not a course (like the PDI) must have and may do |

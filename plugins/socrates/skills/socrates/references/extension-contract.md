@@ -11,7 +11,7 @@ workflow (skill and command), and uses only the criteria and the state from Socr
 
 ```
 plugins/socrates-<extension>/
-├── .claude-plugin/plugin.json      # name socrates-<extension>, version, "dependencies": ["socrates"]
+├── .claude-plugin/plugin.json      # name socrates-<extension>, version, "dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]
 ├── commands/<extension>.md          # the entry point: /socrates-<extension>:<extension>
 ├── skills/<extension>/
 │   ├── SKILL.md                    # the extension's method
@@ -22,9 +22,10 @@ plugins/socrates-<extension>/
 
 | The contract requires | Why |
 |-----------------------|-----|
-| `"dependencies": ["socrates"]` in `plugin.json` and in the marketplace entry | Installing the extension installs Socrates, which has the criteria |
+| `"dependencies": [{ "name": "socrates", "version": ">=0.5.0" }]` in `plugin.json` and in the marketplace entry | Installing the extension installs Socrates, which has the criteria; the range keeps the extension disabled on a Socrates older than 0.5.0, before the English state names |
 | Loading the skill `socrates:criteria` before using a scale or a rubric, and reading the files it points to | The criteria belong to Socrates, in one place only. The extension does not copy the level scale or the rubric: a copy diverges at the first change |
 | The state in `~/.socrates/<extension>/`, with the same migration check from `state.md` before reading or creating any file | The student has a single place for their history, and the extension survives updates like the courses do |
+| Speaking the student's language, as the Language section of `state.md` says, and writing its own state in English | The student chooses the language once, for Socrates and every extension |
 | Reading the courses' state (`profile.md`, `progress.md`, journals), **never writing** to it | A course's progress belongs to the engine. An extension that writes there breaks the level reassessment, which depends on the journal |
 | Commands with `disable-model-invocation: true` and `allowed-tools` with `Read(/${CLAUDE_PLUGIN_ROOT}/**)`, `Read(~/.claude/plugins/cache/socrates/**)` and access to `~/.socrates/**` | This is what lets the first turn read the extension, the criteria and the state without asking for approval |
 | The entry skill **without** `allowed-tools` | With it, loading the skill asks for approval |

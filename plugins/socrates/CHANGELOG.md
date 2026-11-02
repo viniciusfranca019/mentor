@@ -5,6 +5,26 @@ in [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-02
+
+### Changed
+
+- Everything in English: the method, references, templates, catalog and commands. Socrates
+  speaks the student's language, recorded as `Language` in `profile.md`: `en-US` by default,
+  switched when the student asks. It translates what the student reads and keeps the state
+  in English.
+- English names for the state and the skills: `profile.md`, `<course>/progress.md`,
+  `<course>/journal/`, the skill `socrates:criteria`, and course contract version 2 (skill
+  `socrates-<course>:course`, `course/course.md`, `course/modules/`). The references are
+  `state.md`, `levels.md`, `method.md`, `course-contract.md` and `extension-contract.md`.
+  Needs a course plugin on contract 2.
+
+### Added
+
+- Migration of the Portuguese state names: with `~/.socrates/perfil.md`, the first command
+  stops and gives the student one `!` command that renames the files; from `~/.mentor`, the
+  same command also moves the folder.
+
 ## [0.4.0] - 2026-11-02
 
 ### Added
@@ -84,7 +104,8 @@ in [Semantic Versioning](https://semver.org/).
 - `security-engineer` course: a track of 42 modules in 8 phases, initial diagnosis,
   module 00 (Your lab) and module 01 (How the computer represents things).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.4.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.5.0...HEAD
+[0.5.0]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.4.0...socrates--v0.5.0
 [0.4.0]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.3.0...socrates--v0.4.0
 [0.3.0]: https://github.com/viniciusfranca019/mentor/compare/v0.2.0...socrates--v0.3.0
 [0.2.0]: https://github.com/viniciusfranca019/mentor/compare/v0.1.0...v0.2.0

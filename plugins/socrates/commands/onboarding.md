@@ -11,8 +11,8 @@ Read `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (the skill `socrates:socra
 the next.
 
 - Plugin root: `${CLAUDE_PLUGIN_ROOT}`.
-- First of all, the migration from the old name: run the check in the Migration from Mentor section of
-  `references/state.md` (`ls -d ~/.mentor ~/.socrates`) and do what its table says.
+- First of all, the migration from the old name: run the check in the Migration section of
+  `references/state.md` (`ls -d ~/.mentor ~/.socrates ~/.socrates/perfil.md`) and do what its table says.
 - Without `~/.socrates/profile.md`, it is the first time: blocks 1 to 5 of the script.
 - If `~/.socrates/profile.md` already exists, they are coming back: follow the **Review** section of
   the script (the courses with the status of each and the four options).

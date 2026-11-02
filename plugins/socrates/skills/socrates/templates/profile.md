@@ -1,6 +1,7 @@
 # Profile
 
 - **Name:** <what they want to be called>
+- **Language:** <en-US, or the language the student asked for>
 - **Started on:** <YYYY-MM-DD>
 - **Active course:** <course, e.g.: security-engineer>
 - **Machine:** <Windows + WSL2 | Linux | macOS>

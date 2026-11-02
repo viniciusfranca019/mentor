@@ -5,6 +5,15 @@ in [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-02
+
+### Changed
+
+- The course is in English: track, axes, diagnosis and modules 00 and 01. Socrates
+  translates it to the student's language as it teaches.
+- Course contract version 2: the skill is `socrates-security-engineer:course`, the content
+  is in `course/course.md` and `course/modules/`. Declares `socrates` `>=0.5.0` in `dependencies`, so it stays disabled on an older engine.
+
 ## [0.3.0] - 2026-11-02
 
 ### Added
@@ -16,5 +25,6 @@ in [Semantic Versioning](https://semver.org/).
 - `curso` skill: the bridge that tells the engine where the content is (course contract,
   version 1).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-security-engineer--v0.3.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-security-engineer--v0.4.0...HEAD
+[0.4.0]: https://github.com/viniciusfranca019/mentor/compare/socrates-security-engineer--v0.3.0...socrates-security-engineer--v0.4.0
 [0.3.0]: https://github.com/viniciusfranca019/mentor/releases/tag/socrates-security-engineer--v0.3.0
