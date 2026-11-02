@@ -203,4 +203,5 @@ Os caminhos abaixo são relativos a `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 | `references/niveis.md` | A escala de 5 níveis, as 9 camadas, o diagnóstico por eixo, a prova de saída e a reavaliação | No diagnóstico, no início de cada módulo e no feedback que fecha uma fase |
 | `references/onboarding.md` | Roteiro do onboarding e do diagnóstico inicial | No `/socrates:onboarding`, ou no passo 1 sem perfil |
 | `references/feedback.md` | Rubrica e formato da avaliação do dia | No `/socrates:feedback` |
+| `references/contrato-de-extensao.md` | O que um plugin que não é curso (como o PDI) precisa ter: o próprio método, os critérios e o estado do Socrates | Ao criar ou editar uma extensão (autor, não aluno) |
 | `references/contrato-de-curso.md` | O que um plugin de curso precisa ter, e como um curso e um módulo são escritos | Ao criar ou editar um curso (autor, não aluno) |

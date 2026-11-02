@@ -1,7 +1,9 @@
 {
   "name": "socrates",
-  "owner": { "name": "Vinicius" },
-  "description": "Socrates: um mentor socrático dentro do Claude Code, e os cursos que ele conduz.",
+  "owner": {
+    "name": "Vinicius"
+  },
+  "description": "Socrates: um mentor socrático dentro do Claude Code, os cursos que ele conduz e as extensões que usam os critérios dele.",
   "plugins": [
     {
       "name": "socrates",
@@ -12,7 +14,17 @@
       "name": "socrates-security-engineer",
       "source": "./plugins/socrates-security-engineer",
       "description": "Curso: engenheiro de segurança na era da IA. Exige o socrates.",
-      "dependencies": ["socrates"]
+      "dependencies": [
+        "socrates"
+      ]
+    },
+    {
+      "name": "socrates-pdi",
+      "source": "./plugins/socrates-pdi",
+      "description": "Extensão: PDI, o plano de desenvolvimento individual com a escala de níveis do Socrates. Exige o socrates.",
+      "dependencies": [
+        "socrates"
+      ]
     }
   ]
 }

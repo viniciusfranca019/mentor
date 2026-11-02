@@ -16,7 +16,8 @@ curso instala o Socrates junto.
 
 | Plugin | O que é | Situação |
 |--------|---------|----------|
-| `socrates` | O mentor: método socrático, níveis por eixo, avaliação do dia e o seu progresso em `~/.socrates` | 0.3.0 |
+| `socrates` | O mentor: método socrático, níveis por eixo, avaliação do dia e o seu progresso em `~/.socrates` | 0.4.0 |
+| `socrates-pdi` | Extensão: o seu PDI, plano de desenvolvimento individual, com a escala de níveis do Socrates, ações 70-20-10 e check-ins. Entrada: `/socrates-pdi:pdi` | 0.1.0 |
 | `socrates-security-engineer` | Curso: engenheiro de segurança na era da IA, para quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Módulos 00 e 01 disponíveis, de 42 |
 
 ## Setup
@@ -30,7 +31,7 @@ claude plugin install socrates-security-engineer@socrates
 
 O segundo comando instala o curso e o `socrates`. Outro curso, depois, é só mais um
 `claude plugin install socrates-<curso>@socrates`; o `/socrates:onboarding` mostra o
-catálogo e o comando de cada um.
+catálogo e o comando de cada um. O PDI também: `claude plugin install socrates-pdi@socrates`.
 
 Instalou quando ele ainda se chamava Mentor? Troque o plugin uma vez e mova o seu
 progresso com `mv ~/.mentor ~/.socrates` (o primeiro comando também te lembra disso):
@@ -84,11 +85,13 @@ Fica na sua máquina, em `~/.socrates`, e nunca é apagado por uma atualização
 | Peça | O que é |
 |------|---------|
 | `plugins/socrates/` | O motor: o método socrático, os níveis, a rubrica do feedback, o formato do estado e o catálogo de cursos. É o mesmo para todos os cursos |
+| `plugins/socrates-pdi/` | Uma extensão: traz o próprio método (montar o PDI e fazer o check-in) e lê do Socrates os critérios, pela skill `socrates:criterios` |
 | `plugins/socrates-<curso>/` | Um curso: a trilha (`curso/curso.md`), um arquivo por módulo e a skill `curso`, que diz ao motor onde está o conteúdo |
 | `.claude-plugin/marketplace.json` | A lista de plugins que o `marketplace add` traz |
 
 Para escrever um curso novo, veja o
-[contrato de curso](plugins/socrates/skills/socrates/references/contrato-de-curso.md).
+[contrato de curso](plugins/socrates/skills/socrates/references/contrato-de-curso.md); para
+uma extensão, o [contrato de extensão](plugins/socrates/skills/socrates/references/contrato-de-extensao.md).
 
 ## Versionamento
 

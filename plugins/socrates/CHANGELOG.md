@@ -5,6 +5,18 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-11-02
+
+### Adicionado
+
+- Skill `socrates:criterios`: diz a uma extensão onde estão os níveis, a rubrica, o
+  formato do estado e os contratos, porque um plugin não lê o outro por caminho relativo.
+- `references/contrato-de-extensao.md`: o que um plugin que não é curso precisa ter (o
+  próprio método, `dependencies: ["socrates"]`, estado em `~/.socrates/<extensão>/`, e
+  nunca escrever no estado de um curso).
+- O catálogo ganha a seção Extensões, com o PDI (`socrates-pdi`), e o onboarding mostra o
+  PDI no caminho e na revisão.
+
 ## [0.3.0] - 2026-11-02
 
 ### Alterado
@@ -71,7 +83,8 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Curso `security-engineer`: trilha de 42 módulos em 8 fases, diagnóstico inicial,
   módulo 00 (Seu laboratório) e módulo 01 (Como o computador representa as coisas).
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.3.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.4.0...HEAD
+[0.4.0]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.3.0...socrates--v0.4.0
 [0.3.0]: https://github.com/viniciusfranca019/mentor/compare/v0.2.0...socrates--v0.3.0
 [0.2.0]: https://github.com/viniciusfranca019/mentor/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/v0.1.0
