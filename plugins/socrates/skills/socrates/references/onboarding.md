@@ -22,9 +22,13 @@ A primeira mensagem tem só isto, nesta ordem:
 1. **O que é o Socrates, em até 3 linhas.** Um mentor dentro do Claude Code que conduz um
    curso lição a lição: pergunta em vez de dar a resposta, ele constrói com a IA e explica
    o que construiu.
-2. **O catálogo.** Leia `<raiz>/skills/socrates/catalogo.md` e mostre a tabela: curso, para
-   quem é, aonde chega, o que já está disponível e se está **instalado** nesta máquina (a
-   skill `socrates-<curso>:curso` aparece entre as skills da sessão).
+2. **Os cursos.** Uma tabela só, com curso, para quem é, aonde chega, o que já está
+   disponível e se está **instalado**, montada de duas fontes:
+   - cada skill `socrates-<curso>:curso` entre as skills da sessão é um curso
+     **instalado**, e a `description` dela traz para quem é, aonde chega e o que está
+     disponível;
+   - cada linha de `<raiz>/skills/socrates/catalogo.md` cujo curso não está instalado entra
+     como **não instalado**, com o comando de instalar no lugar do que está disponível.
 3. **Uma frase sobre como os cursos chegam:** o Socrates é o mentor, e cada curso é um
    plugin à parte que ele conduz. Instalar um curso é um comando só. Não mostre as
    Extensões aqui: elas aparecem no bloco 2.
@@ -106,7 +110,7 @@ Uma pergunta por vez, na ordem, esperando a resposta entre elas.
 
 Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 
-1. **Os cursos, com a situação dele.** Mostre o catálogo com uma coluna a mais, lida de
+1. **Os cursos, com a situação dele.** Mostre a tabela de cursos do bloco 1 com uma coluna a mais, lida de
    `~/.socrates/perfil.md` e de cada `~/.socrates/<curso>/progresso.md`:
 
    | Situação | Quando |
@@ -114,7 +118,7 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
    | **ativo**, em `<lição>` | É o curso ativo do perfil |
    | **iniciado**, parado em `<lição>` | Tem diretório em `~/.socrates`, mas não é o ativo |
    | **não iniciado** | Não tem diretório em `~/.socrates`, mas o plugin está instalado |
-   | **não instalado** | O plugin do curso não está instalado (não há a skill `socrates-<curso>:curso`) |
+   | **não instalado** | Está no catálogo, mas o plugin não está instalado (não há a skill `socrates-<curso>:curso`) |
 
    Um curso iniciado cujo plugin foi desinstalado aparece como **iniciado**, com a nota
    "reinstale para continuar": o progresso dele em `~/.socrates` continua lá.
@@ -126,6 +130,6 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 | Opção | O que fazer |
 |-------|-------------|
 | Continuar | Sugira `/socrates:mentor-mode` e encerre |
-| Voltar para um curso iniciado | Troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
+| Voltar para um curso iniciado | Se o plugin do curso não está instalado, dê o comando de instalar e pare sem tocar no `perfil.md`. Instalado: troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
 | Começar um curso novo | Se o curso não está instalado, dê o comando de instalar e pare, como no bloco 1. Instalado: faça só o bloco 3 com o diagnóstico desse curso, crie `~/.socrates/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
 | Ajustar o ritmo | Refaça o passo 3 do bloco 4 e atualize o `perfil.md` |

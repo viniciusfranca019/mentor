@@ -13,7 +13,9 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrate
 - Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
   `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
 - Curso pedido: `$ARGUMENTS`. Se vier vazio, use o curso ativo de `~/.socrates/perfil.md`.
-  Se vier preenchido com um curso diferente do ativo, confirme a troca antes de mudar o
+  Se vier preenchido com um curso diferente do ativo, veja primeiro se a skill
+  `socrates-<curso>:curso` existe: sem ela, dê o comando de instalar e pare sem tocar no
+  `perfil.md`. Instalado, confirme a troca antes de mudar o
   `perfil.md`, e troque como na opção "Voltar para um curso iniciado" da seção Revisão
   do roteiro de onboarding. Se esse curso ainda não tem diretório em `~/.socrates`, siga a opção
   "Começar um curso novo" da seção Revisão do roteiro de onboarding antes da lição.

@@ -1,17 +1,24 @@
 # Catálogo de cursos
 
-Cada curso é um plugin do marketplace `socrates`. Instalar um curso instala o `socrates`
-junto, se faltar. O comando vai no Claude Code; depois dele, `/reload-plugins`.
+A vitrine dos cursos que existem no marketplace `socrates`, para o aluno ver o que pode
+instalar. Cada curso é um plugin; instalar um curso instala o `socrates` junto, se faltar.
+O comando vai no Claude Code; depois dele, `/reload-plugins`.
 
-| Curso | Para quem | Aonde chega | Situação | Instalar |
-|-------|-----------|-------------|----------|----------|
-| `security-engineer` | Quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Engenheiro de segurança na era da IA: entende como os sistemas funcionam, modela ameaças e protege aplicações, infraestrutura e agentes de IA | Módulos 00 e 01 disponíveis, de 42 | `/plugin install socrates-security-engineer@socrates` |
+Este catálogo só serve para curso **não instalado**. De um curso instalado, quem diz para
+quem é, aonde chega e o que está disponível é a `description` da skill
+`socrates-<curso>:curso`, que muda junto com o curso. Um curso instalado que não está aqui
+aparece mesmo assim.
+
+| Curso | Para quem | Aonde chega | Instalar |
+|-------|-----------|-------------|----------|
+| `security-engineer` | Quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Engenheiro de segurança na era da IA: entende como os sistemas funcionam, modela ameaças e protege aplicações, infraestrutura e agentes de IA | `/plugin install socrates-security-engineer@socrates` |
 
 ## Extensões
 
 Plugins que não são curso: trazem o próprio método e usam os critérios do Socrates
 (níveis, rubrica, estado). Também se instalam com um comando, e também trazem o
-`socrates` junto.
+`socrates` junto. Como nos cursos, uma extensão instalada aparece pela skill dela
+(`socrates-<extensão>:<extensão>`), mesmo que não esteja aqui.
 
 | Extensão | O que faz | Como usar | Instalar |
 |----------|-----------|-----------|----------|

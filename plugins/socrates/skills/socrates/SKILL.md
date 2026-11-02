@@ -4,7 +4,7 @@ description: >
   Use this skill when the student is studying with Socrates: a session opened by
   /socrates:mentor-mode, the onboarding opened by /socrates:onboarding, or the end-of-day evaluation opened
   by /socrates:feedback. It runs a Socratic mentoring session over a course of the Socrates plugin
-  (the first one is security-engineer): reads the student's progress in ~/.socrates, asks the
+  (each course is a separate socrates-<curso> plugin): reads the student's progress in ~/.socrates, asks the
   lesson's prepared questions, lets the student build with Claude Code while questioning
   every decision, gives feedback on each answer, and records everything in the day's log.
   Activates for: modo mentor, mentor mode, /socrates:mentor-mode, estudar, vamos estudar, próxima
