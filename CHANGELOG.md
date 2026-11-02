@@ -5,6 +5,22 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+### Alterado
+
+- O plugin passa a se chamar **Socrates**: o plugin e o marketplace são `socrates`
+  (`claude plugin install socrates@socrates`), os comandos viram `/socrates:onboarding`,
+  `/socrates:mentor-mode` e `/socrates:feedback`, e a skill vira `socrates:socrates`
+  (`skills/socrates/`). O repositório continua `viniciusfranca019/mentor`.
+- O estado do aluno muda de `~/.mentor` para `~/.socrates`, no mesmo formato. Se só a
+  pasta antiga existe, o primeiro comando pede ao aluno que rode
+  `! mv ~/.mentor ~/.socrates` e repita o comando.
+
+### Corrigido
+
+- Os comandos pré-autorizam a leitura dos arquivos do próprio plugin
+  (`Read(/${CLAUDE_PLUGIN_ROOT}/**)`): instalado pelo marketplace, o `/socrates:onboarding`
+  parava no primeiro turno sem conseguir ler o SKILL.md, as references e o catálogo.
+
 ## [0.2.0] - 2026-10-06
 
 ### Adicionado

@@ -131,7 +131,7 @@ O nível muda com o que ele demonstra durante a trilha, não só no diagnóstico
 - **A cada resposta**, o diário registra a camada que a pergunta pedia (a mais funda que o
   critério dela exige) e as camadas que **ele** demonstrou, sozinho ou com pista. O que
   veio da sua explicação nunca entra em "Camadas".
-- **Ao fim de cada fase da trilha**, o `/mentor:feedback` lê **todos** os diários da fase,
+- **Ao fim de cada fase da trilha**, o `/socrates:feedback` lê **todos** os diários da fase,
   do primeiro dia da primeira lição dela até hoje, e reavalia o eixo:
   - **Sobe** quando as camadas que faltavam para o nível seguinte apareceram com clareza
     nas respostas, até o nível 4. O 5 só vem da prova de saída.

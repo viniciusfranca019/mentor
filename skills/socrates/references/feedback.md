@@ -1,12 +1,12 @@
-# Avaliação do dia (`/mentor:feedback`)
+# Avaliação do dia (`/socrates:feedback`)
 
-O `/mentor:feedback` avalia o dia de estudo a partir do diário, e só a partir dele. Cada
+O `/socrates:feedback` avalia o dia de estudo a partir do diário, e só a partir dele. Cada
 afirmação da avaliação aponta para uma resposta registrada. Se o diário do dia não
-existir ou estiver vazio, diga isso e sugira um `/mentor:mentor-mode`. Não invente uma avaliação.
+existir ou estiver vazio, diga isso e sugira um `/socrates:mentor-mode`. Não invente uma avaliação.
 
 ## Procedimento
 
-1. Leia `~/.mentor/perfil.md`, o `progresso.md` do curso ativo e o diário de hoje
+1. Leia `~/.socrates/perfil.md`, o `progresso.md` do curso ativo e o diário de hoje
    (`date +%F`). Leia também os dois diários anteriores, se existirem, para comparar.
 2. Conte, para o dia: perguntas respondidas, quantas `sozinho`, `com pista` e `precisou
    de explicação`; especificações dadas e quantas completas na primeira tentativa;

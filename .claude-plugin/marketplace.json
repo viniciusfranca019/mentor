@@ -1,8 +1,8 @@
 {
-  "name": "mentor",
+  "name": "socrates",
   "owner": { "name": "Vinicius" },
-  "description": "Mentor: cursos guiados por um mentor socrático dentro do Claude Code.",
+  "description": "Socrates: cursos guiados por um mentor socrático dentro do Claude Code.",
   "plugins": [
-    { "name": "mentor", "source": "./", "description": "Mentor socrático e seus cursos." }
+    { "name": "socrates", "source": "./", "description": "Mentor socrático e seus cursos." }
   ]
 }

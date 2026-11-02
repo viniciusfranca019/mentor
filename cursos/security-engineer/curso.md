@@ -32,7 +32,7 @@ como o arquiteto que especifica e revisa.
 ## Eixos e diagnóstico
 
 Eixos do curso e a escada de perguntas de cada um. Como usar a escada está em
-`<raiz>/skills/mentor/references/niveis.md`.
+`<raiz>/skills/socrates/references/niveis.md`.
 
 | Eixo | Fases da trilha |
 |------|-----------------|

@@ -72,7 +72,7 @@ que o seu programa também faz?"
 "Explique o que é um byte e por que hexadecimal existe." Critério: 8 bits, valores de 0
 a 255, e hex como forma compacta, com dois dígitos por byte.
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** achar que hexadecimal é "outro tipo de dado". É só outra forma de
   escrever o mesmo número. Pergunte: "C8 e 200 são números diferentes?"
@@ -132,7 +132,7 @@ mostrou que o seu programa também mostra?"
 "Explique por que às vezes aparece 'Ã§' no lugar de 'ç'." Critério: texto vira bytes
 por uma tabela; gravar com uma tabela e ler com outra troca os caracteres.
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** achar que um caractere é sempre um byte. A pergunta 1 da
   Verificação desfaz isso.
@@ -196,7 +196,7 @@ você testaria isso?" Ele testa com o arquivo renomeado.
 "Explique por que confiar na extensão de um arquivo é perigoso." Critério: a extensão é
 só nome e pode ser trocada; o tipo está nos bytes; e mesmo os bytes podem ser forjados.
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** concluir que os magic bytes resolvem tudo. A pergunta 2 da
   Verificação existe para desfazer isso.
@@ -262,7 +262,7 @@ que ele não conta?"
 desconhecido é arriscado." Critério: compilado é traduzido antes e roda sem o fonte;
 interpretado precisa do fonte e do interpretador; um executável não mostra o que faz.
 
-### Para o Mentor
+### Para o Socrates
 
 - **Erros comuns:** achar que Python "não é compilado de jeito nenhum" (ele gera
   bytecode, o `.pyc`). Só aprofunde se ele perguntar; o conceito-âncora não depende disso.

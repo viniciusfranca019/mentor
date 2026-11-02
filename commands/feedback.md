@@ -1,18 +1,20 @@
 ---
-description: Avaliação do Mentor sobre as suas lições de hoje
+description: Avaliação do Socrates sobre as suas lições de hoje
 argument-hint: "[AAAA-MM-DD]"
 disable-model-invocation: true
-allowed-tools: Read(~/.mentor/**), Write(~/.mentor/**), Edit(~/.mentor/**), Bash(mkdir -p ~/.mentor:*), Bash(date:*), Bash(ls ~/.mentor:*)
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.socrates/**), Write(~/.socrates/**), Edit(~/.socrates/**), Bash(mkdir -p ~/.socrates:*), Bash(date:*), Bash(ls ~/.socrates:*), Bash(ls -d ~/.mentor:*)
 ---
 
 # Feedback do dia
 
-Leia `${CLAUDE_PLUGIN_ROOT}/skills/mentor/SKILL.md` (a skill `mentor:mentor`) e rode o **Workflow: avaliação do dia** com a rubrica de
+Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrates`) e rode o **Workflow: avaliação do dia** com a rubrica de
 `references/feedback.md`.
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
+- Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
+  `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
 - Dia avaliado: `$ARGUMENTS`. Se vier vazio, é hoje (`date +%F`).
-- A avaliação usa só o diário do curso ativo em `~/.mentor/<curso>/diario/<dia>.md`. Se
-  ele não existir ou estiver vazio, diga isso e sugira `/mentor:mentor-mode`. Não avalie
+- A avaliação usa só o diário do curso ativo em `~/.socrates/<curso>/diario/<dia>.md`. Se
+  ele não existir ou estiver vazio, diga isso e sugira `/socrates:mentor-mode`. Não avalie
   sem diário. Exceção: quando o dia fechou uma fase da trilha, a reavaliação do nível do
   eixo lê todos os diários da fase.
