@@ -11,8 +11,8 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrate
 `references/feedback.md`.
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- Antes de tudo, a migração do nome antigo: se `~/.mentor` existe e `~/.socrates` não,
-  siga a seção Migração de `references/estado.md`.
+- Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
+  `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
 - Dia avaliado: `$ARGUMENTS`. Se vier vazio, é hoje (`date +%F`).
 - A avaliação usa só o diário do curso ativo em `~/.socrates/<curso>/diario/<dia>.md`. Se
   ele não existir ou estiver vazio, diga isso e sugira `/socrates:mentor-mode`. Não avalie

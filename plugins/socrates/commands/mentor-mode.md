@@ -10,8 +10,8 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.claude/plugins/cache/soc
 Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrates`) e rode o **Workflow: sessão de estudo**, do passo 1 ao 7.
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- Antes de tudo, a migração do nome antigo: se `~/.mentor` existe e `~/.socrates` não,
-  siga a seção Migração de `references/estado.md`.
+- Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
+  `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
 - Curso pedido: `$ARGUMENTS`. Se vier vazio, use o curso ativo de `~/.socrates/perfil.md`.
   Se vier preenchido com um curso diferente do ativo, confirme a troca antes de mudar o
   `perfil.md`, e troque como na opção "Voltar para um curso iniciado" da seção Revisão
