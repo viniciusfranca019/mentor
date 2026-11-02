@@ -3,7 +3,15 @@
   "displayName": "Socrates",
   "description": "Mentor socrático dentro do Claude Code: conduz um curso lição a lição com perguntas, deixa o aluno construir com IA enquanto questiona cada decisão e avalia o dia. Os cursos são plugins à parte do marketplace socrates.",
   "version": "0.3.0",
-  "author": { "name": "Vinicius" },
+  "author": {
+    "name": "Vinicius"
+  },
   "license": "Apache-2.0",
-  "keywords": ["mentoria", "educação", "socrático", "segurança", "security-engineer", "pt-br"]
+  "keywords": [
+    "mentoria",
+    "educação",
+    "socrático",
+    "cursos",
+    "pt-br"
+  ]
 }

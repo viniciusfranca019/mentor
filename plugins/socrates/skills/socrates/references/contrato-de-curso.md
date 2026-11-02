@@ -23,11 +23,11 @@ plugins/socrates-<curso>/                # <curso> em kebab-case, ex.: security-
 | Peça | O que o contrato exige | Por quê |
 |------|------------------------|---------|
 | `plugin.json` | `name` igual a `socrates-<curso>`, `version` SemVer e `"dependencies": ["socrates"]` | Instalar o curso instala o motor junto; o nome é o prefixo da skill que o motor procura |
-| `skills/curso/SKILL.md` | `name: curso`. A `description` começa com `Curso do Socrates: <curso>.` e traz para quem é, aonde chega e a situação. O corpo diz a **raiz do curso** com `${CLAUDE_PLUGIN_ROOT}/curso` e a versão do contrato. **Sem** `allowed-tools` e **sem** `disable-model-invocation` | O motor não lê arquivos de outro plugin por caminho relativo: é carregando esta skill que ele descobre o caminho absoluto. Com `allowed-tools`, carregar a skill passa a pedir aprovação, e no teste headless ela foi negada |
+| `skills/curso/SKILL.md` | `name: curso`. A `description` começa com `Curso do Socrates: <curso>.` e traz para quem é, aonde chega e a situação (o que está disponível). É a **única** fonte desses dados para um curso instalado: atualize-a no mesmo PR de cada módulo novo. O corpo diz a **raiz do curso** com `${CLAUDE_PLUGIN_ROOT}/curso` e a versão do contrato. **Sem** `allowed-tools` e **sem** `disable-model-invocation` | O motor não lê arquivos de outro plugin por caminho relativo: é carregando esta skill que ele descobre o caminho absoluto. Com `allowed-tools`, carregar a skill passa a pedir aprovação, e no teste headless ela foi negada |
 | `curso/curso.md` | As seções abaixo | O diagnóstico e a trilha saem daqui |
 | `curso/modulos/NN-nome.md` | O formato de módulo abaixo | As lições saem daqui |
 | Marketplace | Uma entrada em `.claude-plugin/marketplace.json` da raiz, com `source: "./plugins/socrates-<curso>"` e `dependencies: ["socrates"]` | É o que o aluno instala |
-| Catálogo | Uma linha em `plugins/socrates/skills/socrates/catalogo.md`, com o comando de instalar | O onboarding mostra o catálogo antes de o curso estar instalado |
+| Catálogo | Uma linha em `plugins/socrates/skills/socrates/catalogo.md`: para quem, aonde chega e o comando de instalar, sem a situação | É a vitrine para quem ainda não instalou. O curso instalado aparece mesmo sem ela, pela skill, então o curso funciona sem esperar uma release do motor |
 
 Nos arquivos do curso, `<raiz>` continua sendo a raiz do plugin `socrates` (o motor
 conhece), e `<curso>` é a raiz do curso que a skill dele indica. O formato de dado é
@@ -39,10 +39,13 @@ Markdown: quem lê é o modelo, e o aluno abre e entende os mesmos arquivos.
    `description` da skill `curso`.
 2. Escreva `curso/curso.md` com as seções abaixo e pelo menos o primeiro módulo completo.
 3. Acrescente a entrada no `marketplace.json`, a linha no catálogo do motor e a linha na
-   tabela de cursos do `README.md` da raiz.
+   tabela do `README.md` da raiz.
 4. `claude plugin validate plugins/socrates-<curso>` e `claude plugin validate .`.
-5. O curso começa na versão `0.1.0`, com o próprio `CHANGELOG.md`. O catálogo é do motor,
-   então a linha nova sobe um PATCH do `socrates`.
+5. O curso começa na versão `0.1.0`, com o próprio `CHANGELOG.md`. A linha do catálogo
+   sobe um PATCH do `socrates`, mas o curso não depende dela para funcionar: só para
+   aparecer na vitrine de quem ainda não o instalou.
+6. A cada módulo novo: suba o curso (MINOR) e a situação na `description` da skill `curso`.
+   O motor não muda.
 
 ## `curso.md`
 

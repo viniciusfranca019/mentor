@@ -14,10 +14,12 @@ entende.
 O Socrates é o mentor, e cada curso é um plugin à parte que ele conduz. Instalar um
 curso instala o Socrates junto.
 
-| Plugin | O que é | Situação |
-|--------|---------|----------|
-| `socrates` | O mentor: método socrático, níveis por eixo, avaliação do dia e o seu progresso em `~/.socrates` | 0.3.0 |
-| `socrates-security-engineer` | Curso: engenheiro de segurança na era da IA, para quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Módulos 00 e 01 disponíveis, de 42 |
+| Plugin | O que é |
+|--------|---------|
+| `socrates` | O mentor: método socrático, níveis por eixo, avaliação do dia e o seu progresso em `~/.socrates` |
+| `socrates-security-engineer` | Curso: engenheiro de segurança na era da IA, para quem tem formação em TI mas pouca prática de programação, redes e infraestrutura |
+
+O que cada curso já tem disponível aparece no `/socrates:onboarding`.
 
 ## Setup
 
