@@ -30,7 +30,8 @@ A primeira mensagem tem só isto, nesta ordem:
    - cada linha de `<raiz>/skills/socrates/catalogo.md` cujo curso não está instalado entra
      como **não instalado**, com o comando de instalar no lugar do que está disponível.
 3. **Uma frase sobre como os cursos chegam:** o Socrates é o mentor, e cada curso é um
-   plugin à parte que ele conduz. Instalar um curso é um comando só.
+   plugin à parte que ele conduz. Instalar um curso é um comando só. Não mostre as
+   Extensões aqui: elas aparecem no bloco 2.
 4. **Uma pergunta:** qual curso ele quer fazer. Com um curso só na tabela, pergunte se é
    esse.
 
@@ -56,6 +57,7 @@ Escolhido o curso, responda numa **mensagem só**, sem parar no meio para pergun
 | **Hoje, uma vez** | Diagnóstico e ritmo, uns 20 minutos. É o que vem agora |
 | **Cada dia de estudo** | `/socrates:mentor-mode`: retoma exatamente de onde ele parou |
 | **Fim do dia** | `/socrates:feedback`: avalia o dia e diz o que revisar |
+| **Plano de carreira, quando quiser** | O PDI é uma extensão do Socrates: monta o plano de desenvolvimento dele com a mesma escala de níveis, e liga as ações aos módulos dos cursos. Mostre a linha da seção Extensões do catálogo, com o comando de instalar, ou `/socrates-pdi:pdi` se a skill `socrates-pdi:pdi` já está instalada |
 | **Outro curso, quando quiser** | `/socrates:onboarding`: mostra o catálogo com a situação de cada curso. Um curso novo é um plugin: instala com o comando do catálogo. Trocar de curso não apaga o progresso do outro |
 
 Logo abaixo, o acordo em duas linhas: ele usa o Claude para escrever o código, mas antes
@@ -122,7 +124,8 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
    "reinstale para continuar": o progresso dele em `~/.socrates` continua lá.
 
 2. **Uma pergunta, com quatro opções:** continuar no curso ativo, voltar para um curso
-   iniciado, começar um curso novo, ou ajustar o ritmo.
+   iniciado, começar um curso novo, ou ajustar o ritmo. Abaixo das opções, uma linha com
+   as Extensões do catálogo e a situação de cada uma (instalada ou o comando de instalar).
 
 | Opção | O que fazer |
 |-------|-------------|

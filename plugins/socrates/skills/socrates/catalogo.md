@@ -12,3 +12,14 @@ aparece mesmo assim.
 | Curso | Para quem | Aonde chega | Instalar |
 |-------|-----------|-------------|----------|
 | `security-engineer` | Quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Engenheiro de segurança na era da IA: entende como os sistemas funcionam, modela ameaças e protege aplicações, infraestrutura e agentes de IA | `/plugin install socrates-security-engineer@socrates` |
+
+## Extensões
+
+Plugins que não são curso: trazem o próprio método e usam os critérios do Socrates
+(níveis, rubrica, estado). Também se instalam com um comando, e também trazem o
+`socrates` junto. Como nos cursos, uma extensão instalada aparece pela skill dela
+(`socrates-<extensão>:<extensão>`), mesmo que não esteja aqui.
+
+| Extensão | O que faz | Como usar | Instalar |
+|----------|-----------|-----------|----------|
+| `pdi` | Plano de desenvolvimento individual: objetivo, competências com nível medido pela escala do Socrates, ações 70-20-10 e check-ins com evidência | `/socrates-pdi:pdi` | `/plugin install socrates-pdi@socrates` |

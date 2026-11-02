@@ -13,6 +13,9 @@ cada um num plugin. Tudo em PT-BR. O repositório se chama `mentor` por históri
 - `plugins/socrates-<curso>/`: um curso. Conteúdo puro em `curso/`, mais a skill `curso`
   que diz ao motor onde ele está, e `"dependencies": ["socrates"]`. Curso novo não mexe no
   motor, só no catálogo. O contrato: `plugins/socrates/skills/socrates/references/contrato-de-curso.md`.
+- `plugins/socrates-<extensão>/`: um plugin que não é curso (o primeiro é `socrates-pdi`).
+  Traz o próprio método e lê os critérios do motor pela skill `socrates:criterios`. O
+  contrato: `plugins/socrates/skills/socrates/references/contrato-de-extensao.md`.
 - O estado do aluno mora em `~/.socrates`, nunca dentro de um plugin.
 
 ## Caminhos

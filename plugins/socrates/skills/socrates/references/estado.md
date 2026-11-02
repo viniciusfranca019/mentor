@@ -6,6 +6,7 @@ nunca apaga o progresso. Tudo é Markdown, para ele poder abrir e ler o próprio
 ```
 ~/.socrates/
 ├── perfil.md                         # quem é, curso ativo, ritmo combinado
+├── <extensão>/                       # o estado de uma extensão, ex.: pdi/ (contrato-de-extensao.md)
 └── <curso>/                          # um diretório por curso iniciado
     ├── progresso.md                  # onde está, o que concluiu, o que revisar
     └── diario/
