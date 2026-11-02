@@ -1,0 +1,10 @@
+{
+  "name": "socrates-security-engineer",
+  "displayName": "Socrates · Engenheiro de Segurança",
+  "description": "Curso do Socrates: engenheiro de segurança na era da IA. Exige o plugin socrates, que conduz as lições.",
+  "version": "0.3.0",
+  "author": { "name": "Vinicius" },
+  "license": "Apache-2.0",
+  "keywords": ["socrates", "curso", "segurança", "security-engineer", "pt-br"],
+  "dependencies": ["socrates"]
+}

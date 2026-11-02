@@ -4,7 +4,7 @@ description: >
   Use this skill when the student is studying with Socrates: a session opened by
   /socrates:mentor-mode, the onboarding opened by /socrates:onboarding, or the end-of-day evaluation opened
   by /socrates:feedback. It runs a Socratic mentoring session over a course of the Socrates plugin
-  (the first one is security-engineer): reads the student's progress in ~/.socrates, asks the
+  (each course is a separate socrates-<curso> plugin): reads the student's progress in ~/.socrates, asks the
   lesson's prepared questions, lets the student build with Claude Code while questioning
   every decision, gives feedback on each answer, and records everything in the day's log.
   Activates for: modo mentor, mentor mode, /socrates:mentor-mode, estudar, vamos estudar, próxima
@@ -14,9 +14,9 @@ description: >
 
 # Socrates
 
-Motor de mentoria socrática. Conduz o aluno por um curso do plugin, uma lição por vez,
-fazendo perguntas em vez de dar respostas. O curso é dado; este arquivo é o método, e o
-mesmo método vale para qualquer curso em `${CLAUDE_PLUGIN_ROOT}/cursos/`.
+Motor de mentoria socrática. Conduz o aluno por um curso, uma lição por vez, fazendo
+perguntas em vez de dar respostas. O curso é dado e mora num plugin à parte; este arquivo
+é o método, e o mesmo método vale para qualquer curso instalado.
 
 ## A regra que vem antes de todas
 
@@ -53,14 +53,27 @@ Na prática:
 
 ## Onde ficam as coisas
 
-**Raiz do plugin:** `${CLAUDE_PLUGIN_ROOT}`. Nos arquivos de `references/` e de `cursos/`,
-`<raiz>` significa esse caminho: substitua ao ler ou abrir um arquivo de lá.
+**Raiz do plugin:** `${CLAUDE_PLUGIN_ROOT}`. Nos arquivos de `references/` e nos dos
+cursos, `<raiz>` significa esse caminho: substitua ao ler ou abrir um arquivo de lá.
+
+**Cada curso é um plugin à parte**, `socrates-<curso>`, do mesmo marketplace `socrates`.
+O conteúdo dele não está aqui. Para achar um curso:
+
+1. **Instalado?** O curso está instalado quando a skill `socrates-<curso>:curso` aparece
+   entre as skills disponíveis nesta sessão. Não procure arquivos no disco para saber.
+2. **Onde estão os arquivos?** Carregue essa skill com a ferramenta Skill. Ela diz a
+   **raiz do curso**, um caminho absoluto: é o que `<curso>` significa abaixo. Leia os
+   arquivos de lá com Read.
+3. **Não instalado?** Diga ao aluno o comando para instalar, que ele roda no Claude Code e
+   depois `/reload-plugins`, e pare até ele voltar. O comando é o da coluna "Instalar" do
+   catálogo, ou, se o curso não está lá, `/plugin install socrates-<curso>@socrates`.
+   Não conduza lição de curso que não está instalado.
 
 | O quê | Onde | Quem escreve |
 |-------|------|--------------|
-| Catálogo de cursos | `${CLAUDE_PLUGIN_ROOT}/cursos/catalogo.md` | Autor do plugin |
-| Trilha de um curso | `${CLAUDE_PLUGIN_ROOT}/cursos/<curso>/curso.md` | Autor do plugin |
-| Lições de um módulo | `${CLAUDE_PLUGIN_ROOT}/cursos/<curso>/modulos/<NN-nome>.md` | Autor do plugin |
+| Catálogo de cursos | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/catalogo.md` | Autor do Socrates |
+| Trilha de um curso | `<curso>/curso.md` | Autor do curso |
+| Lições de um módulo | `<curso>/modulos/<NN-nome>.md` | Autor do curso |
 | Perfil do aluno | `~/.socrates/perfil.md` | Socrates, no onboarding |
 | Progresso no curso | `~/.socrates/<curso>/progresso.md` | Socrates, a cada lição |
 | Diário do dia | `~/.socrates/<curso>/diario/AAAA-MM-DD.md` | Socrates, a cada resposta |
@@ -78,6 +91,9 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 1. **Carregar o estado**
    - Leia `~/.socrates/perfil.md`. Se não existir, ele ainda não fez o onboarding: rode o
      Workflow de onboarding (abaixo) e só depois continue.
+   - Carregue a skill `socrates-<curso-ativo>:curso` para saber a raiz do curso (seção
+     "Onde ficam as coisas"). Sem ela, o curso não está instalado: diga como instalar e
+     pare, sem tocar no progresso dele.
    - Leia `~/.socrates/<curso-ativo>/progresso.md` e o diário mais recente. Os níveis por
      eixo estão no `progresso.md` e decidem o tom (`references/niveis.md`). Sem a seção
      "Níveis por eixo" (aluno de versão anterior), faça o diagnóstico de níveis antes da
@@ -188,4 +204,4 @@ Os caminhos abaixo são relativos a `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 | `references/niveis.md` | A escala de 5 níveis, as 9 camadas, o diagnóstico por eixo, a prova de saída e a reavaliação | No diagnóstico, no início de cada módulo e no feedback que fecha uma fase |
 | `references/onboarding.md` | Roteiro do onboarding e do diagnóstico inicial | No `/socrates:onboarding`, ou no passo 1 sem perfil |
 | `references/feedback.md` | Rubrica e formato da avaliação do dia | No `/socrates:feedback` |
-| `references/anatomia-do-curso.md` | Como um curso e um módulo são escritos | Ao criar ou editar um curso (autor, não aluno) |
+| `references/contrato-de-curso.md` | O que um plugin de curso precisa ter, e como um curso e um módulo são escritos | Ao criar ou editar um curso (autor, não aluno) |

@@ -1,8 +1,18 @@
 {
   "name": "socrates",
   "owner": { "name": "Vinicius" },
-  "description": "Socrates: cursos guiados por um mentor socrático dentro do Claude Code.",
+  "description": "Socrates: um mentor socrático dentro do Claude Code, e os cursos que ele conduz.",
   "plugins": [
-    { "name": "socrates", "source": "./", "description": "Mentor socrático e seus cursos." }
+    {
+      "name": "socrates",
+      "source": "./plugins/socrates",
+      "description": "O mentor: método socrático, níveis por eixo, avaliação do dia e o estado do aluno em ~/.socrates. Instale primeiro."
+    },
+    {
+      "name": "socrates-security-engineer",
+      "source": "./plugins/socrates-security-engineer",
+      "description": "Curso: engenheiro de segurança na era da IA. Exige o socrates.",
+      "dependencies": ["socrates"]
+    }
   ]
 }

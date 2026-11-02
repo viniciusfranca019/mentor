@@ -22,10 +22,22 @@ A primeira mensagem tem só isto, nesta ordem:
 1. **O que é o Socrates, em até 3 linhas.** Um mentor dentro do Claude Code que conduz um
    curso lição a lição: pergunta em vez de dar a resposta, ele constrói com a IA e explica
    o que construiu.
-2. **O catálogo.** Leia `<raiz>/cursos/catalogo.md` e mostre a tabela: curso, para quem é,
-   aonde chega, o que já está disponível.
-3. **Uma pergunta:** qual curso ele quer fazer. Com um curso só no catálogo, pergunte se é
+2. **Os cursos.** Uma tabela só, com curso, para quem é, aonde chega, o que já está
+   disponível e se está **instalado**, montada de duas fontes:
+   - cada skill `socrates-<curso>:curso` entre as skills da sessão é um curso
+     **instalado**, e a `description` dela traz para quem é, aonde chega e o que está
+     disponível;
+   - cada linha de `<raiz>/skills/socrates/catalogo.md` cujo curso não está instalado entra
+     como **não instalado**, com o comando de instalar no lugar do que está disponível.
+3. **Uma frase sobre como os cursos chegam:** o Socrates é o mentor, e cada curso é um
+   plugin à parte que ele conduz. Instalar um curso é um comando só.
+4. **Uma pergunta:** qual curso ele quer fazer. Com um curso só na tabela, pergunte se é
    esse.
+
+Se o curso escolhido não está instalado, a resposta seguinte é só esta: o comando da
+coluna "Instalar" do catálogo, para ele rodar no Claude Code, depois `/reload-plugins` e
+`/socrates:onboarding` de novo, que agora mostra o curso instalado. Não
+siga sem o curso: a trilha e o diagnóstico vêm dele.
 
 Nada de fases da lição, comandos ou histórico nesta mensagem: cada coisa aparece quando
 ele precisa dela.
@@ -34,7 +46,8 @@ ele precisa dela.
 
 Escolhido o curso, responda numa **mensagem só**, sem parar no meio para perguntar:
 
-1. **A trilha.** Leia o `curso.md` do curso e liste as fases: o nome de cada uma e o que
+1. **A trilha.** Carregue a skill `socrates-<curso>:curso`, leia o `curso.md` da raiz que
+   ela indica e liste as fases: o nome de cada uma e o que
    ele vai saber ao fim dela, em uma linha cada, sem a lista de lições.
 2. **O caminho.** Como o Socrates entra na rotina dele:
 
@@ -43,7 +56,7 @@ Escolhido o curso, responda numa **mensagem só**, sem parar no meio para pergun
 | **Hoje, uma vez** | Diagnóstico e ritmo, uns 20 minutos. É o que vem agora |
 | **Cada dia de estudo** | `/socrates:mentor-mode`: retoma exatamente de onde ele parou |
 | **Fim do dia** | `/socrates:feedback`: avalia o dia e diz o que revisar |
-| **Outro curso, quando quiser** | `/socrates:onboarding`: mostra o catálogo com a situação de cada curso. Trocar de curso não apaga o progresso do outro |
+| **Outro curso, quando quiser** | `/socrates:onboarding`: mostra o catálogo com a situação de cada curso. Um curso novo é um plugin: instala com o comando do catálogo. Trocar de curso não apaga o progresso do outro |
 
 Logo abaixo, o acordo em duas linhas: ele usa o Claude para escrever o código, mas antes
 diz o que quer construir, e depois explica o que recebeu.
@@ -95,14 +108,18 @@ Uma pergunta por vez, na ordem, esperando a resposta entre elas.
 
 Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 
-1. **Os cursos, com a situação dele.** Mostre o catálogo com uma coluna a mais, lida de
+1. **Os cursos, com a situação dele.** Mostre a tabela de cursos do bloco 1 com uma coluna a mais, lida de
    `~/.socrates/perfil.md` e de cada `~/.socrates/<curso>/progresso.md`:
 
    | Situação | Quando |
    |----------|--------|
    | **ativo**, em `<lição>` | É o curso ativo do perfil |
    | **iniciado**, parado em `<lição>` | Tem diretório em `~/.socrates`, mas não é o ativo |
-   | **não iniciado** | Não tem diretório em `~/.socrates` |
+   | **não iniciado** | Não tem diretório em `~/.socrates`, mas o plugin está instalado |
+   | **não instalado** | Está no catálogo, mas o plugin não está instalado (não há a skill `socrates-<curso>:curso`) |
+
+   Um curso iniciado cujo plugin foi desinstalado aparece como **iniciado**, com a nota
+   "reinstale para continuar": o progresso dele em `~/.socrates` continua lá.
 
 2. **Uma pergunta, com quatro opções:** continuar no curso ativo, voltar para um curso
    iniciado, começar um curso novo, ou ajustar o ritmo.
@@ -110,6 +127,6 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 | Opção | O que fazer |
 |-------|-------------|
 | Continuar | Sugira `/socrates:mentor-mode` e encerre |
-| Voltar para um curso iniciado | Troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
-| Começar um curso novo | Faça só o bloco 3 com o diagnóstico desse curso, crie `~/.socrates/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
+| Voltar para um curso iniciado | Se o plugin do curso não está instalado, dê o comando de instalar e pare sem tocar no `perfil.md`. Instalado: troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
+| Começar um curso novo | Se o curso não está instalado, dê o comando de instalar e pare, como no bloco 1. Instalado: faça só o bloco 3 com o diagnóstico desse curso, crie `~/.socrates/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
 | Ajustar o ritmo | Refaça o passo 3 do bloco 4 e atualize o `perfil.md` |
