@@ -1,33 +1,33 @@
-# Contrato de extensão
+# Extension contract
 
-Leitura para quem **escreve** uma extensão do Socrates que não é curso: um método que
-usa os critérios do Socrates para outra coisa, como o PDI (`socrates-pdi`). Um curso
-segue o `course-contract.md`; este contrato é para o resto. Versão: **1**.
+Reading for whoever **writes** a Socrates extension that is not a course: a method that
+uses the Socrates criteria for something else, like the PDI (`socrates-pdi`). A course
+follows `course-contract.md`; this contract is for everything else. Version: **1**.
 
-A diferença: um curso é só dado, e quem conduz é o motor. Uma extensão traz o próprio
-workflow (skill e comando), e usa do Socrates só os critérios e o estado.
+The difference: a course is only data, and the engine runs it. An extension brings its own
+workflow (skill and command), and uses only the criteria and the state from Socrates.
 
-## O plugin da extensão
+## The extension plugin
 
 ```
 plugins/socrates-<extension>/
 ├── .claude-plugin/plugin.json      # name socrates-<extension>, version, "dependencies": ["socrates"]
-├── commands/<extension>.md          # a entrada: /socrates-<extension>:<extension>
+├── commands/<extension>.md          # the entry point: /socrates-<extension>:<extension>
 ├── skills/<extension>/
-│   ├── SKILL.md                    # o método da extensão
-│   └── templates/                  # o formato do estado dela
+│   ├── SKILL.md                    # the extension's method
+│   └── templates/                  # the format of its state
 ├── CHANGELOG.md
 └── LICENSE
 ```
 
-| O contrato exige | Por quê |
-|------------------|---------|
-| `"dependencies": ["socrates"]` no `plugin.json` e na entrada do marketplace | Instalar a extensão instala o Socrates, que tem os critérios |
-| Carregar a skill `socrates:criteria` antes de usar uma escala ou uma rubrica, e ler os arquivos que ela indica | Os critérios são do Socrates, um lugar só. A extensão não copia a escala de níveis nem a rubrica: cópia diverge na primeira mudança |
-| O estado em `~/.socrates/<extension>/`, com a mesma checagem de migração do `state.md` antes de ler ou criar qualquer arquivo | O aluno tem um lugar só para o histórico dele, e a extensão sobrevive a atualizações como os cursos |
-| Ler o estado dos cursos (`profile.md`, `progress.md`, diários), **nunca escrever** nele | O progresso de um curso é do motor. Uma extensão que escreve ali quebra a reavaliação de nível, que depende do diário |
-| Comandos com `disable-model-invocation: true` e `allowed-tools` com `Read(/${CLAUDE_PLUGIN_ROOT}/**)`, `Read(~/.claude/plugins/cache/socrates/**)` e o acesso a `~/.socrates/**` | É o que deixa o primeiro turno ler a extensão, os critérios e o estado sem pedir aprovação |
-| A skill de entrada **sem** `allowed-tools` | Com ele, carregar a skill pede aprovação |
-| Uma linha na seção Extensões de `plugins/socrates/skills/socrates/catalog.md` | O onboarding do Socrates mostra o que existe antes de estar instalado |
+| The contract requires | Why |
+|-----------------------|-----|
+| `"dependencies": ["socrates"]` in `plugin.json` and in the marketplace entry | Installing the extension installs Socrates, which has the criteria |
+| Loading the skill `socrates:criteria` before using a scale or a rubric, and reading the files it points to | The criteria belong to Socrates, in one place only. The extension does not copy the level scale or the rubric: a copy diverges at the first change |
+| The state in `~/.socrates/<extension>/`, with the same migration check from `state.md` before reading or creating any file | The student has a single place for their history, and the extension survives updates like the courses do |
+| Reading the courses' state (`profile.md`, `progress.md`, journals), **never writing** to it | A course's progress belongs to the engine. An extension that writes there breaks the level reassessment, which depends on the journal |
+| Commands with `disable-model-invocation: true` and `allowed-tools` with `Read(/${CLAUDE_PLUGIN_ROOT}/**)`, `Read(~/.claude/plugins/cache/socrates/**)` and access to `~/.socrates/**` | This is what lets the first turn read the extension, the criteria and the state without asking for approval |
+| The entry skill **without** `allowed-tools` | With it, loading the skill asks for approval |
+| A line in the Extensions section of `plugins/socrates/skills/socrates/catalog.md` | The Socrates onboarding shows what exists before it is installed |
 
-O nome `<extension>` não pode ser o de um curso: os dois dividem `~/.socrates/`.
+The name `<extension>` cannot be a course's name: the two share `~/.socrates/`.

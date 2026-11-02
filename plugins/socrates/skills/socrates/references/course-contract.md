@@ -1,110 +1,115 @@
-# Contrato de curso
+# Course contract
 
-Leitura para quem **escreve** cursos, não para o aluno. O motor (`socrates:socrates`) é o
-mesmo para todos os cursos e não muda quando um curso entra. Um curso é só dado, num
-plugin à parte do marketplace `socrates`, e este arquivo é o contrato que esse plugin
-cumpre. Versão do contrato: **1**.
+Reading for whoever **writes** courses, not for the student. The engine (`socrates:socrates`)
+is the same for every course and does not change when a course is added. A course is only
+data, in a separate plugin of the `socrates` marketplace, and this file is the contract that
+plugin fulfills. Contract version: **2**.
 
-## O plugin do curso
+Version 2 renamed the Portuguese names of v1 (skill `curso` → `course`, `curso/` →
+`course/`, `curso.md` → `course.md`, `modulos/` → `modules/`), and course content is
+written in English.
+
+## The course plugin
 
 ```
-plugins/socrates-<course>/                # <course> em kebab-case, ex.: security-engineer
+plugins/socrates-<course>/                # <course> in kebab-case, e.g.: security-engineer
 ├── .claude-plugin/plugin.json           # name, version, "dependencies": ["socrates"]
-├── skills/course/SKILL.md                # a ponte: diz ao motor onde está o conteúdo
-├── curso/
-│   ├── course.md                         # visão, eixos e diagnóstico, trilha
+├── skills/course/SKILL.md                # the bridge: tells the engine where the content is
+├── course/
+│   ├── course.md                         # vision, axes and diagnosis, track
 │   └── modules/
-│       ├── 00-<nome>.md                 # um arquivo por módulo
-│       └── 01-<nome>.md
+│       ├── 00-<name>.md                 # one file per module
+│       └── 01-<name>.md
 ├── CHANGELOG.md
 └── LICENSE
 ```
 
-| Peça | O que o contrato exige | Por quê |
-|------|------------------------|---------|
-| `plugin.json` | `name` igual a `socrates-<course>`, `version` SemVer e `"dependencies": ["socrates"]` | Instalar o curso instala o motor junto; o nome é o prefixo da skill que o motor procura |
-| `skills/course/SKILL.md` | `name: curso`. A `description` começa com `Curso do Socrates: <course>.` e traz para quem é, aonde chega e a situação (o que está disponível). É a **única** fonte desses dados para um curso instalado: atualize-a no mesmo PR de cada módulo novo. O corpo diz a **raiz do curso** com `${CLAUDE_PLUGIN_ROOT}/course` e a versão do contrato. **Sem** `allowed-tools` e **sem** `disable-model-invocation` | O motor não lê arquivos de outro plugin por caminho relativo: é carregando esta skill que ele descobre o caminho absoluto. Com `allowed-tools`, carregar a skill passa a pedir aprovação, e no teste headless ela foi negada |
-| `curso/course.md` | As seções abaixo | O diagnóstico e a trilha saem daqui |
-| `curso/modules/NN-nome.md` | O formato de módulo abaixo | As lições saem daqui |
-| Marketplace | Uma entrada em `.claude-plugin/marketplace.json` da raiz, com `source: "./plugins/socrates-<course>"` e `dependencies: ["socrates"]` | É o que o aluno instala |
-| Catálogo | Uma linha em `plugins/socrates/skills/socrates/catalog.md`: para quem, aonde chega e o comando de instalar, sem a situação | É a vitrine para quem ainda não instalou. O curso instalado aparece mesmo sem ela, pela skill, então o curso funciona sem esperar uma release do motor |
+| Piece | What the contract requires | Why |
+|-------|----------------------------|-----|
+| `plugin.json` | `name` equal to `socrates-<course>`, SemVer `version` and `"dependencies": ["socrates"]` | Installing the course installs the engine with it; the name is the prefix of the skill the engine looks for |
+| `skills/course/SKILL.md` | `name: course`. The `description` starts with `Socrates course: <course>.` and gives who it is for, where you get to and the status (what is available). It is the **only** source of this data for an installed course: update it in the same PR as each new module. The body states the **course root** with `${CLAUDE_PLUGIN_ROOT}/course` and the contract version. **No** `allowed-tools` and **no** `disable-model-invocation` | The engine does not read files from another plugin by relative path: it is by loading this skill that it finds out the absolute path. With `allowed-tools`, loading the skill starts asking for approval, and in the headless test it was denied |
+| `course/course.md` | The sections below | The diagnosis and the track come from here |
+| `course/modules/<NN-name>.md` | The module format below | The lessons come from here |
+| Marketplace | An entry in the root `.claude-plugin/marketplace.json`, with `source: "./plugins/socrates-<course>"` and `dependencies: ["socrates"]` | It is what the student installs |
+| Catalog | A line in `plugins/socrates/skills/socrates/catalog.md`: who it is for, where you get to and the install command, without the status | It is the storefront for those who have not installed it yet. The installed course appears even without it, through the skill, so the course works without waiting for an engine release |
 
-Nos arquivos do curso, `<root>` continua sendo a raiz do plugin `socrates` (o motor
-conhece), e `<course>` é a raiz do curso que a skill dele indica. O formato de dado é
-Markdown: quem lê é o modelo, e o aluno abre e entende os mesmos arquivos.
+In the course files, `<root>` is still the root of the `socrates` plugin (the engine knows
+it), and `<course>` is the course root that its skill points to. The data format is
+Markdown: the model is what reads it, and the student opens and understands the same files.
 
-## Criar um curso novo
+## Creating a new course
 
-1. Copie a estrutura acima de `plugins/socrates-security-engineer/`, troque o nome e a
-   `description` da skill `curso`.
-2. Escreva `curso/course.md` com as seções abaixo e pelo menos o primeiro módulo completo.
-3. Acrescente a entrada no `marketplace.json`, a linha no catálogo do motor e a linha na
-   tabela do `README.md` da raiz.
-4. `claude plugin validate plugins/socrates-<course>` e `claude plugin validate .`.
-5. O curso começa na versão `0.1.0`, com o próprio `CHANGELOG.md`. A linha do catálogo
-   sobe um PATCH do `socrates`, mas o curso não depende dela para funcionar: só para
-   aparecer na vitrine de quem ainda não o instalou.
-6. A cada módulo novo: suba o curso (MINOR) e a situação na `description` da skill `curso`.
-   O motor não muda.
+1. Copy the structure above from `plugins/socrates-security-engineer/`, change the name and
+   the `description` of the `course` skill.
+2. Write `course/course.md` with the sections below and at least the first module complete.
+3. Add the entry in `marketplace.json`, the line in the engine's catalog and the line in the
+   table of the root `README.md`.
+4. `claude plugin validate plugins/socrates-<course>` and `claude plugin validate .`.
+5. The course starts at version `0.1.0`, with its own `CHANGELOG.md`. The catalog line
+   bumps a PATCH of `socrates`, but the course does not depend on it to work: only to
+   appear in the storefront for those who have not installed it yet.
+6. With each new module: bump the course (MINOR) and the status in the `description` of the
+   `course` skill. The engine does not change.
 
 ## `course.md`
 
-| Seção | Conteúdo |
-|-------|----------|
-| **Para quem é** | O aluno-alvo e o ponto de partida esperado |
-| **Aonde chega** | O que ele sabe fazer ao terminar |
-| **Princípio do curso** | A ideia que costura o curso inteiro |
-| **Eixos e diagnóstico** | De 3 a 6 eixos, cada um ligado a fases da trilha. Por eixo, uma escada de três perguntas: **R** (reconhecer, camadas 1 e 2), **M** (mecanismo, camada 3) e **D** (diagnóstico e decisão, camadas 4 e 5), cada uma com o critério da camada, mais uma **D2** (outro problema de diagnóstico e decisão) para quem contesta o nível 3. Escala e regras em `<root>/skills/socrates/references/levels.md` |
-| **Trilha** | Fases → módulos → lições, com o status de cada módulo (`disponível` ou `planejado`) |
+| Section | Content |
+|---------|---------|
+| **Who it is for** | The target student and the expected starting point |
+| **Where you get to** | What the student can do on finishing |
+| **Course principle** | The idea that ties the whole course together |
+| **Axes and diagnosis** | 3 to 6 axes, each linked to phases of the track. Per axis, a ladder of three questions: **R** (recognize, layers 1 and 2), **M** (mechanism, layer 3) and **D** (diagnosis and decision, layers 4 and 5), each with the layer's criteria, plus a **D2** (another diagnosis and decision problem) for whoever challenges level 3. Scale and rules in `<root>/skills/socrates/references/levels.md` |
+| **Track** | Phases → modules → lessons, with the status of each module (`available` or `planned`) |
 
-## Módulo (`modules/NN-nome.md`)
+## Module (`modules/<NN-name>.md`)
 
-Cabeçalho do módulo: **Objetivo** (uma frase), **Pré-requisitos** (módulos anteriores) e
-**Por que importa para o curso** (a ligação com o objetivo final).
+Module header: **Goal** (one sentence), **Prerequisites** (previous modules) and
+**Why it matters for the course** (the link to the final goal).
 
-Cada lição tem exatamente estas partes:
+Each lesson has exactly these parts:
 
 ```markdown
-## Lição N.M — <nome>
+## Lesson N.M — <name>
 
-**Conceito-âncora:** <a ideia que ele precisa conseguir explicar ao fim, em 1 ou 2 frases>
+**Anchor concept:** <the idea the student needs to be able to explain at the end, in 1 or 2 sentences>
 
-### Abertura
-1. <pergunta>
-   - Uma boa resposta contém: <critérios>
+### Opening
+1. <question>
+   - A good answer contains: <criteria>
 2. ...
 
-### Missão
-<O que construir com o Claude, em 2 ou 3 frases, e por que isso torna o conceito visível.>
+### Mission
+<What to build with Claude, in 2 or 3 sentences, and why that makes the concept visible.>
 
-Perguntas de especificação (antes de gerar o código):
-1. <pergunta>
-   - Uma boa resposta contém: <critérios>
+Specification questions (before generating the code):
+1. <question>
+   - A good answer contains: <criteria>
 
-### Verificação
-1. <pergunta de previsão, de quebra ou de explicação>
-   - Uma boa resposta contém: <critérios>
+### Verification
+1. <prediction, breaking or explanation question>
+   - A good answer contains: <criteria>
 
-### Ferramenta
-<A ferramenta do mercado e a pergunta que liga a ferramenta à missão.>
+### Tool
+<The industry tool and the question that links the tool to the mission.>
 
-### Explicar de volta
-<O pedido final. Critério: o que a explicação precisa conter para a lição fechar.>
+### Explain back
+<The final request. Criteria: what the explanation needs to contain for the lesson to close.>
 
-### Para o Socrates
-- **Erros comuns:** <confusões típicas e como desfazê-las>
-- **Ponte para segurança:** <por que este conceito importa para o objetivo do curso>
+### For Socrates
+- **Common mistakes:** <typical confusions and how to clear them up>
+- **Bridge to security:** <why this concept matters for the course's goal>
 ```
 
-## Regras de escrita
+## Writing rules
 
-- **Uma ideia por lição.** Se o conceito-âncora precisa de "e" para juntar duas ideias,
-  são duas lições.
-- **Perguntas sem a resposta dentro.** Ver a tabela de perguntas boas e ruins em
+- **One idea per lesson.** If the anchor concept needs an "and" to join two ideas, it is
+  two lessons.
+- **Questions without the answer inside.** See the table of good and bad questions in
   `references/method.md`.
-- **Critério observável.** "Uma boa resposta contém" lista ideias que dá para conferir na
-  resposta, não "entende bem o assunto".
-- **Missão pequena.** De 10 a 60 linhas de código, rodando na máquina dele, sem serviço
-  pago.
-- **Mudanças em módulo publicado.** Corrigir texto é PATCH. Mudar perguntas ou missão de
-  lição publicada é MINOR, com nota no CHANGELOG, porque alunos podem estar no meio dela.
+- **Observable criteria.** "A good answer contains" lists ideas that can be checked in the
+  answer, not "understands the subject well".
+- **Small mission.** 10 to 60 lines of code, running on the student's machine, with no
+  paid service.
+- **Changes to a published module.** Fixing text is PATCH. Changing the questions or the
+  mission of a published lesson is MINOR, with a note in the CHANGELOG, because students
+  may be in the middle of it.

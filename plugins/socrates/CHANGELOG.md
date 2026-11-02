@@ -1,87 +1,88 @@
 # Changelog
 
-Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/), versões
-em [Semantic Versioning](https://semver.org/lang/pt-BR/).
+Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions
+in [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
 ## [0.4.0] - 2026-11-02
 
-### Adicionado
+### Added
 
-- Skill `socrates:criterios`: diz a uma extensão onde estão os níveis, a rubrica, o
-  formato do estado e os contratos, porque um plugin não lê o outro por caminho relativo.
-- `references/contrato-de-extensao.md`: o que um plugin que não é curso precisa ter (o
-  próprio método, `dependencies: ["socrates"]`, estado em `~/.socrates/<extensão>/`, e
-  nunca escrever no estado de um curso).
-- O catálogo ganha a seção Extensões, com o PDI (`socrates-pdi`), e o onboarding mostra o
-  PDI no caminho e na revisão.
+- `socrates:criterios` skill: tells an extension where the levels, the rubric, the state
+  format and the contracts are, because one plugin does not read another by relative path.
+- `references/contrato-de-extensao.md`: what a plugin that is not a course needs to have
+  (its own method, `dependencies: ["socrates"]`, state in `~/.socrates/<extension>/`, and
+  never writing to a course's state).
+- The catalog gets the Extensions section, with the PDI (`socrates-pdi`), and onboarding
+  shows the PDI in the path and in the review.
 
 ## [0.3.0] - 2026-11-02
 
-### Alterado
+### Changed
 
-- O repositório vira um marketplace com um plugin por peça: `socrates` é o motor (método,
-  níveis, avaliação, estado do aluno), e cada curso é um plugin à parte,
-  `socrates-<curso>`, que exige o `socrates`. O primeiro é `socrates-security-engineer`.
-  Versões e tags por plugin (`socrates--v0.3.0`).
-- O motor acha um curso pela skill `socrates-<curso>:curso`, que diz a raiz do conteúdo.
-  Curso não instalado: o Socrates mostra o comando de instalar e para.
-- O onboarding mostra no catálogo se cada curso está instalado e ensina que os cursos são
-  plugins. A revisão ganha a situação **não instalado**.
-- `references/anatomia-do-curso.md` vira `references/contrato-de-curso.md`: o que um
-  plugin de curso precisa ter, além do formato de curso e de módulo.
+- The repository becomes a marketplace with one plugin per piece: `socrates` is the engine
+  (method, levels, evaluation, student state), and each course is a separate plugin,
+  `socrates-<curso>`, that requires `socrates`. The first is `socrates-security-engineer`.
+  Versions and tags per plugin (`socrates--v0.3.0`).
+- The engine finds a course through the `socrates-<curso>:curso` skill, which gives the
+  content root. Course not installed: Socrates shows the install command and stops.
+- Onboarding shows in the catalog whether each course is installed and teaches that
+  courses are plugins. The review gets the **not installed** status.
+- `references/anatomia-do-curso.md` becomes `references/contrato-de-curso.md`: what a
+  course plugin needs to have, in addition to the course and module format.
 
-- O plugin passa a se chamar **Socrates**: o plugin e o marketplace são `socrates`
-  (`claude plugin install socrates@socrates`), os comandos viram `/socrates:onboarding`,
-  `/socrates:mentor-mode` e `/socrates:feedback`, e a skill vira `socrates:socrates`
-  (`skills/socrates/`). O repositório continua `viniciusfranca019/mentor`.
-- O estado do aluno muda de `~/.mentor` para `~/.socrates`, no mesmo formato. Se só a
-  pasta antiga existe, o primeiro comando pede ao aluno que rode
-  `! mv ~/.mentor ~/.socrates` e repita o comando.
+- The plugin is now called **Socrates**: the plugin and the marketplace are `socrates`
+  (`claude plugin install socrates@socrates`), the commands become `/socrates:onboarding`,
+  `/socrates:mentor-mode` and `/socrates:feedback`, and the skill becomes `socrates:socrates`
+  (`skills/socrates/`). The repository stays `viniciusfranca019/mentor`.
+- The student's state moves from `~/.mentor` to `~/.socrates`, in the same format. If only
+  the old folder exists, the first command asks the student to run
+  `! mv ~/.mentor ~/.socrates` and repeat the command.
 
-### Corrigido
+### Fixed
 
-- Os comandos pré-autorizam a leitura dos arquivos do próprio plugin
-  (`Read(/${CLAUDE_PLUGIN_ROOT}/**)`): instalado pelo marketplace, o `/socrates:onboarding`
-  parava no primeiro turno sem conseguir ler o SKILL.md, as references e o catálogo.
+- The commands pre-authorize reading the plugin's own files
+  (`Read(/${CLAUDE_PLUGIN_ROOT}/**)`): installed from the marketplace, `/socrates:onboarding`
+  stopped on the first turn, unable to read SKILL.md, the references and the catalog.
 
 ## [0.2.0] - 2026-10-06
 
-### Adicionado
+### Added
 
-- Níveis por eixo do curso, de 1 (leigo) a 5 (expert), com pesos de profundidade
-  1, 2, 3, 5 e 9 medidos em nove camadas de conhecimento e prática
+- Levels by course axis, from 1 (layperson) to 5 (expert), with depth weights
+  1, 2, 3, 5 and 9 measured across nine layers of knowledge and practice
   (`skills/mentor/references/niveis.md`).
-- Diagnóstico adaptativo por eixo no onboarding: duas perguntas por eixo, com o
-  resultado mostrado ao aluno e registrado no `progresso.md`. No `security-engineer`,
-  os eixos são Sistemas, Redes, Construir com IA, Infraestrutura e Segurança.
-- Prova de saída: num eixo de nível 4 ou 5, o módulo pode ser validado provando as
-  camadas 6 a 9, sem pular conteúdo por declaração.
-- Reavaliação do nível do eixo pelo `/mentor:feedback` ao fim de cada fase. O diário
-  registra as camadas de cada resposta.
+- Adaptive diagnosis by axis in onboarding: two questions per axis, with the result shown
+  to the student and recorded in `progresso.md`. In `security-engineer`, the axes are
+  Systems, Networks, Building with AI, Infrastructure and Security.
+- Exit test: on an axis at level 4 or 5, the module can be validated by proving layers
+  6 to 9, without skipping content by declaration.
+- Reassessment of the axis level by `/mentor:feedback` at the end of each phase. The
+  journal records the layers of each answer.
 
-### Alterado
+### Changed
 
-- Onboarding direto ao ponto: a primeira mensagem mostra o catálogo de cursos e pergunta
-  qual o aluno quer, e o bloco "O caminho" mostra em uma tela o uso no dia a dia e como
-  trocar de curso depois.
-- As quatro fases da lição passam a ser explicadas no início da primeira lição, e não no
+- Straight-to-the-point onboarding: the first message shows the course catalog and asks
+  which one the student wants, and the "The path" block shows on one screen
+  the day-to-day use and how to switch course later.
+- The four lesson phases are now explained at the start of the first lesson, not in
   onboarding.
-- Rever o onboarding com perfil já criado mostra os cursos com a situação de cada um
-  (ativo, iniciado, não iniciado) e as opções: continuar, voltar a um curso, começar um
-  curso novo ou ajustar o ritmo. Começar outro curso faz só o diagnóstico dele.
+- Revisiting onboarding with a profile already created shows the courses with the status
+  of each one (active, started, not started) and the options: continue, go back to a
+  course, start a new course or adjust the pace. Starting another course runs only its
+  diagnosis.
 
 ## [0.1.0] - 2026-10-06
 
-### Adicionado
+### Added
 
-- Motor de mentoria (`skills/mentor`): método socrático em quatro fases (Abertura,
-  Missão, Verificação, Ferramenta), escada de pistas, construção com IA guiada por
-  especificação, estado do aluno em `~/.mentor` e templates de perfil, progresso e diário.
-- Comandos `/mentor:onboarding`, `/mentor:mentor-mode` e `/mentor:feedback`.
-- Curso `security-engineer`: trilha de 42 módulos em 8 fases, diagnóstico inicial,
-  módulo 00 (Seu laboratório) e módulo 01 (Como o computador representa as coisas).
+- Mentoring engine (`skills/mentor`): Socratic method in four phases (Opening, Mission,
+  Verification, Tool), hint ladder, AI-assisted building guided by specification, student
+  state in `~/.mentor` and templates for profile, progress and journal.
+- Commands `/mentor:onboarding`, `/mentor:mentor-mode` and `/mentor:feedback`.
+- `security-engineer` course: a track of 42 modules in 8 phases, initial diagnosis,
+  module 00 (Your lab) and module 01 (How the computer represents things).
 
 [Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.4.0...HEAD
 [0.4.0]: https://github.com/viniciusfranca019/mentor/compare/socrates--v0.3.0...socrates--v0.4.0

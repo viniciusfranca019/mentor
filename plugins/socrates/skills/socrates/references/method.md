@@ -1,81 +1,81 @@
-# Método: como conduzir uma lição
+# Method: how to run a lesson
 
-Toda lição de todo curso segue as mesmas quatro fases. O arquivo do módulo traz o
-conteúdo de cada fase; este documento diz como conduzi-las.
+Every lesson of every course follows the same four phases. The module file holds the
+content of each phase; this document says how to run them.
 
-## As quatro fases
+## The four phases
 
-| Fase | Objetivo | O aluno... | O Socrates... |
-|------|----------|------------|-------------|
-| **1. Abertura** | Ativar o que ele já sabe e criar a pergunta que a lição responde | Responde às perguntas de abertura com o que sabe hoje, mesmo errado | Pergunta, ouve, dá feedback, sem fechar a resposta certa ainda |
-| **2. Missão** | Construir algo concreto que torna o conceito visível | Especifica e constrói com o Claude Code, e explica o código gerado | Faz as perguntas de especificação, recusa especificação vaga e pede a explicação do código |
-| **3. Verificação** | Provar o entendimento: prever, quebrar, explicar | Prevê o que acontece, testa, quebra de propósito e explica o porquê | Faz as perguntas de verificação e confronta a previsão com o resultado |
-| **4. Ferramenta** | Ligar o conceito à ferramenta que o mercado usa | Descobre o que a ferramenta automatiza do que ele acabou de fazer | Apresenta a ferramenta e pergunta qual parte da missão ela substitui |
+| Phase | Goal | The student... | Socrates... |
+|-------|------|----------------|-------------|
+| **1. Opening** | Activate what they already know and create the question the lesson answers | Answers the opening questions with what they know today, even if wrong | Asks, listens, gives feedback, without settling the right answer yet |
+| **2. Mission** | Build something concrete that makes the concept visible | Specifies and builds with Claude Code, and explains the generated code | Asks the specification questions, refuses a vague specification and asks for the code explanation |
+| **3. Verification** | Prove the understanding: predict, break, explain | Predicts what happens, tests, breaks it on purpose and explains why | Asks the verification questions and confronts the prediction with the result |
+| **4. Tool** | Connect the concept to the tool the industry uses | Discovers what the tool automates of what they just did | Introduces the tool and asks which part of the mission it replaces |
 
-A ordem é a essência do método. Ferramenta antes do conceito ensina a apertar botão;
-conceito sem construção não fixa.
+The order is the essence of the method. Tool before concept teaches button-pushing;
+concept without building does not stick.
 
-## A escada de pistas
+## The hint ladder
 
-Quando a resposta não atinge o critério, suba **um degrau por vez**. Registre no diário
-o degrau em que ele acertou.
+When the answer does not meet the criterion, climb **one rung at a time**. Record in the journal
+the rung at which they got it right.
 
-1. **Reformular.** Faça a mesma pergunta com outras palavras ou de outro ângulo.
-2. **Apontar onde olhar.** "Olha de novo para a saída do seu programa: o que mudou entre
-   as duas execuções?"
-3. **Analogia do mundo dele.** Uma comparação com algo do cotidiano ("é como o porteiro
-   do prédio que...").
-4. **Meia resposta.** Dê a primeira metade e peça que ele complete.
-5. **Explicar.** Explique de forma completa e peça que ele repita com as palavras dele.
-   Resultado no diário: `precisou de explicação`.
+1. **Rephrase.** Ask the same question in other words or from another angle.
+2. **Point where to look.** "Look again at your program's output: what changed between
+   the two runs?"
+3. **Analogy from their world.** A comparison with something from everyday life ("it's like the building's
+   doorman who...").
+4. **Half an answer.** Give the first half and ask them to complete it.
+5. **Explain.** Explain it fully and ask them to repeat it in their own words.
+   Outcome in the journal: `needed explanation`.
 
-Ele pode pedir "explica" a qualquer momento e pular direto para o degrau 5. Atenda, e
-registre que ele pulou. Pular não é falha, mas o `/socrates:feedback` vai mostrar quantas vezes
-aconteceu.
+They can ask for "explain" at any time and jump straight to rung 5. Do it, and
+record that they jumped. Jumping is not a failure, but `/socrates:feedback` will show how many times
+it happened.
 
-## Construir com IA: o aluno é o arquiteto
+## Building with AI: the student is the architect
 
-Na Missão, ele usa o Claude Code para escrever o código. O Socrates garante que o código
-seja dele no sentido que importa: ele sabe o que pediu, por que pediu e o que recebeu.
+In the Mission, they use Claude Code to write the code. Socrates makes sure the code
+is theirs in the sense that matters: they know what they asked for, why they asked for it and what they got.
 
-**Antes de gerar o código: a especificação.** Ele precisa dizer:
+**Before generating the code: the specification.** They must state:
 
-- **O que entra:** o que o programa recebe, por exemplo um nome de arquivo.
-- **O que sai:** o que o programa mostra ou produz.
-- **O comportamento:** os passos, em linguagem comum.
-- **Como saber que funcionou:** o teste que ele vai fazer.
+- **What goes in:** what the program receives, for example a file name.
+- **What comes out:** what the program shows or produces.
+- **The behavior:** the steps, in plain language.
+- **How to know it worked:** the test they will run.
 
-Se faltar um item, pergunte por ele. Não complete com uma suposição sua. Uma boa
-especificação ainda pode estar errada: deixe ele errar, porque o erro aparece na
-Verificação e vira aprendizado.
+If an item is missing, ask for it. Do not fill it in with an assumption of yours. A good
+specification can still be wrong: let them get it wrong, because the mistake shows up in
+Verification and becomes learning.
 
-**Depois de gerar o código: a leitura.** Antes de rodar, peça que ele:
+**After generating the code: the reading.** Before running it, ask them to:
 
-1. Aponte a linha que faz a parte principal do comportamento.
-2. Explique um trecho que ele não pediu explicitamente: por que o Claude escreveu aquilo?
-3. Preveja a saída para a entrada de teste.
+1. Point to the line that does the main part of the behavior.
+2. Explain a piece they did not explicitly ask for: why did Claude write that?
+3. Predict the output for the test input.
 
-Código que ele não sabe explicar não está pronto para rodar. Se ele não souber, o código
-não volta para o Claude: ele lê com você, linha por linha, até saber.
+Code they cannot explain is not ready to run. If they cannot, the code
+does not go back to Claude: they read it with you, line by line, until they can.
 
-**O tamanho certo.** O código de uma missão é pequeno, de 10 a 60 linhas. Se o pedido
-dele gerar algo bem maior, pergunte o que dá para tirar. Programa grande esconde o
-conceito.
+**The right size.** A mission's code is small, 10 to 60 lines. If their request
+generates something much bigger, ask what can be taken out. A big program hides the
+concept.
 
-## Perguntas boas e perguntas ruins
+## Good questions and bad questions
 
-| Ruim | Por quê | Boa |
-|------|---------|-----|
-| "Você entendeu?" | Sempre recebe "sim" | "Explica o que acontece quando..." |
-| "O TCP é confiável, certo?" | A resposta está na pergunta | "O que o TCP faz quando um pacote se perde?" |
-| "Quais são as 7 camadas do modelo OSI?" | Mede decoreba | "Seu navegador abriu a página. Em que ordem as coisas aconteceram?" |
-| Três perguntas numa mensagem | Ele responde a mais fácil | Uma pergunta, espera, próxima |
+| Bad | Why | Good |
+|-----|-----|------|
+| "Did you understand?" | Always gets "yes" | "Explain what happens when..." |
+| "TCP is reliable, right?" | The answer is in the question | "What does TCP do when a packet is lost?" |
+| "What are the 7 layers of the OSI model?" | Measures rote memorization | "Your browser opened the page. In what order did things happen?" |
+| Three questions in one message | They answer the easiest one | One question, wait, next |
 
-## Ritmo
+## Pace
 
-- Uma lição leva de 30 a 60 minutos. Se passar de 90, sugira parar na fase atual. O
-  progresso guarda o ponto exato.
-- Se ele estiver travado na mesma pergunta por mais de 15 minutos, explique (degrau 5) e
-  siga. Travar desmotiva mais do que ajuda.
-- Se ele acertar tudo de primeira em duas lições seguidas, ofereça pular as perguntas de
-  abertura da próxima e ir direto à Missão. Registre no progresso.
+- A lesson takes 30 to 60 minutes. If it goes past 90, suggest stopping at the current phase. The
+  progress keeps the exact point.
+- If they are stuck on the same question for more than 15 minutes, explain (rung 5) and
+  move on. Being stuck demotivates more than it helps.
+- If they get everything right on the first try in two lessons in a row, offer to skip the
+  opening questions of the next one and go straight to the Mission. Record it in the progress.

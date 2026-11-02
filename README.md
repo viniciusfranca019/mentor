@@ -1,42 +1,42 @@
 # Socrates
 
-Um mentor socrático dentro do Claude Code. O Socrates conduz um curso lição a lição: faz
-perguntas em vez de dar respostas, deixa você construir com IA enquanto questiona cada
-decisão e, no fim do dia, avalia como você foi.
+A Socratic mentor inside Claude Code. Socrates runs a course lesson by lesson: it asks
+questions instead of giving answers, lets you build with AI while it questions every
+decision and, at the end of the day, evaluates how you did.
 
-O Socrates não proíbe a IA: ensina a dirigir a IA. Você usa o Claude Code para escrever
-código o tempo todo, mas antes de gerar qualquer coisa você especifica o que quer, e
-depois explica o que recebeu. Ferramenta, inclusive de IA, é atalho de algo que você já
-entende.
+Socrates does not forbid AI: it teaches you to drive AI. You use Claude Code to write
+code all the time, but before generating anything you specify what you want, and
+afterwards you explain what you got. A tool, AI included, is a shortcut for something you
+already understand.
 
-## O marketplace
+## The marketplace
 
-O Socrates é o mentor, e cada curso é um plugin à parte que ele conduz. Instalar um
-curso instala o Socrates junto.
+Socrates is the mentor, and each course is a separate plugin that it runs. Installing a
+course installs Socrates with it.
 
-| Plugin | O que é |
-|--------|---------|
-| `socrates` | O mentor: método socrático, níveis por eixo, avaliação do dia e o seu progresso em `~/.socrates` |
-| `socrates-pdi` | Extensão: o seu PDI, plano de desenvolvimento individual, com a escala de níveis do Socrates, ações 70-20-10 e check-ins. Entrada: `/socrates-pdi:pdi` |
-| `socrates-security-engineer` | Curso: engenheiro de segurança na era da IA, para quem tem formação em TI mas pouca prática de programação, redes e infraestrutura |
+| Plugin | What it is |
+|--------|------------|
+| `socrates` | The mentor: Socratic method, levels by axis, day evaluation and your progress in `~/.socrates` |
+| `socrates-pdi` | Extension: your PDI, Individual Development Plan, with the Socrates level scale, 70-20-10 actions and check-ins. Entry point: `/socrates-pdi:pdi` |
+| `socrates-security-engineer` | Course: security engineer in the age of AI, for people with an IT background but little practice in programming, networks and infrastructure |
 
-O que cada curso já tem disponível aparece no `/socrates:onboarding`.
+What each course already has available shows up in `/socrates:onboarding`.
 
 ## Setup
 
-Pré-requisito: [Claude Code](https://code.claude.com) instalado.
+Prerequisite: [Claude Code](https://code.claude.com) installed.
 
 ```bash
 claude plugin marketplace add viniciusfranca019/mentor
 claude plugin install socrates-security-engineer@socrates
 ```
 
-O segundo comando instala o curso e o `socrates`. Outro curso, depois, é só mais um
-`claude plugin install socrates-<course>@socrates`; o `/socrates:onboarding` mostra o
-catálogo e o comando de cada um. O PDI também: `claude plugin install socrates-pdi@socrates`.
+The second command installs the course and `socrates`. Another course, later, is just one
+more `claude plugin install socrates-<course>@socrates`; `/socrates:onboarding` shows the
+catalog and the command for each one. The PDI too: `claude plugin install socrates-pdi@socrates`.
 
-Instalou quando ele ainda se chamava Mentor? Troque o plugin uma vez e mova o seu
-progresso com `mv ~/.mentor ~/.socrates` (o primeiro comando também te lembra disso):
+Installed it back when it was still called Mentor? Swap the plugin once and move your
+progress with `mv ~/.mentor ~/.socrates` (the first command also reminds you of this):
 
 ```bash
 claude plugin uninstall mentor@mentor
@@ -45,63 +45,63 @@ claude plugin marketplace add viniciusfranca019/mentor
 claude plugin install socrates-security-engineer@socrates
 ```
 
-Depois, dentro do Claude Code:
+Then, inside Claude Code:
 
-| Comando | Quando usar |
-|---------|-------------|
-| `/socrates:onboarding` | Na primeira vez: mostra os cursos, o caminho e faz o diagnóstico. Depois: ver os cursos, trocar de curso ou ajustar o ritmo |
-| `/socrates:mentor-mode` | Sempre que for estudar. Retoma de onde você parou |
-| `/socrates:feedback` | Ao terminar as lições do dia. Avalia como você foi |
+| Command | When to use it |
+|---------|----------------|
+| `/socrates:onboarding` | The first time: shows the courses, the path and runs the diagnosis. Later: see the courses, switch course or adjust the pace |
+| `/socrates:mentor-mode` | Every time you study. Picks up where you stopped |
+| `/socrates:feedback` | When you finish the day's lessons. Evaluates how you did |
 
-> Use o prefixo `socrates:` no feedback: o `/feedback` sem prefixo é o comando do próprio
-> Claude Code para mandar feedback à Anthropic.
+> Use the `socrates:` prefix on feedback: `/feedback` without a prefix is Claude Code's own
+> command for sending feedback to Anthropic.
 
-### Receber atualizações
+### Getting updates
 
-Módulos novos chegam como novas versões do plugin do curso, e melhorias do método como
-novas versões do `socrates`. Para recebê-las sozinho,
-ligue o auto-update deste marketplace (vem desligado para marketplaces de terceiros):
-`/plugin` → **Marketplaces** → `socrates` → **Enable auto-update**. Ou atualize na mão:
+New modules arrive as new versions of the course plugin, and improvements to the method as
+new versions of `socrates`. To get them automatically,
+turn on auto-update for this marketplace (it is off by default for third-party marketplaces):
+`/plugin` → **Marketplaces** → `socrates` → **Enable auto-update**. Or update by hand:
 
 ```bash
 claude plugin update socrates@socrates
 claude plugin update socrates-security-engineer@socrates
 ```
 
-Uma sessão aberta continua na versão antiga até `/reload-plugins` ou uma sessão nova.
+An open session stays on the old version until `/reload-plugins` or a new session.
 
-## Seu progresso
+## Your progress
 
-Fica na sua máquina, em `~/.socrates`, e nunca é apagado por uma atualização do plugin:
+It lives on your machine, in `~/.socrates`, and is never deleted by a plugin update:
 
 ```
 ~/.socrates/
-├── profile.md                    # você, o curso ativo e o ritmo combinado
+├── profile.md                    # you, the active course and the agreed pace
 └── <course>/
-    ├── progress.md             # onde parou, o que concluiu, o que revisar
-    └── journal/YYYY-MM-DD.md     # cada pergunta, sua resposta e o feedback
+    ├── progress.md               # where you stopped, what you finished, what to review
+    └── journal/YYYY-MM-DD.md     # every question, your answer and the feedback
 ```
 
-## Como funciona por dentro
+## How it works inside
 
-| Peça | O que é |
-|------|---------|
-| `plugins/socrates/` | O motor: o método socrático, os níveis, a rubrica do feedback, o formato do estado e o catálogo de cursos. É o mesmo para todos os cursos |
-| `plugins/socrates-pdi/` | Uma extensão: traz o próprio método (montar o PDI e fazer o check-in) e lê do Socrates os critérios, pela skill `socrates:criteria` |
-| `plugins/socrates-<course>/` | Um curso: a trilha (`curso/course.md`), um arquivo por módulo e a skill `curso`, que diz ao motor onde está o conteúdo |
-| `.claude-plugin/marketplace.json` | A lista de plugins que o `marketplace add` traz |
+| Piece | What it is |
+|-------|------------|
+| `plugins/socrates/` | The engine: the Socratic method, the levels, the feedback rubric, the state format and the course catalog. It is the same for every course |
+| `plugins/socrates-pdi/` | An extension: brings its own method (build the PDI and run the check-in) and reads the criteria from Socrates, through the `socrates:criteria` skill |
+| `plugins/socrates-<course>/` | A course: the track (`course/course.md`), one file per module and the `course` skill, which tells the engine where the content is |
+| `.claude-plugin/marketplace.json` | The list of plugins that `marketplace add` brings |
 
-Para escrever um curso novo, veja o
-[contrato de curso](plugins/socrates/skills/socrates/references/course-contract.md); para
-uma extensão, o [contrato de extensão](plugins/socrates/skills/socrates/references/extension-contract.md).
+To write a new course, see the
+[course contract](plugins/socrates/skills/socrates/references/course-contract.md); for
+an extension, the [extension contract](plugins/socrates/skills/socrates/references/extension-contract.md).
 
-## Versionamento
+## Versioning
 
-[Semantic Versioning](https://semver.org/lang/pt-BR/) por plugin, com tags
-`<plugin>--vX.Y.Z` (ex.: `socrates--v0.3.0`). A versão no `plugin.json` de cada plugin é
-o que dispara a atualização para quem já instalou: um commit novo sem subir a versão não
-chega a ninguém. Cada plugin tem o seu `CHANGELOG.md`.
+[Semantic Versioning](https://semver.org/) per plugin, with tags
+`<plugin>--vX.Y.Z` (e.g. `socrates--v0.3.0`). The version in each plugin's `plugin.json` is
+what triggers the update for people who already installed it: a new commit without a
+version bump reaches no one. Each plugin has its own `CHANGELOG.md`.
 
-## Licença
+## License
 
 [Apache 2.0](LICENSE).

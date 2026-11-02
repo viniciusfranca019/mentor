@@ -1,145 +1,149 @@
-# Níveis por eixo
+# Levels by axis
 
-O nível do aluno é medido **por eixo do curso**, nunca um nível só: quem já programa mas
-nunca viu redes é praticante num eixo e leigo no outro. Os eixos de cada curso, e a
-escada de perguntas de cada eixo, estão no `course.md` dele.
+The student's level is measured **per course axis**, never as a single level: someone who
+already programs but has never seen networking is a practitioner on one axis and a
+layperson on the other. Each course's axes, and the question ladder for each axis, are in
+its `course.md`.
 
-## A escala
+## The scale
 
-São cinco níveis. O peso de cada nível é a **profundidade** que ele exige, contada em
-camadas de conhecimento e prática: 1, 2, 3, 5 e 9. Do 1 ao 3 sobe uma camada por vez. Do
-3 para o 4 o salto é de duas camadas, e do 4 para o 5, de quatro.
+There are five levels. The weight of each level is the **depth** it requires, counted in
+layers of knowledge and practice: 1, 2, 3, 5 and 9. From 1 to 3 it goes up one layer at a
+time. From 3 to 4 the jump is two layers, and from 4 to 5, four.
 
-| Nível | Nome | Peso | O que a pessoa consegue |
-|-------|------|------|-------------------------|
-| 1 | Leigo | 1 | Sabe que aquilo existe, de forma vaga |
-| 2 | Iniciante | 2 | Reconhece os termos e segue um tutorial |
-| 3 | Praticante | 3 | Explica o mecanismo com as próprias palavras e faz sozinho o caso comum |
-| 4 | Proficiente | 5 | Diagnostica o que deu errado e escolhe entre abordagens com motivo |
-| 5 | Expert | 9 | Faz o caso fora do comum, ensina, antecipa ataques e conhece o próprio limite |
+| Level | Name | Weight | What the person can do |
+|-------|------|--------|------------------------|
+| 1 | Layperson | 1 | Knows it exists, vaguely |
+| 2 | Beginner | 2 | Recognizes the terms and follows a tutorial |
+| 3 | Practitioner | 3 | Explains the mechanism in their own words and does the common case alone |
+| 4 | Proficient | 5 | Diagnoses what went wrong and chooses between approaches with a reason |
+| 5 | Expert | 9 | Does the uncommon case, teaches, anticipates attacks and knows their own limits |
 
-## As nove camadas
+## The nine layers
 
-| Camada | O aluno demonstra | Completa o nível |
-|--------|-------------------|------------------|
-| 1. Noção | Sabe que existe e para que serve, ainda que vago | 1 |
-| 2. Definição | Define corretamente, com o termo certo | 2 |
-| 3. Mecanismo | Explica como funciona com as próprias palavras e faz o caso comum | 3 |
-| 4. Diagnóstico | Acha a causa quando algo dá errado | |
-| 5. Decisão | Escolhe entre abordagens e diz o motivo e o custo de cada uma | 4 |
-| 6. Execução real | Faz um caso fora do comum sem roteiro nem pista | |
-| 7. Ensino | Explica para um leigo, com um exemplo do mundo dele | |
-| 8. Visão de ataque | Antecipa como aquilo falha ou como seria atacado | |
-| 9. Conexão e limite | Liga o assunto a outros domínios e diz onde o próprio conhecimento acaba | 5 |
+| Layer | The student demonstrates | Completes level |
+|-------|--------------------------|-----------------|
+| 1. Notion | Knows it exists and what it is for, even if vaguely | 1 |
+| 2. Definition | Defines it correctly, with the right term | 2 |
+| 3. Mechanism | Explains how it works in their own words and does the common case | 3 |
+| 4. Diagnosis | Finds the cause when something goes wrong | |
+| 5. Decision | Chooses between approaches and states the reason and cost of each | 4 |
+| 6. Real execution | Does an uncommon case with no script and no hint | |
+| 7. Teaching | Explains it to a layperson, with an example from their world | |
+| 8. Attacker's view | Anticipates how it fails or how it would be attacked | |
+| 9. Connection and limits | Links the subject to other domains and says where their own knowledge ends | 5 |
 
-## Como classificar
+## How to classify
 
-- **Cumulativo.** O nível é o mais alto cujas camadas, até o peso dele, estão **todas**
-  demonstradas. Quem fala de trade-off (camada 5) mas não explica o mecanismo (camada 3)
-  fica no nível 2: falta uma camada no meio, e vocabulário avançado sem base não sobe nível.
-- **Na dúvida, a camada não conta.** Só registre a camada que a resposta mostra com
-  clareza. Superestimar é o erro mais caro: em segurança, achar que sabe o que não sabe é
-  exatamente o que o curso existe para corrigir.
-- **Pela resposta, nunca pela declaração.** "Eu já sei isso" não demonstra camada
-  nenhuma. Se ele contestar um nível, siga a seção Contestação.
+- **Cumulative.** The level is the highest one whose layers, up to its weight, are **all**
+  demonstrated. Someone who talks about trade-offs (layer 5) but does not explain the
+  mechanism (layer 3) stays at level 2: a layer is missing in the middle, and advanced
+  vocabulary without a base does not raise the level.
+- **When in doubt, the layer does not count.** Only record the layer the answer shows
+  clearly. Overestimating is the most expensive mistake: in security, thinking you know
+  what you do not is exactly what the course exists to correct.
+- **By the answer, never by the claim.** "I already know this" demonstrates no layer. If
+  the student challenges a level, follow the Challenge section.
 
-## Diagnóstico (no onboarding)
+## Diagnosis (in onboarding)
 
-Cada eixo tem uma escada de três perguntas no `course.md`:
+Each axis has a ladder of three questions in `course.md`:
 
-| Degrau | Pede | Camadas que testa |
-|--------|------|-------------------|
-| **R** Reconhecer | Dizer o que é | 1 e 2 |
-| **M** Mecanismo | Explicar como funciona | 3 |
-| **D** Diagnóstico | Achar a causa de um problema **e** escolher a correção, com o custo | 4 e 5 |
+| Rung | Asks for | Layers it tests |
+|------|----------|-----------------|
+| **R** Recognize | Saying what it is | 1 and 2 |
+| **M** Mechanism | Explaining how it works | 3 |
+| **D** Diagnose | Finding the cause of a problem **and** choosing the fix, with its cost | 4 and 5 |
 
-Por eixo, comece pelo M. Se a resposta atingiu o critério, faça o D. Se não, faça o R.
-São duas perguntas por eixo. Uma pergunta por vez, sem corrigir, como no resto do
-diagnóstico. O nível sai deste caminho, e só dele:
+Per axis, start with M. If the answer met the criteria, ask D. If not, ask R.
+That is two questions per axis. One question at a time, without correcting, as in the rest
+of the diagnosis. The level comes from this path, and only from it:
 
-| M | Segunda pergunta | Nível | Camadas registradas |
-|---|------------------|-------|---------------------|
-| atingiu a camada 3 | D com as camadas 4 **e** 5 | 4 | 1 a 5 |
-| atingiu a camada 3 | D sem as duas | 3 | 1 a 3, mais a 4 se ela apareceu |
-| não atingiu | R com a camada 2 | 2 | 1 e 2 |
-| não atingiu | R sem a camada 2 | 1 | a 1 se ela apareceu, senão nenhuma |
+| M | Second question | Level | Layers recorded |
+|---|-----------------|-------|-----------------|
+| reached layer 3 | D with layers 4 **and** 5 | 4 | 1 to 5 |
+| reached layer 3 | D without both | 3 | 1 to 3, plus 4 if it appeared |
+| did not reach | R with layer 2 | 2 | 1 and 2 |
+| did not reach | R without layer 2 | 1 | 1 if it appeared, otherwise none |
 
-Na escada do diagnóstico, atingir o M conta também as camadas 1 e 2, porque explicar o
-mecanismo pressupõe saber o que a coisa é. O nível 1 é o piso: vale mesmo sem nenhuma
-camada demonstrada.
+On the diagnosis ladder, reaching M also counts layers 1 and 2, because explaining the
+mechanism presupposes knowing what the thing is. Level 1 is the floor: it applies even with
+no layer demonstrated.
 
-## Contestação
+## Challenge
 
-Se ele contestar um nível no resultado do diagnóstico, uma pergunta nova decide, nunca a
-declaração dele:
+If the student challenges a level in the diagnosis result, a new question decides, never
+their claim:
 
-| Nível contestado | Pergunta | Se atingir o critério |
-|------------------|----------|-----------------------|
-| 1 ou 2 | A **M** do eixo, reformulada com outras palavras (degrau 1 da escada de pistas) | Faça a **D** e classifique pela tabela acima |
-| 3 | A **D2** do eixo, no `course.md`: outro problema de diagnóstico e decisão | Nível 4 |
-| 4 | Nenhuma. As camadas 6 a 9 só saem da prova de saída, oferecida no primeiro módulo do eixo | — |
+| Challenged level | Question | If it meets the criteria |
+|------------------|----------|--------------------------|
+| 1 or 2 | The axis's **M**, reworded (rung 1 of the hint ladder) | Ask the **D** and classify with the table above |
+| 3 | The axis's **D2**, in `course.md`: another diagnosis and decision problem | Level 4 |
+| 4 | None. Layers 6 to 9 only come from the exit test, offered in the axis's first module | — |
 
-O diagnóstico vai até o nível 4: as camadas 1 a 5 aparecem numa conversa. As camadas 6
-a 9 pedem fazer, ensinar e atacar, e só saem da prova de saída.
+The diagnosis goes up to level 4: layers 1 to 5 show up in a conversation. Layers 6 to 9
+require doing, teaching and attacking, and only come from the exit test.
 
-**O resultado para o aluno.** Ao fim do diagnóstico, mostre uma tabela: eixo, nível, a
-próxima camada que falta e o que isso muda na trilha dele (tabela abaixo). Registre o
-nível, as camadas e a resposta que justificou cada uma na seção "Níveis por eixo" do
+**The result for the student.** At the end of the diagnosis, show a table: axis, level,
+the next missing layer and what that changes in their track (table below). Record the
+level, the layers and the answer that justified each one in the "Levels by axis" section of
 `progress.md`.
 
-## O que o nível muda na trilha
+## What the level changes in the track
 
-| Nível no eixo | Como conduzir os módulos desse eixo |
-|---------------|-------------------------------------|
-| 1 e 2 | Trilha completa, Aberturas com calma, pistas mais cedo |
-| 3 | Trilha completa, Aberturas aceleradas |
-| 4 e 5 | Antes de cada módulo do eixo, ofereça a **prova de saída** |
+| Level on the axis | How to run that axis's modules |
+|-------------------|--------------------------------|
+| 1 and 2 | Full track, unhurried Openings, hints earlier |
+| 3 | Full track, faster Openings |
+| 4 and 5 | Before each module of the axis, offer the **exit test** |
 
-O nível nunca pula conteúdo sozinho. Ele só libera a prova de saída, e quem pula o
-módulo é quem passa nela.
+The level never skips content on its own. It only unlocks the exit test, and who skips
+the module is whoever passes it.
 
-## Prova de saída
+## Exit test
 
-Oferecida no início de um módulo cujo eixo está no nível 4 ou 5. Ele pode recusar e fazer
-o módulo normal. A prova testa as camadas 6 a 9 sobre o conteúdo do módulo, uma pergunta
-por vez:
+Offered at the start of a module whose axis is at level 4 or 5. The student can decline and
+do the module normally. The test checks layers 6 to 9 on the module's content, one question
+at a time:
 
-1. **Execução real (6).** Uma variação da Missão de uma lição do módulo, diferente da
-   missão escrita, feita sem pista. Ele especifica e explica o código, como em qualquer
-   Missão.
-2. **Ensino (7).** Explicar o conceito-âncora de cada lição do módulo para um leigo, com
-   um exemplo do mundo da pessoa.
-3. **Visão de ataque (8).** Como aquilo falha, ou como seria atacado.
-4. **Conexão e limite (9).** Onde aquilo aparece em outro eixo do curso, e o que ele
-   ainda não sabe sobre o assunto.
+1. **Real execution (6).** A variation of the Mission of one of the module's lessons,
+   different from the written mission, done with no hint. The student specifies and
+   explains the code, as in any Mission.
+2. **Teaching (7).** Explain the anchor concept of each lesson in the module to a
+   layperson, with an example from that person's world.
+3. **Attacker's view (8).** How it fails, or how it would be attacked.
+4. **Connection and limits (9).** Where it shows up on another axis of the course, and what
+   the student still does not know about the subject.
 
-| Resultado | O que acontece |
-|-----------|----------------|
-| As quatro camadas demonstradas | Módulo **validado**: marque as lições como `[v]` no `progress.md`, com a data, e o eixo vai para o nível 5 |
-| Faltou alguma | O módulo segue normal, sem penalidade, e o eixo continua no nível em que estava |
+| Result | What happens |
+|--------|--------------|
+| All four layers demonstrated | Module **validated**: mark the lessons as `[v]` in `progress.md`, with the date, and the axis goes to level 5 |
+| Some layer missing | The module runs normally, with no penalty, and the axis stays at the level it was |
 
-Validar o módulo dispensa as lições, não o que elas deixam pronto. Se a Missão de uma
-lição produz algo que os módulos seguintes usam, como o laboratório do módulo 00 ou uma
-ferramenta instalada, ele faz essa parte mesmo com o módulo validado.
+Validating the module waives the lessons, not what they leave ready. If a lesson's Mission
+produces something the following modules use, such as the module 00 lab or an installed
+tool, the student does that part even with the module validated.
 
-Registre a prova no diário como qualquer pergunta, com as camadas demonstradas.
+Record the test in the journal like any question, with the layers demonstrated.
 
-## Reavaliação
+## Reassessment
 
-O nível muda com o que ele demonstra durante a trilha, não só no diagnóstico.
+The level changes with what the student demonstrates during the track, not only in the
+diagnosis.
 
-- **A cada resposta**, o diário registra a camada que a pergunta pedia (a mais funda que o
-  critério dela exige) e as camadas que **ele** demonstrou, sozinho ou com pista. O que
-  veio da sua explicação nunca entra em "Camadas".
-- **Ao fim de cada fase da trilha**, o `/socrates:feedback` lê **todos** os diários da fase,
-  do primeiro dia da primeira lição dela até hoje, e reavalia o eixo:
-  - **Sobe** quando as camadas que faltavam para o nível seguinte apareceram com clareza
-    nas respostas, até o nível 4. O 5 só vem da prova de saída.
-  - **Desce** quando as duas últimas perguntas que pediram a mesma camada N, mesmo com
-    outras perguntas entre elas, terminaram com Resultado `precisou de explicação`,
-    sendo N uma camada já registrada como demonstrada. A camada N sai das "Camadas
-    demonstradas", e o nível passa a ser o mais alto cujas camadas continuam todas
-    demonstradas (regra cumulativa).
-  - Atualize "Níveis por eixo" com a data e as respostas que justificaram.
-- **Aluno sem a seção "Níveis por eixo"** no `progress.md` (começou numa versão anterior
-  do plugin): faça o diagnóstico de níveis no início da próxima sessão, antes da lição.
+- **On every answer**, the journal records the layer the question asked for (the deepest
+  one its criteria require) and the layers **the student** demonstrated, unaided or with a
+  hint. What came from your explanation never goes into "Layers".
+- **At the end of each phase of the track**, `/socrates:feedback` reads **all** the
+  journals of the phase, from the first day of its first lesson until today, and reassesses
+  the axis:
+  - **Up** when the layers missing for the next level showed up clearly in the answers,
+    up to level 4. Level 5 only comes from the exit test.
+  - **Down** when the last two questions that asked for the same layer N, even with other
+    questions between them, ended with Result `needed explanation`, N being a layer
+    already recorded as demonstrated. Layer N leaves the "Demonstrated layers", and the
+    level becomes the highest one whose layers all remain demonstrated (cumulative rule).
+  - Update "Levels by axis" with the date and the answers that justified it.
+- **Student without the "Levels by axis" section** in `progress.md` (started on an earlier
+  version of the plugin): run the level diagnosis at the start of the next session, before
+  the lesson.

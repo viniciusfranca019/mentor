@@ -1,25 +1,25 @@
-# Catálogo de cursos
+# Course catalog
 
-A vitrine dos cursos que existem no marketplace `socrates`, para o aluno ver o que pode
-instalar. Cada curso é um plugin; instalar um curso instala o `socrates` junto, se faltar.
-O comando vai no Claude Code; depois dele, `/reload-plugins`.
+The showcase of the courses that exist in the `socrates` marketplace, so the student can see what they can
+install. Each course is a plugin; installing a course also installs `socrates`, if it is missing.
+The command goes in Claude Code; after it, `/reload-plugins`.
 
-Este catálogo só serve para curso **não instalado**. De um curso instalado, quem diz para
-quem é, aonde chega e o que está disponível é a `description` da skill
-`socrates-<course>:course`, que muda junto com o curso. Um curso instalado que não está aqui
-aparece mesmo assim.
+This catalog only serves a course that is **not installed**. For an installed course, what says who it is
+for, where you get to and what is available is the `description` of the skill
+`socrates-<course>:course`, which changes along with the course. An installed course that is not here
+shows up anyway.
 
-| Curso | Para quem | Aonde chega | Instalar |
-|-------|-----------|-------------|----------|
-| `security-engineer` | Quem tem formação em TI mas pouca prática de programação, redes e infraestrutura | Engenheiro de segurança na era da IA: entende como os sistemas funcionam, modela ameaças e protege aplicações, infraestrutura e agentes de IA | `/plugin install socrates-security-engineer@socrates` |
+| Course | Who it is for | Where you get to | Install |
+|--------|---------------|------------------|---------|
+| `security-engineer` | People with an IT background but little practice in programming, networking and infrastructure | Security engineer in the AI era: understands how systems work, models threats and protects applications, infrastructure and AI agents | `/plugin install socrates-security-engineer@socrates` |
 
-## Extensões
+## Extensions
 
-Plugins que não são curso: trazem o próprio método e usam os critérios do Socrates
-(níveis, rubrica, estado). Também se instalam com um comando, e também trazem o
-`socrates` junto. Como nos cursos, uma extensão instalada aparece pela skill dela
-(`socrates-<extension>:<extension>`), mesmo que não esteja aqui.
+Plugins that are not courses: they bring their own method and use the Socrates criteria
+(levels, rubric, state). They also install with one command, and also bring
+`socrates` along. As with courses, an installed extension shows up through its skill
+(`socrates-<extension>:<extension>`), even if it is not here.
 
-| Extensão | O que faz | Como usar | Instalar |
-|----------|-----------|-----------|----------|
-| `pdi` | Plano de desenvolvimento individual: objetivo, competências com nível medido pela escala do Socrates, ações 70-20-10 e check-ins com evidência | `/socrates-pdi:pdi` | `/plugin install socrates-pdi@socrates` |
+| Extension | What it does | How to use | Install |
+|-----------|--------------|------------|---------|
+| `pdi` | Individual Development Plan: goal, competencies with a level measured by the Socrates scale, 70-20-10 actions and check-ins with evidence | `/socrates-pdi:pdi` | `/plugin install socrates-pdi@socrates` |

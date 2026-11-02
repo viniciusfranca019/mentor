@@ -1,59 +1,62 @@
 # CLAUDE.md — Socrates
 
-Marketplace do Claude Code com um mentor socrático (`socrates`) e os cursos que ele conduz,
-cada um num plugin. Tudo em PT-BR. O repositório se chama `mentor` por história.
+Claude Code marketplace with a Socratic mentor (`socrates`) and the courses it runs, each
+in its own plugin. Everything in US English. The repository is called `mentor` for
+historical reasons.
 
-## Estrutura
+## Structure
 
-- `.claude-plugin/marketplace.json`: o marketplace `socrates`, uma entrada por plugin,
-  `source: "./plugins/<plugin>"`. O `name` da entrada é igual ao do `plugin.json`.
-- `plugins/socrates/`: o motor, igual para todos os cursos. Método em
-  `skills/socrates/references/`, templates do estado do aluno em `templates/`, catálogo
-  de cursos em `skills/socrates/catalog.md`, as entradas em `commands/`.
-- `plugins/socrates-<course>/`: um curso. Conteúdo puro em `curso/`, mais a skill `curso`
-  que diz ao motor onde ele está, e `"dependencies": ["socrates"]`. Curso novo não mexe no
-  motor, só no catálogo. O contrato: `plugins/socrates/skills/socrates/references/course-contract.md`.
-- `plugins/socrates-<extension>/`: um plugin que não é curso (o primeiro é `socrates-pdi`).
-  Traz o próprio método e lê os critérios do motor pela skill `socrates:criteria`. O
-  contrato: `plugins/socrates/skills/socrates/references/extension-contract.md`.
-- O estado do aluno mora em `~/.socrates`, nunca dentro de um plugin.
+- `.claude-plugin/marketplace.json`: the `socrates` marketplace, one entry per plugin,
+  `source: "./plugins/<plugin>"`. The entry's `name` equals the one in `plugin.json`.
+- `plugins/socrates/`: the engine, the same for every course. Method in
+  `skills/socrates/references/`, templates of the student's state in `templates/`, course
+  catalog in `skills/socrates/catalog.md`, the entry points in `commands/`.
+- `plugins/socrates-<course>/`: a course. Pure content in `course/`, plus the `course`
+  skill that tells the engine where it is, and `"dependencies": ["socrates"]`. A new course
+  does not touch the engine, only the catalog. The contract:
+  `plugins/socrates/skills/socrates/references/course-contract.md`.
+- `plugins/socrates-<extension>/`: a plugin that is not a course (the first is
+  `socrates-pdi`). It brings its own method and reads the engine's criteria through the
+  `socrates:criteria` skill. The contract:
+  `plugins/socrates/skills/socrates/references/extension-contract.md`.
+- The student's state lives in `~/.socrates`, never inside a plugin.
 
-## Caminhos
+## Paths
 
-`${CLAUDE_PLUGIN_ROOT}` só é substituído no corpo do `SKILL.md` e dos commands, e vale a
-raiz do plugin **dono** do arquivo. Um plugin não lê o outro por caminho relativo: o motor
-acha um curso carregando a skill `socrates-<course>:course`, que diz a raiz absoluta. Em
-`references/` e nos arquivos de curso, escreva `<root>` (raiz do `socrates`) ou `<course>`
-(raiz do curso). A skill `curso` não leva `allowed-tools`: com ele, carregá-la pede
-aprovação, e no headless ela é negada.
+`${CLAUDE_PLUGIN_ROOT}` is only substituted in the body of `SKILL.md` and of the commands,
+and it is the root of the plugin that **owns** the file. One plugin does not read another
+by relative path: the engine finds a course by loading the `socrates-<course>:course`
+skill, which gives the absolute root. In `references/` and in course files, write `<root>`
+(root of `socrates`) or `<course>` (root of the course). The `course` skill has no
+`allowed-tools`: with it, loading the skill asks for approval, and headless it is denied.
 
-## Versionamento e release
+## Versioning and release
 
-SemVer por plugin, com tags `<plugin>--vX.Y.Z`. A `version` do `plugin.json` de cada
-plugin é o que faz a atualização chegar ao aluno: sem subir a versão, ninguém recebe a
-mudança. Cada plugin tem o seu `CHANGELOG.md`.
+SemVer per plugin, with tags `<plugin>--vX.Y.Z`. The `version` in each plugin's
+`plugin.json` is what makes the update reach the student: without a version bump, no one
+gets the change. Each plugin has its own `CHANGELOG.md`.
 
-| Mudança | Versão |
-|---------|--------|
-| Correção de texto, de pergunta ou de critério; uma linha nova no catálogo | PATCH |
-| Módulo ou lição nova, comando novo; mudar perguntas de lição publicada | MINOR |
-| Mudar o formato de `~/.socrates`, ou o contrato de curso, de um jeito que quebra o que já existe | MAJOR |
+| Change | Version |
+|--------|---------|
+| Fix to text, to a question or to a criterion; a new line in the catalog | PATCH |
+| New module or lesson, new command; changing questions of a published lesson | MINOR |
+| Changing the format of `~/.socrates`, or the course contract, in a way that breaks what already exists | MAJOR |
 
-Release: no plugin que mudou, mover `Unreleased` do `CHANGELOG.md` para a versão (data
-ISO do dia) e subir `version` no `plugin.json`; `claude plugin validate .` na raiz e
-`claude plugin validate plugins/<plugin>` em cada plugin (o da raiz não abre skills e
-commands); PR, merge, e só então `git tag <plugin>--vX.Y.Z` no commit do merge e
-`git push --tags`.
+Release: in the plugin that changed, move `Unreleased` in `CHANGELOG.md` to the version
+(ISO date of the day) and bump `version` in `plugin.json`; `claude plugin validate .` at
+the root and `claude plugin validate plugins/<plugin>` in each plugin (the root one does
+not open skills and commands); PR, merge, and only then `git tag <plugin>--vX.Y.Z` on the
+merge commit and `git push --tags`.
 
-## Testar
+## Testing
 
-Sem suíte. Teste headless numa pasta vazia de `.sandbox`, com o motor e os cursos
-carregados de uma vez: `claude -p "/socrates:onboarding" --plugin-dir <worktree>/plugins`.
-Fora do cache do marketplace, a leitura dos arquivos do curso precisa de
-`--allowedTools "Read(//<worktree>/plugins/**)"`; instalado pelo marketplace, o
-`Read(~/.claude/plugins/cache/socrates/**)` dos comandos cobre. Apague o `~/.socrates`
-de teste no fim.
+No suite. Test headless in an empty `.sandbox` folder, with the engine and the courses
+loaded at once: `claude -p "/socrates:onboarding" --plugin-dir <worktree>/plugins`.
+Outside the marketplace cache, reading the course files needs
+`--allowedTools "Read(//<worktree>/plugins/**)"`; installed from the marketplace, the
+commands' `Read(~/.claude/plugins/cache/socrates/**)` covers it. Delete the test
+`~/.socrates` at the end.
 
 ## Git
 
-Nada é commitado em `main`. Trabalho em worktree em `WIP/`, PR para `main`.
+Nothing is committed on `main`. Work in a worktree under `WIP/`, PR to `main`.

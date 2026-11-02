@@ -1,38 +1,38 @@
-# Diário: <YYYY-MM-DD> — <course>
+# Journal: <YYYY-MM-DD> — <course>
 
-## Sessão <HH:MM>
+## Session <HH:MM>
 
-**Lição:** <N.N — nome> · **Fase inicial:** <fase>
+**Lesson:** <N.N — name> · **Starting phase:** <phase>
 
-### Aquecimento
+### Warm-up
 
-- **Pergunta:** <pergunta>
-- **Resposta:** <resumo fiel do que ele disse>
-- **Feedback:** <o que estava certo, o que faltou, o que estava errado>
-- **Camada pedida:** <a mais funda que o critério da pergunta exige, ex.: 3>
-- **Camadas:** <as camadas que a resposta demonstrou, ex.: 1–3; vazio se nenhuma>
-- **Resultado:** <sozinho | com pista (degrau N) | precisou de explicação>
+- **Question:** <question>
+- **Answer:** <faithful summary of what they said>
+- **Feedback:** <what was right, what was missing, what was wrong>
+- **Layer asked:** <the deepest one the question's criterion requires, e.g.: 3>
+- **Layers:** <the layers the answer demonstrated, e.g.: 1–3; empty if none>
+- **Outcome:** <unaided | with hint (rung N) | needed explanation>
 
-### <Fase> — pergunta <N>
+### <Phase> — question <N>
 
-- **Pergunta:** <pergunta>
-- **Resposta:** <resumo fiel>
+- **Question:** <question>
+- **Answer:** <faithful summary>
 - **Feedback:** <feedback>
-- **Camada pedida:** <a mais funda que o critério da pergunta exige, ex.: 3>
-- **Camadas:** <as camadas que a resposta demonstrou, ex.: 1–3; vazio se nenhuma>
-- **Resultado:** <sozinho | com pista (degrau N) | precisou de explicação>
+- **Layer asked:** <the deepest one the question's criterion requires, e.g.: 3>
+- **Layers:** <the layers the answer demonstrated, e.g.: 1–3; empty if none>
+- **Outcome:** <unaided | with hint (rung N) | needed explanation>
 
-### Especificação para o Claude
+### Specification for Claude
 
-- **O que ele pediu:** <a especificação, com as palavras dele>
-- **Completa na primeira tentativa?** <sim | não — faltou: entrada / saída / comportamento / teste>
-- **Explicou o código antes de rodar?** <sim | em parte | não>
+- **What they asked for:** <the specification, in their own words>
+- **Complete on the first try?** <yes | no — missing: input / output / behavior / test>
+- **Explained the code before running it?** <yes | partly | no>
 
-### Fim da sessão
+### End of session
 
-- **Parou em:** <lição e fase>
-- **Lições concluídas hoje:** <lista>
+- **Stopped at:** <lesson and phase>
+- **Lessons completed today:** <list>
 
-## Avaliação do dia
+## Day evaluation
 
-<Escrita pelo /feedback. Não preencha durante a sessão.>
+<Written by /feedback. Do not fill in during the session.>

@@ -1,56 +1,56 @@
-# Estado do aluno: `~/.socrates`
+# Student state: `~/.socrates`
 
-O estado mora na máquina do aluno, fora do plugin. Atualizar ou reinstalar o plugin
-nunca apaga o progresso. Tudo é Markdown, para ele poder abrir e ler o próprio histórico.
+The state lives on the student's machine, outside the plugin. Updating or reinstalling the plugin
+never erases progress. Everything is Markdown, so the student can open and read their own history.
 
 ```
 ~/.socrates/
-├── profile.md                         # quem é, curso ativo, ritmo combinado
-├── <extension>/                       # o estado de uma extensão, ex.: pdi/ (extension-contract.md)
-└── <course>/                          # um diretório por curso iniciado
-    ├── progress.md                  # onde está, o que concluiu, o que revisar
+├── profile.md                         # who they are, active course, agreed pace
+├── <extension>/                       # an extension's state, e.g.: pdi/ (extension-contract.md)
+└── <course>/                          # one directory per started course
+    ├── progress.md                  # where they are, what they completed, what to review
     └── journal/
-        └── YYYY-MM-DD.md             # tudo o que aconteceu no dia
+        └── YYYY-MM-DD.md             # everything that happened that day
 ```
 
-## Migração do Mentor
+## Migration from Mentor
 
-O plugin se chamava Mentor e guardava o estado em `~/.mentor`. Antes de ler qualquer
-estado, veja com `ls -d ~/.mentor ~/.socrates` quais existem:
+The plugin was called Mentor and kept its state in `~/.mentor`. Before reading any
+state, check with `ls -d ~/.mentor ~/.socrates` which ones exist:
 
-| Existe | O que fazer |
-|--------|-------------|
-| Só `~/.mentor` | Pare e peça ao aluno que mova a pasta ele mesmo, digitando no Claude Code `! mv ~/.mentor ~/.socrates`, e que repita o que pediu (o comando, ou o pedido que abriu a sessão). Os arquivos não mudam de formato, só de lugar. Você não move: escrever fora da pasta da sessão pede uma aprovação que nem sempre aparece |
-| As duas | Não mova nada. Use `~/.socrates` e avise em uma linha que `~/.mentor` ficou para trás e pode ser apagada quando ele quiser |
-| Só `~/.socrates`, ou nenhuma | Nada a migrar. Siga sem falar disso |
+| Exists | What to do |
+|--------|------------|
+| Only `~/.mentor` | Stop and ask the student to move the folder themselves, by typing in Claude Code `! mv ~/.mentor ~/.socrates`, and to repeat what they asked for (the command, or the request that opened the session). The files do not change format, only location. You do not move it: writing outside the session folder asks for an approval that does not always show up |
+| Both | Do not move anything. Use `~/.socrates` and say in one line that `~/.mentor` was left behind and can be deleted whenever they want |
+| Only `~/.socrates`, or neither | Nothing to migrate. Go on without mentioning it |
 
 ## Templates
 
-Crie cada arquivo copiando o template correspondente e preenchendo os campos:
+Create each file by copying the matching template and filling in the fields:
 
-| Arquivo | Template |
-|---------|----------|
+| File | Template |
+|------|----------|
 | `~/.socrates/profile.md` | `<root>/skills/socrates/templates/profile.md` |
 | `~/.socrates/<course>/progress.md` | `<root>/skills/socrates/templates/progress.md` |
 | `~/.socrates/<course>/journal/YYYY-MM-DD.md` | `<root>/skills/socrates/templates/journal.md` |
 
-O `progress.md` começa com a trilha do `course.md`: copie a lista de módulos e lições do
-curso para a seção "Trilha", todas desmarcadas.
+`progress.md` starts with the track from `course.md`: copy the course's list of modules and lessons
+into the "Track" section, all unchecked.
 
-## Regras de escrita
+## Writing rules
 
-- **Datas em ISO** (`2026-10-02`), sempre a data real do dia. Para saber a data, use
+- **ISO dates** (`2026-10-02`), always the real date of the day. To get the date, use
   `date +%F`.
-- **O diário só cresce.** Acrescente ao fim e nunca reescreva entradas antigas. Ele é o
-  registro do que aconteceu.
-- **O progresso reflete o agora.** Pode ser editado: marcar lição, mover o "Onde parei",
-  atualizar "Para revisar" e os "Níveis por eixo".
-- **Camadas em toda resposta.** Cada pergunta no diário registra a camada que ela pedia e as
-  camadas que a resposta demonstrou (`references/levels.md`). É a evidência da reavaliação de nível.
-- **Resumo fiel da resposta.** No diário, resuma o que ele disse com as palavras dele.
-  Não melhore a resposta: o `/socrates:feedback` precisa ver o que ele de fato respondeu.
-- **Curso novo, diretório novo.** Trocar de curso não apaga o outro; o `profile.md` muda
-  o curso ativo e a situação dos dois na tabela "Cursos" (`em andamento` e `pausado`).
-- **Versão do curso.** Anote no `progress.md` a versão do plugin em que ele começou
-  cada módulo: a versão do plugin do curso, que a skill `socrates-<course>:course` indica. Se o
-  módulo mudar numa atualização, você sabe que a lição em andamento pode ter mudado.
+- **The journal only grows.** Append to the end and never rewrite old entries. It is the
+  record of what happened.
+- **Progress reflects the present.** It can be edited: check a lesson, move "Where I stopped",
+  update "To review" and "Levels by axis".
+- **Layers in every answer.** Each question in the journal records the layer it asked for and the
+  layers the answer demonstrated (`references/levels.md`). It is the evidence for the level reassessment.
+- **Faithful summary of the answer.** In the journal, summarize what they said in their own words.
+  Do not improve the answer: `/socrates:feedback` needs to see what they actually answered.
+- **New course, new directory.** Switching courses does not erase the other one; `profile.md` changes
+  the active course and the status of both in the "Courses" table (`in progress` and `paused`).
+- **Course version.** Note in `progress.md` the plugin version in which they started
+  each module: the version of the course plugin, which the skill `socrates-<course>:course` gives. If the
+  module changes in an update, you know the lesson in progress may have changed.

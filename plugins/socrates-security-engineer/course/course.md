@@ -1,263 +1,264 @@
-# Curso: Engenheiro de Segurança na era da IA
+# Course: Security Engineer in the age of AI
 
-## Para quem é
+## Who it is for
 
-Para quem tem formação em TI (por exemplo, tecnólogo em Análise e Desenvolvimento de
-Sistemas) mas pouca prática de programação, redes, virtualização e infraestrutura. O
-ponto de partida esperado: já ouviu falar de quase tudo, mas aprendeu pelo nome da
-ferramenta, não pelo funcionamento por baixo.
+For people with an IT degree (for example, a technologist degree in Systems Analysis and
+Development) but little practice in programming, networks, virtualization and
+infrastructure. The expected starting point: they have heard of almost everything, but
+learned it by the tool's name, not by how it works underneath.
 
-## Aonde chega
+## Where you get to
 
-Ao final, o aluno:
+By the end, the student:
 
-- explica como um computador, uma rede e uma aplicação web funcionam por dentro;
-- lê e escreve código com a ajuda de IA, sabendo dirigir e revisar o que a IA produz;
-- desenha a arquitetura de um sistema e acha suas fronteiras de confiança;
-- modela ameaças, encontra e corrige as vulnerabilidades mais comuns;
-- detecta e responde a incidentes a partir de logs;
-- entende os riscos novos de sistemas com LLMs e agentes, e usa IA a favor da defesa.
+- explains how a computer, a network and a web application work inside;
+- reads and writes code with AI's help, knowing how to steer and review what the AI produces;
+- designs a system's architecture and finds its trust boundaries;
+- models threats, and finds and fixes the most common vulnerabilities;
+- detects and responds to incidents from logs;
+- understands the new risks of systems with LLMs and agents, and uses AI for defense.
 
-## Princípio do curso
+## Course principle
 
-**Ferramenta é atalho de algo que você já entende.** Todo módulo constrói o fundamento
-antes de mostrar a ferramenta. Um engenheiro de segurança é chamado justamente quando a
-ferramenta não basta: quando o scanner não acha nada, o log não faz sentido, ou o ataque
-é novo. Quem só conhece o botão não tem para onde ir nessa hora.
+**A tool is a shortcut for something you already understand.** Every module builds the
+foundation before showing the tool. A security engineer is called precisely when the
+tool is not enough: when the scanner finds nothing, the log makes no sense, or the attack
+is new. Someone who only knows the button has nowhere to go at that point.
 
-Na era da IA isso vale em dobro: o Claude é a ferramenta mais poderosa que o aluno vai
-usar, e também a mais fácil de virar muleta. Aqui ele usa a IA o tempo todo, mas sempre
-como o arquiteto que especifica e revisa.
+In the age of AI this counts double: Claude is the most powerful tool the student will
+use, and also the easiest one to turn into a crutch. Here the student uses AI all the
+time, but always as the architect who specifies and reviews.
 
-## Eixos e diagnóstico
+## Axes and diagnosis
 
-Eixos do curso e a escada de perguntas de cada um. Como usar a escada está em
+The course's axes and the question ladder for each one. How to use the ladder is in
 `<root>/skills/socrates/references/levels.md`.
 
-| Eixo | Fases da trilha |
-|------|-----------------|
-| Sistemas | 1. A máquina |
-| Redes | 2. A rede |
-| Construir com IA | 3. Construir com IA |
-| Infraestrutura | 4. Arquitetura e infraestrutura |
-| Segurança | 5 a 8, e o projeto final |
+| Axis | Track phases |
+|------|--------------|
+| Systems | 1. The machine |
+| Networks | 2. The network |
+| Building with AI | 3. Building with AI |
+| Infrastructure | 4. Architecture and infrastructure |
+| Security | 5 to 8, and the final project |
 
-### Sistemas
+### Systems
 
-- **R:** O que é um processo?
-  - Camada 2: um programa em execução, com memória e recursos próprios.
-- **M:** Você dá dois cliques num programa. O que acontece dentro do computador até a
-  janela aparecer? Conte do jeito que souber.
-  - Camada 3: o arquivo sai do disco para a memória, o sistema operacional cria o
-    processo e divide a CPU e a memória entre ele e os outros. Com as palavras dele.
-- **D:** Um programa que funcionava ontem hoje diz "permissão negada" ao abrir um arquivo.
-  Onde você investiga, e como resolveria sem liberar o arquivo para todo mundo?
-  - Camada 4: hipóteses concretas: o dono e as permissões do arquivo mudaram, o programa
-    roda com outro usuário, o caminho mudou.
-  - Camada 5: dar a permissão só a quem precisa, e por que liberar para todos ou rodar
-    como administrador custa caro.
-- **D2:** Um programa fica cada vez mais lento até travar a máquina, e só volta ao normal
-  depois de reiniciar. Onde você investiga, e o que faria?
-  - Camada 4: olha o uso de memória e de CPU do processo ao longo do tempo e suspeita de
-    vazamento de memória ou de um processo que se multiplica.
-  - Camada 5: compara reiniciar o programa periodicamente, limitar a memória dele e
-    corrigir a causa, e o custo de cada um.
+- **R:** What is a process?
+  - Layer 2: a running program, with its own memory and resources.
+- **M:** You double-click a program. What happens inside the computer until the window
+  appears? Tell it however you can.
+  - Layer 3: the file goes from disk to memory, the operating system creates the
+    process and shares the CPU and memory between it and the others. In their own words.
+- **D:** A program that worked yesterday now says "permission denied" when opening a file.
+  Where do you investigate, and how would you fix it without opening the file to everyone?
+  - Layer 4: concrete hypotheses: the file's owner and permissions changed, the program
+    runs as another user, the path changed.
+  - Layer 5: give the permission only to whoever needs it, and why opening it to everyone
+    or running as administrator is costly.
+- **D2:** A program gets slower and slower until it freezes the machine, and only goes back
+  to normal after a reboot. Where do you investigate, and what would you do?
+  - Layer 4: looks at the process's memory and CPU use over time and suspects a memory
+    leak or a process that multiplies.
+  - Layer 5: compares restarting the program periodically, limiting its memory and
+    fixing the cause, and the cost of each.
 
-### Redes
+### Networks
 
-- **R:** O que é um endereço IP?
-  - Camada 2: o endereço que identifica uma máquina na rede, para os dados chegarem a ela.
-- **M:** Você digita o endereço de um site e aperta Enter. Como o computador descobre
-  para onde mandar o pedido, e o que volta?
-  - Camada 3: o nome vira um IP (DNS), o computador abre uma conexão com aquele IP e
-    manda um pedido HTTP, o servidor devolve a página.
-- **D:** O site abre quando você digita o IP, mas não abre pelo nome. Onde você procura o
-  problema, e qual correção escolheria?
-  - Camada 4: o problema está na tradução do nome: o servidor DNS configurado, o cache, ou
-    um arquivo `hosts` que sobrescreve o nome.
-  - Camada 5: compara as correções, como trocar o DNS, limpar o cache ou editar o `hosts`,
-    e o custo de cada uma.
-- **D2:** Seu computador acessa sites normalmente, mas não consegue acessar a impressora
-  da rede de casa. Onde você procura, e o que mudaria?
-  - Camada 4: hipóteses na rede local: a impressora mudou de IP, está em outra rede, ou
-    um firewall bloqueia.
-  - Camada 5: compara fixar o IP da impressora, reservar no roteador ou usar o nome, e o
-    custo de cada um.
+- **R:** What is an IP address?
+  - Layer 2: the address that identifies a machine on the network, so data reaches it.
+- **M:** You type a site's address and press Enter. How does the computer find out where
+  to send the request, and what comes back?
+  - Layer 3: the name becomes an IP (DNS), the computer opens a connection to that IP and
+    sends an HTTP request, the server returns the page.
+- **D:** The site opens when you type the IP, but not by its name. Where do you look for
+  the problem, and which fix would you choose?
+  - Layer 4: the problem is in the name translation: the configured DNS server, the cache,
+    or a `hosts` file that overrides the name.
+  - Layer 5: compares the fixes, such as changing the DNS, clearing the cache or editing
+    `hosts`, and the cost of each.
+- **D2:** Your computer reaches websites normally, but cannot reach the printer on your
+  home network. Where do you look, and what would you change?
+  - Layer 4: hypotheses on the local network: the printer changed IP, it is on another
+    network, or a firewall blocks it.
+  - Layer 5: compares fixing the printer's IP, reserving it on the router or using the
+    name, and the cost of each.
 
-### Construir com IA
+### Building with AI
 
-- **R:** O que é uma função num programa?
-  - Camada 2: um trecho de código com nome, que recebe entradas, faz uma tarefa e
-    devolve um resultado.
-- **M:** Você pede ao Claude um script que lê um arquivo e conta as linhas. Antes de
-  rodar, como você confere que ele faz o que você pediu?
-  - Camada 3: ler o código e achar a parte que conta, prever a saída para um arquivo que
-    ele conhece, e testar com esse arquivo.
-- **D:** O script funciona no seu arquivo, mas quebra no arquivo de um colega. Como você
-  acha a causa, e você corrige o código ou pede de novo à IA? Por quê?
-  - Camada 4: comparar as duas entradas (arquivo vazio, codificação, quebra de linha,
-    caminho) e reproduzir o erro com a menor entrada possível.
-  - Camada 5: corrigir entendendo a causa, ou pedir de novo dizendo a causa à IA, e o
-    risco de pedir de novo sem saber a causa.
-- **D2:** A IA escreveu uma função que funciona, mas você não entende uma parte dela. O
-  código vai para produção amanhã. O que você faz?
-  - Camada 4: isola o trecho e testa com entradas para ver o que ele faz de verdade.
-  - Camada 5: decide entre reescrever de um jeito que entende, pedir explicação e
-    conferir, ou atrasar a entrega, e o risco de cada um.
+- **R:** What is a function in a program?
+  - Layer 2: a named piece of code that takes inputs, does a task and returns a result.
+- **M:** You ask Claude for a script that reads a file and counts the lines. Before
+  running it, how do you check that it does what you asked?
+  - Layer 3: read the code and find the part that counts, predict the output for a file
+    they know, and test with that file.
+- **D:** The script works on your file, but breaks on a colleague's file. How do you find
+  the cause, and do you fix the code or ask the AI again? Why?
+  - Layer 4: compare the two inputs (empty file, encoding, line breaks, path) and
+    reproduce the error with the smallest possible input.
+  - Layer 5: fix it by understanding the cause, or ask again telling the AI the cause, and
+    the risk of asking again without knowing the cause.
+- **D2:** The AI wrote a function that works, but you don't understand part of it. The
+  code goes to production tomorrow. What do you do?
+  - Layer 4: isolates the piece and tests it with inputs to see what it really does.
+  - Layer 5: decides between rewriting it in a way they understand, asking for an
+    explanation and checking it, or delaying the delivery, and the risk of each.
 
-### Infraestrutura
+### Infrastructure
 
-- **R:** O que é um container?
-  - Camada 2: um jeito de empacotar e rodar uma aplicação isolada, com tudo de que ela
-    precisa.
-- **M:** Qual a diferença entre uma máquina virtual e um container? O que cada um isola?
-  - Camada 3: a máquina virtual tem um sistema operacional inteiro sobre um hipervisor; o
-    container compartilha o kernel da máquina e isola os processos e os arquivos.
-- **D:** Uma aplicação num container precisa da senha do banco de dados. Onde você guarda
-  essa senha, e o que muda se alguém invadir o container?
-  - Camada 4: os lugares onde a senha vaza: dentro da imagem, no código, em variável de
-    ambiente visível, no log.
-  - Camada 5: compara variável de ambiente, arquivo montado e cofre de segredos, e diz o
-    estrago de cada um se o container for invadido.
-- **D2:** Uma aplicação funciona na sua máquina mas não no servidor. Os dois rodam o
-  mesmo container. Onde você procura?
-  - Camada 4: o que está fora da imagem: variáveis de ambiente, volumes, rede, a versão do
-    kernel ou a arquitetura do processador.
-  - Camada 5: compara levar a configuração para a imagem ou mantê-la fora, e o custo de
-    cada um.
+- **R:** What is a container?
+  - Layer 2: a way to package and run an application in isolation, with everything it
+    needs.
+- **M:** What is the difference between a virtual machine and a container? What does each
+  one isolate?
+  - Layer 3: the virtual machine has a whole operating system on top of a hypervisor; the
+    container shares the machine's kernel and isolates processes and files.
+- **D:** An application in a container needs the database password. Where do you keep
+  that password, and what changes if someone breaks into the container?
+  - Layer 4: the places where the password leaks: inside the image, in the code, in a
+    visible environment variable, in the log.
+  - Layer 5: compares environment variable, mounted file and secrets vault, and states the
+    damage of each if the container is broken into.
+- **D2:** An application works on your machine but not on the server. Both run the same
+  container. Where do you look?
+  - Layer 4: what is outside the image: environment variables, volumes, network, the
+    kernel version or the processor architecture.
+  - Layer 5: compares moving the configuration into the image or keeping it outside, and
+    the cost of each.
 
-### Segurança
+### Security
 
-- **R:** O que é uma vulnerabilidade?
-  - Camada 2: uma falha num sistema que alguém pode usar para fazer o que não devia.
-- **M:** Um site tem login. Como alguém poderia entrar na conta de outra pessoa sem saber
-  a senha dela?
-  - Camada 3: um caminho concreto, explicado: roubar a sessão (o cookie), reaproveitar
-    uma senha vazada de outro site, enganar a pessoa com phishing, ou uma falha que deixa
-    ver a conta de outro mudando um número no endereço.
-- **D:** O chatbot de uma empresa lê os e-mails dos clientes e pode enviar respostas.
-  Que risco isso cria, e como você reduziria sem desligar o chatbot?
-  - Camada 4: um e-mail pode trazer instruções que o modelo obedece (prompt injection
-    indireta) e fazer o chatbot vazar dados ou mandar o que não devia.
-  - Camada 5: mitigação pela arquitetura, como aprovação humana antes de enviar, só as
-    permissões necessárias e separar o que é dado do que é instrução, com o custo de cada.
-- **D2:** Um funcionário recebe um e-mail do "suporte" pedindo para instalar um programa.
-  Ele instalou. O que você investiga primeiro, e o que faz agora?
-  - Camada 4: o que o programa fez: processos, conexões de rede, contas usadas, o que
-    ele alcançou na máquina e na rede.
-  - Camada 5: compara isolar a máquina, trocar as senhas e investigar antes, e o custo de
-    cada ordem.
+- **R:** What is a vulnerability?
+  - Layer 2: a flaw in a system that someone can use to do what they should not.
+- **M:** A site has a login. How could someone get into another person's account without
+  knowing their password?
+  - Layer 3: a concrete, explained path: stealing the session (the cookie), reusing a
+    password leaked from another site, tricking the person with phishing, or a flaw that
+    shows someone else's account by changing a number in the address.
+- **D:** A company's chatbot reads customers' emails and can send replies. What risk does
+  this create, and how would you reduce it without turning the chatbot off?
+  - Layer 4: an email can carry instructions the model obeys (indirect prompt injection)
+    and make the chatbot leak data or send what it should not.
+  - Layer 5: mitigation through architecture, such as human approval before sending, only
+    the necessary permissions, and separating what is data from what is instruction, with
+    the cost of each.
+- **D2:** An employee gets an email from "support" asking them to install a program. They
+  installed it. What do you investigate first, and what do you do now?
+  - Layer 4: what the program did: processes, network connections, accounts used, what
+    it reached on the machine and on the network.
+  - Layer 5: compares isolating the machine, changing the passwords and investigating
+    first, and the cost of each order.
 
-## Trilha
+## Track
 
-Uma lição leva de 30 a 60 minutos. Os módulos `planejado` serão publicados nas próximas
-versões do plugin.
+A lesson takes 30 to 60 minutes. The `planned` modules will be published in upcoming
+versions of the plugin.
 
-### Fase 1 — A máquina
+### Phase 1 — The machine
 
-Ao fim: sabe o que acontece dentro de um computador quando um programa roda, e opera um
-Linux pelo terminal.
+By the end: knows what happens inside a computer when a program runs, and operates a
+Linux machine from the terminal.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 00 | Seu laboratório | 0.1 O que é um ambiente de estudo isolado · 0.2 Montando o Linux (WSL2 ou VM) · 0.3 Primeira conversa com o Claude como arquiteto | disponível |
-| 01 | Como o computador representa as coisas | 1.1 Tudo é número: bits, bytes e hexadecimal · 1.2 Texto também é número: codificação · 1.3 Arquivos e formatos: a extensão mente · 1.4 Do código ao programa: compilado e interpretado | disponível |
-| 02 | Processos e memória | 2.1 Programa vs processo · 2.2 Memória de um processo · 2.3 Processos conversando: sinais e pipes · 2.4 O que é um serviço (daemon) | planejado |
-| 03 | O shell do Linux | 3.1 O que o shell faz com o que você digita · 3.2 Sistema de arquivos e caminhos · 3.3 Entrada, saída e redirecionamento · 3.4 Variáveis de ambiente e PATH · 3.5 Encontrar e filtrar: find, grep, pipes | planejado |
-| 04 | Usuários, permissões e privilégio | 4.1 Usuários e grupos · 4.2 Permissões rwx · 4.3 root e sudo · 4.4 setuid e escalada de privilégio | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 00 | Your lab | 0.1 What an isolated study environment is · 0.2 Setting up Linux (WSL2 or VM) · 0.3 First conversation with Claude as the architect | available |
+| 01 | How the computer represents things | 1.1 Everything is a number: bits, bytes and hexadecimal · 1.2 Text is a number too: encoding · 1.3 Files and formats: the extension lies · 1.4 From code to program: compiled and interpreted | available |
+| 02 | Processes and memory | 2.1 Program vs process · 2.2 A process's memory · 2.3 Processes talking: signals and pipes · 2.4 What a service (daemon) is | planned |
+| 03 | The Linux shell | 3.1 What the shell does with what you type · 3.2 File system and paths · 3.3 Input, output and redirection · 3.4 Environment variables and PATH · 3.5 Find and filter: find, grep, pipes | planned |
+| 04 | Users, permissions and privilege | 4.1 Users and groups · 4.2 rwx permissions · 4.3 root and sudo · 4.4 setuid and privilege escalation | planned |
 
-### Fase 2 — A rede
+### Phase 2 — The network
 
-Ao fim: explica o caminho de uma requisição do navegador ao servidor, camada por camada.
+By the end: explains the path of a request from the browser to the server, layer by layer.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 05 | Endereços e roteamento | 5.1 Por que existem camadas · 5.2 Endereço IP e máscara · 5.3 Roteamento e gateway · 5.4 NAT e IP privado | planejado |
-| 06 | Transporte: TCP e UDP | 6.1 Portas · 6.2 O handshake TCP · 6.3 Confiabilidade vs velocidade: UDP · 6.4 Sockets: rede vista pelo programa | planejado |
-| 07 | DNS | 7.1 Nomes viram endereços · 7.2 A hierarquia de servidores · 7.3 Cache e TTL · 7.4 Ataques ao DNS | planejado |
-| 08 | HTTP | 8.1 Requisição e resposta · 8.2 Métodos e status · 8.3 Cabeçalhos · 8.4 Cookies e estado | planejado |
-| 09 | TLS | 9.1 O problema do canal aberto · 9.2 O handshake TLS · 9.3 Certificados e cadeia de confiança · 9.4 O que o TLS não protege | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 05 | Addresses and routing | 5.1 Why layers exist · 5.2 IP address and mask · 5.3 Routing and gateway · 5.4 NAT and private IP | planned |
+| 06 | Transport: TCP and UDP | 6.1 Ports · 6.2 The TCP handshake · 6.3 Reliability vs speed: UDP · 6.4 Sockets: the network as the program sees it | planned |
+| 07 | DNS | 7.1 Names become addresses · 7.2 The server hierarchy · 7.3 Cache and TTL · 7.4 Attacks on DNS | planned |
+| 08 | HTTP | 8.1 Request and response · 8.2 Methods and status · 8.3 Headers · 8.4 Cookies and state | planned |
+| 09 | TLS | 9.1 The open channel problem · 9.2 The TLS handshake · 9.3 Certificates and the chain of trust · 9.4 What TLS does not protect | planned |
 
-### Fase 3 — Construir com IA
+### Phase 3 — Building with AI
 
-Ao fim: dirige o Claude para construir programas pequenos e lê o código gerado com
-segurança.
+By the end: steers Claude to build small programs and reads the generated code with
+security in mind.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 10 | Ler código Python | 10.1 Variáveis, tipos e fluxo · 10.2 Funções · 10.3 Estruturas de dados · 10.4 Erros e exceções | planejado |
-| 11 | Git | 11.1 O que é uma versão · 11.2 Commit, branch e merge · 11.3 Remoto e GitHub · 11.4 O que nunca vai para o Git | planejado |
-| 12 | Automação com shell e Python | 12.1 Scripts no shell · 12.2 Ler e processar arquivos · 12.3 Chamar programas e APIs | planejado |
-| 13 | APIs | 13.1 O que é uma API · 13.2 REST e JSON · 13.3 Construir uma API pequena · 13.4 Consumir uma API | planejado |
-| 14 | Testes e revisão de código gerado por IA | 14.1 Por que testar · 14.2 Escrever um teste · 14.3 Revisar o que a IA escreveu | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 10 | Reading Python code | 10.1 Variables, types and flow · 10.2 Functions · 10.3 Data structures · 10.4 Errors and exceptions | planned |
+| 11 | Git | 11.1 What a version is · 11.2 Commit, branch and merge · 11.3 Remote and GitHub · 11.4 What never goes into Git | planned |
+| 12 | Automation with shell and Python | 12.1 Shell scripts · 12.2 Reading and processing files · 12.3 Calling programs and APIs | planned |
+| 13 | APIs | 13.1 What an API is · 13.2 REST and JSON · 13.3 Building a small API · 13.4 Consuming an API | planned |
+| 14 | Testing and reviewing AI-generated code | 14.1 Why test · 14.2 Writing a test · 14.3 Reviewing what the AI wrote | planned |
 
-### Fase 4 — Arquitetura e infraestrutura
+### Phase 4 — Architecture and infrastructure
 
-Ao fim: desenha um sistema real com cliente, servidor, banco, containers e cloud, e
-aponta onde estão os dados e os acessos.
+By the end: designs a real system with client, server, database, containers and cloud,
+and points out where the data and the access are.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 15 | Arquitetura de uma aplicação web | 15.1 Cliente, servidor e banco · 15.2 Estado e sessão · 15.3 Filas e serviços | planejado |
-| 16 | Bancos de dados e SQL | 16.1 Tabelas e consultas · 16.2 Relacionamentos · 16.3 Quem acessa o banco | planejado |
-| 17 | Virtualização | 17.1 Hipervisor e VM · 17.2 Isolamento e o que escapa dele · 17.3 Snapshot e lab descartável | planejado |
-| 18 | Containers | 18.1 Namespaces e cgroups · 18.2 Imagem vs container · 18.3 Docker na prática · 18.4 Container não é VM | planejado |
-| 19 | Orquestração | 19.1 Por que Kubernetes existe · 19.2 Pods, services e secrets · 19.3 Superfície de ataque do cluster | planejado |
-| 20 | Cloud e IAM | 20.1 O modelo de responsabilidade compartilhada · 20.2 Identidades e políticas · 20.3 Menor privilégio na prática · 20.4 Buckets e dados expostos | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 15 | Architecture of a web application | 15.1 Client, server and database · 15.2 State and session · 15.3 Queues and services | planned |
+| 16 | Databases and SQL | 16.1 Tables and queries · 16.2 Relationships · 16.3 Who accesses the database | planned |
+| 17 | Virtualization | 17.1 Hypervisor and VM · 17.2 Isolation and what escapes it · 17.3 Snapshots and a disposable lab | planned |
+| 18 | Containers | 18.1 Namespaces and cgroups · 18.2 Image vs container · 18.3 Docker in practice · 18.4 A container is not a VM | planned |
+| 19 | Orchestration | 19.1 Why Kubernetes exists · 19.2 Pods, services and secrets · 19.3 The cluster's attack surface | planned |
+| 20 | Cloud and IAM | 20.1 The shared responsibility model · 20.2 Identities and policies · 20.3 Least privilege in practice · 20.4 Buckets and exposed data | planned |
 
-### Fase 5 — Fundamentos de segurança
+### Phase 5 — Security fundamentals
 
-Ao fim: pensa como atacante e como defensor sobre qualquer sistema que vê.
+By the end: thinks like an attacker and like a defender about any system they see.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 21 | Pensar em segurança | 21.1 Confidencialidade, integridade e disponibilidade · 21.2 Ativos, ameaças e riscos · 21.3 Fronteiras de confiança | planejado |
-| 22 | Modelagem de ameaças | 22.1 Diagrama de fluxo de dados · 22.2 STRIDE · 22.3 Priorizar riscos | planejado |
-| 23 | Identidade | 23.1 Autenticação vs autorização · 23.2 Senhas e hash · 23.3 Sessões e tokens · 23.4 OAuth e OIDC · 23.5 MFA | planejado |
-| 24 | Criptografia aplicada | 24.1 Hash · 24.2 Simétrica · 24.3 Assimétrica e assinatura · 24.4 Erros comuns de cripto | planejado |
-| 25 | Segredos | 25.1 Onde segredos vazam · 25.2 Cofres de segredo · 25.3 Rotação e resposta a vazamento | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 21 | Thinking about security | 21.1 Confidentiality, integrity and availability · 21.2 Assets, threats and risks · 21.3 Trust boundaries | planned |
+| 22 | Threat modeling | 22.1 Data flow diagram · 22.2 STRIDE · 22.3 Prioritizing risks | planned |
+| 23 | Identity | 23.1 Authentication vs authorization · 23.2 Passwords and hashing · 23.3 Sessions and tokens · 23.4 OAuth and OIDC · 23.5 MFA | planned |
+| 24 | Applied cryptography | 24.1 Hashing · 24.2 Symmetric · 24.3 Asymmetric and signatures · 24.4 Common crypto mistakes | planned |
+| 25 | Secrets | 25.1 Where secrets leak · 25.2 Secrets vaults · 25.3 Rotation and leak response | planned |
 
-### Fase 6 — Segurança de aplicações
+### Phase 6 — Application security
 
-Ao fim: encontra, explora em laboratório e corrige as vulnerabilidades mais comuns em
-aplicações web.
+By the end: finds, exploits in a lab and fixes the most common vulnerabilities in web
+applications.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 26 | Injeção | 26.1 Dado que vira comando · 26.2 SQL injection · 26.3 Command injection · 26.4 A correção certa | planejado |
-| 27 | Controle de acesso | 27.1 IDOR · 27.2 Escalada horizontal e vertical · 27.3 Autorização no lugar certo | planejado |
-| 28 | Ataques no navegador | 28.1 Same-origin policy · 28.2 XSS · 28.3 CSRF · 28.4 CORS | planejado |
-| 29 | SSRF e confiança no servidor | 29.1 O servidor como intermediário · 29.2 SSRF · 29.3 Metadados de cloud | planejado |
-| 30 | Supply chain de software | 30.1 Dependências · 30.2 Pacotes maliciosos · 30.3 SBOM e assinatura | planejado |
-| 31 | Revisão de código e testes de segurança | 31.1 Code review com olho de atacante · 31.2 SAST · 31.3 DAST · 31.4 Pentest de uma aplicação | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 26 | Injection | 26.1 Data that becomes a command · 26.2 SQL injection · 26.3 Command injection · 26.4 The right fix | planned |
+| 27 | Access control | 27.1 IDOR · 27.2 Horizontal and vertical escalation · 27.3 Authorization in the right place | planned |
+| 28 | Browser attacks | 28.1 Same-origin policy · 28.2 XSS · 28.3 CSRF · 28.4 CORS | planned |
+| 29 | SSRF and trust in the server | 29.1 The server as a middleman · 29.2 SSRF · 29.3 Cloud metadata | planned |
+| 30 | Software supply chain | 30.1 Dependencies · 30.2 Malicious packages · 30.3 SBOM and signing | planned |
+| 31 | Code review and security testing | 31.1 Code review with an attacker's eye · 31.2 SAST · 31.3 DAST · 31.4 Pentesting an application | planned |
 
-### Fase 7 — Defesa e operação
+### Phase 7 — Defense and operations
 
-Ao fim: monta a visibilidade de um sistema, detecta um ataque nos logs e conduz a
-resposta.
+By the end: builds a system's visibility, detects an attack in the logs and leads the
+response.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 32 | Logs e observabilidade | 32.1 O que registrar · 32.2 Centralizar logs · 32.3 Logs que vazam dados | planejado |
-| 33 | Detecção | 33.1 Do log ao alerta · 33.2 Escrever uma regra de detecção · 33.3 Falso positivo e falso negativo | planejado |
-| 34 | Resposta a incidentes | 34.1 O ciclo de resposta · 34.2 Contenção e evidência · 34.3 Pós-incidente | planejado |
-| 35 | Hardening | 35.1 Linux · 35.2 Containers · 35.3 Rede e firewall | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 32 | Logs and observability | 32.1 What to log · 32.2 Centralizing logs · 32.3 Logs that leak data | planned |
+| 33 | Detection | 33.1 From log to alert · 33.2 Writing a detection rule · 33.3 False positives and false negatives | planned |
+| 34 | Incident response | 34.1 The response cycle · 34.2 Containment and evidence · 34.3 Post-incident | planned |
+| 35 | Hardening | 35.1 Linux · 35.2 Containers · 35.3 Network and firewall | planned |
 
-### Fase 8 — Segurança na era da IA
+### Phase 8 — Security in the age of AI
 
-Ao fim: entende os riscos de sistemas com LLMs e agentes, ataca e protege um agente em
-laboratório, e usa IA a favor da defesa.
+By the end: understands the risks of systems with LLMs and agents, attacks and protects
+an agent in a lab, and uses AI for defense.
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 36 | Como um LLM funciona | 36.1 Tokens e contexto · 36.2 Por que o modelo não separa instrução de dado · 36.3 Alucinação e confiança | planejado |
-| 37 | Prompt injection | 37.1 Injeção direta · 37.2 Injeção indireta: o documento que manda · 37.3 Por que não existe filtro perfeito · 37.4 Mitigações por arquitetura | planejado |
-| 38 | Agentes, tools e MCP | 38.1 O que um agente pode fazer · 38.2 Excesso de autonomia · 38.3 Permissões e sandbox · 38.4 MCP: servidores e confiança | planejado |
-| 39 | Dados e modelos | 39.1 Vazamento de dados pelo LLM · 39.2 Envenenamento de dados · 39.3 Supply chain de modelos e plugins (inclusive este) | planejado |
-| 40 | IA a favor da defesa | 40.1 Triagem de alertas com IA · 40.2 Revisão de código com IA · 40.3 Os limites: quando não confiar | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 36 | How an LLM works | 36.1 Tokens and context · 36.2 Why the model does not separate instruction from data · 36.3 Hallucination and trust | planned |
+| 37 | Prompt injection | 37.1 Direct injection · 37.2 Indirect injection: the document that gives orders · 37.3 Why no perfect filter exists · 37.4 Mitigations through architecture | planned |
+| 38 | Agents, tools and MCP | 38.1 What an agent can do · 38.2 Excessive autonomy · 38.3 Permissions and sandbox · 38.4 MCP: servers and trust | planned |
+| 39 | Data and models | 39.1 Data leaks through the LLM · 39.2 Data poisoning · 39.3 Supply chain of models and plugins (this one included) | planned |
+| 40 | AI for defense | 40.1 Alert triage with AI · 40.2 Code review with AI · 40.3 The limits: when not to trust | planned |
 
-### Projeto final
+### Final project
 
-| # | Módulo | Lições | Situação |
-|---|--------|--------|----------|
-| 41 | Projeto final | 41.1 Construir uma aplicação com um agente · 41.2 Modelar as ameaças · 41.3 Atacar · 41.4 Corrigir e escrever o relatório | planejado |
+| # | Module | Lessons | Status |
+|---|--------|---------|--------|
+| 41 | Final project | 41.1 Building an application with an agent · 41.2 Modeling the threats · 41.3 Attacking · 41.4 Fixing and writing the report | planned |

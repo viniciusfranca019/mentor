@@ -1,20 +1,20 @@
 ---
-description: Avaliação do Socrates sobre as suas lições de hoje
+description: Socrates evaluation of your lessons today
 argument-hint: "[YYYY-MM-DD]"
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.claude/plugins/cache/socrates/**), Read(~/.socrates/**), Write(~/.socrates/**), Edit(~/.socrates/**), Bash(mkdir -p ~/.socrates:*), Bash(date:*), Bash(ls ~/.socrates:*), Bash(ls -d ~/.mentor:*)
 ---
 
-# Feedback do dia
+# Day feedback
 
-Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrates`) e rode o **Workflow: avaliação do dia** com a rubrica de
+Read `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (the skill `socrates:socrates`) and run the **Workflow: day evaluation** with the rubric in
 `references/feedback.md`.
 
-- Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
-  `references/state.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
-- Dia avaliado: `$ARGUMENTS`. Se vier vazio, é hoje (`date +%F`).
-- A avaliação usa só o diário do curso ativo em `~/.socrates/<course>/journal/<dia>.md`. Se
-  ele não existir ou estiver vazio, diga isso e sugira `/socrates:mentor-mode`. Não avalie
-  sem diário. Exceção: quando o dia fechou uma fase da trilha, a reavaliação do nível do
-  eixo lê todos os diários da fase.
+- Plugin root: `${CLAUDE_PLUGIN_ROOT}`.
+- First of all, the migration from the old name: run the check in the Migration from Mentor section of
+  `references/state.md` (`ls -d ~/.mentor ~/.socrates`) and do what its table says.
+- Day evaluated: `$ARGUMENTS`. If empty, it is today (`date +%F`).
+- The evaluation uses only the active course's journal in `~/.socrates/<course>/journal/<day>.md`. If
+  it does not exist or is empty, say so and suggest `/socrates:mentor-mode`. Do not evaluate
+  without a journal. Exception: when the day closed a phase of the track, the reassessment of the axis
+  level reads all of the phase's journals.

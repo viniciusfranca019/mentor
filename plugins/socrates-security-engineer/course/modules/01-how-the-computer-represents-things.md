@@ -1,271 +1,273 @@
-# Módulo 01 — Como o computador representa as coisas
+# Module 01 — How the computer represents things
 
-**Objetivo:** entender que tudo dentro do computador (número, texto, imagem, programa) é
-uma sequência de bytes, e que o significado depende de quem interpreta.
+**Goal:** understand that everything inside the computer (number, text, image, program) is
+a sequence of bytes, and that the meaning depends on who interprets it.
 
-**Pré-requisitos:** módulo 00 (laboratório funcionando).
+**Prerequisites:** module 00 (lab working).
 
-**Por que importa para o curso:** quase todo ataque explora uma diferença de
-interpretação. O atacante manda bytes que um lado lê como dado e o outro executa como
-comando, ou que a validação lê como imagem e o servidor executa como script. Quem vê os
-bytes por trás do significado enxerga essas brechas.
+**Why it matters for the course:** almost every attack exploits a difference in
+interpretation. The attacker sends bytes that one side reads as data and the other runs as
+a command, or that the validation reads as an image and the server runs as a script.
+Whoever sees the bytes behind the meaning sees these gaps.
 
 ---
 
-## Lição 1.1 — Tudo é número: bits, bytes e hexadecimal
+## Lesson 1.1 — Everything is a number: bits, bytes and hexadecimal
 
-**Conceito-âncora:** o computador guarda só bits (0 e 1), agrupados em bytes de 8 bits,
-que valem de 0 a 255. Hexadecimal é só uma forma compacta de escrever bytes: dois dígitos
-hex são um byte.
+**Anchor concept:** the computer stores only bits (0 and 1), grouped into bytes of 8 bits,
+worth 0 to 255. Hexadecimal is just a compact way to write bytes: two hex digits are one
+byte.
 
-### Abertura
+### Opening
 
-1. Se o computador só entende 0 e 1, como ele guarda o número 200?
-   - Uma boa resposta contém: alguma ideia de combinação de 0s e 1s em posições, cada
-     posição com um peso. Não precisa fazer a conta.
-2. Com 8 interruptores (ligado ou desligado), quantas combinações diferentes você
-   consegue fazer?
-   - Uma boa resposta contém: 256 (2⁸), ou o raciocínio de dobrar a cada interruptor.
-     Se ele chegar a "muitas", suba a escada até ele achar o 256.
-3. Por que você acha que programadores escrevem `FF` em vez de `11111111`?
-   - Uma boa resposta contém: é mais curto e mais fácil de ler. Cada dígito hex
-     representa 4 bits.
+1. If the computer only understands 0 and 1, how does it store the number 200?
+   - A good answer contains: some idea of a combination of 0s and 1s in positions, each
+     position with a weight. No need to do the math.
+2. With 8 switches (on or off), how many different combinations can you make?
+   - A good answer contains: 256 (2⁸), or the reasoning of doubling with each switch. If
+     the student lands on "a lot", climb the ladder until they find 256.
+3. Why do you think programmers write `FF` instead of `11111111`?
+   - A good answer contains: it is shorter and easier to read. Each hex digit represents
+     4 bits.
 
-### Missão
+### Mission
 
-Com o Claude, ele constrói um conversor em Python: recebe um número de 0 a 255 e mostra
-o número em decimal, binário (8 dígitos) e hexadecimal (2 dígitos).
+With Claude, the student builds a converter in Python: it receives a number from 0 to 255
+and shows the number in decimal, binary (8 digits) and hexadecimal (2 digits).
 
-Perguntas de especificação:
-1. O que o programa faz se receber 300? E −1? E "abc"?
-   - Uma boa resposta contém: uma decisão explícita para entradas fora do intervalo,
-     como recusar com uma mensagem.
-2. Como a saída deve aparecer na tela?
-   - Uma boa resposta contém: um exemplo concreto da saída, como
+Specification questions:
+1. What does the program do if it receives 300? And −1? And "abc"?
+   - A good answer contains: an explicit decision for inputs out of range, such as
+     refusing with a message.
+2. How should the output look on screen?
+   - A good answer contains: a concrete example of the output, such as
      `200 = 11001000 = C8`.
-3. Que números você vai usar para testar, e por que esses?
-   - Uma boa resposta contém: casos de borda, como 0, 255 e um do meio. Se ele escolher
-     só números "normais", pergunte o que acontece nas pontas.
+3. Which numbers will you use to test, and why those?
+   - A good answer contains: edge cases, such as 0, 255 and one in the middle. If the
+     student picks only "normal" numbers, ask what happens at the ends.
 
-### Verificação
+### Verification
 
-1. Antes de rodar: qual é o binário de 255? E o de 128? Depois confira no programa.
-   - Uma boa resposta contém: `11111111` e `10000000`, ou um raciocínio certo mesmo com
-     erro de conta.
-2. Por que 255 é o maior número que cabe num byte?
-   - Uma boa resposta contém: são 8 bits, todos ligados; 256 combinações, contando a
-     partir do zero.
-3. O que acontece com 255 + 1 se o resultado tiver que caber num byte? Pergunte ao
-   Claude como testar isso em Python e explique o resultado.
-   - Uma boa resposta contém: o valor "dá a volta" para 0 (overflow). Python não limita
-     inteiros, então o teste precisa forçar um byte, por exemplo com `% 256` ou
-     `bytes([256])`, que dá erro. Ele precisa explicar a diferença entre os dois.
+1. Before running: what is the binary of 255? And of 128? Then check in the program.
+   - A good answer contains: `11111111` and `10000000`, or correct reasoning even with an
+     arithmetic slip.
+2. Why is 255 the largest number that fits in a byte?
+   - A good answer contains: there are 8 bits, all on; 256 combinations, counting from
+     zero.
+3. What happens to 255 + 1 if the result has to fit in a byte? Ask Claude how to test
+   this in Python and explain the result.
+   - A good answer contains: the value "wraps around" to 0 (overflow). Python does not
+     limit integers, so the test has to force a byte, for example with `% 256` or
+     `bytes([256])`, which raises an error. The student must explain the difference
+     between the two.
 
-### Ferramenta
+### Tool
 
-A calculadora do sistema no modo programador, e o comando `printf '%x\n' 200` no shell.
-Pergunta: "Agora que você fez o conversor, o que a calculadora no modo programador faz
-que o seu programa também faz?"
+The system calculator in programmer mode, and the command `printf '%x\n' 200` in the
+shell. Question: "Now that you built the converter, what does the calculator in programmer
+mode do that your program also does?"
 
-### Explicar de volta
+### Explain back
 
-"Explique o que é um byte e por que hexadecimal existe." Critério: 8 bits, valores de 0
-a 255, e hex como forma compacta, com dois dígitos por byte.
+"Explain what a byte is and why hexadecimal exists." Criterion: 8 bits, values from 0 to
+255, and hex as a compact form, with two digits per byte.
 
-### Para o Socrates
+### For Socrates
 
-- **Erros comuns:** achar que hexadecimal é "outro tipo de dado". É só outra forma de
-  escrever o mesmo número. Pergunte: "C8 e 200 são números diferentes?"
-- **Ponte para segurança:** overflow de inteiro já causou vulnerabilidades reais; dumps
-  de memória, hashes e chaves são lidos em hex (módulos 2.2 e 24).
-
----
-
-## Lição 1.2 — Texto também é número: codificação
-
-**Conceito-âncora:** texto é guardado como números, por uma tabela de codificação
-(ASCII, UTF-8). O mesmo byte pode virar letras diferentes conforme a tabela que se usa
-para ler.
-
-### Abertura
-
-1. Se tudo é número, como o computador guarda a letra "A"?
-   - Uma boa resposta contém: alguma ideia de uma tabela que liga cada letra a um
-     número.
-2. Você já viu um texto com "Ã§" no lugar de "ç"? O que você acha que aconteceu?
-   - Uma boa resposta contém: o texto foi gravado de um jeito e lido de outro. Não
-     precisa usar a palavra "codificação".
-
-### Missão
-
-Ele constrói com o Claude um programa que recebe uma palavra e mostra, para cada
-caractere, o caractere e os bytes que o representam em UTF-8, em hex.
-
-Perguntas de especificação:
-1. Qual palavra de teste você vai usar, e por que ela?
-   - Uma boa resposta contém: uma palavra com acento ou "ç". Se ele escolher só letras
-     sem acento, pergunte o que acontece com "ação".
-2. Em que formato a saída mostra cada caractere?
-   - Uma boa resposta contém: um exemplo, como `ç -> C3 A7`.
-
-### Verificação
-
-1. Antes de rodar com "ação": quantos bytes você prevê? Rode e compare.
-   - Uma boa resposta contém: uma previsão; depois, a observação de que letras com
-     acento ocupam 2 bytes em UTF-8, então são 6 bytes para 4 caracteres.
-2. Peça ao Claude para ler os bytes de "ação" como se fossem Latin-1 (outra tabela). O
-   que aparece, e por quê?
-   - Uma boa resposta contém: "aÃ§Ã£o", porque cada byte foi lido como um caractere
-     separado na outra tabela. É a explicação do "Ã§" da Abertura.
-3. Uma senha "ação" digitada num sistema UTF-8 e verificada num sistema Latin-1 é a
-   mesma senha?
-   - Uma boa resposta contém: não; os bytes comparados são diferentes. Ou ele percebe
-     que depende de como cada lado converte, o que já é uma boa intuição.
-
-### Ferramenta
-
-O comando `xxd` (ou `hexdump -C`): `echo -n "ação" | xxd`. Pergunta: "O que o `xxd`
-mostrou que o seu programa também mostra?"
-
-### Explicar de volta
-
-"Explique por que às vezes aparece 'Ã§' no lugar de 'ç'." Critério: texto vira bytes
-por uma tabela; gravar com uma tabela e ler com outra troca os caracteres.
-
-### Para o Socrates
-
-- **Erros comuns:** achar que um caractere é sempre um byte. A pergunta 1 da
-  Verificação desfaz isso.
-- **Ponte para segurança:** codificações diferentes são usadas para burlar filtros (um
-  filtro procura `<script>` e o atacante manda o mesmo texto codificado de outro jeito).
-  Volta em injeção (26) e XSS (28.2).
+- **Common mistakes:** thinking hexadecimal is "another data type". It is just another way
+  to write the same number. Ask: "Are C8 and 200 different numbers?"
+- **Bridge to security:** integer overflow has caused real vulnerabilities; memory dumps,
+  hashes and keys are read in hex (modules 2.2 and 24).
 
 ---
 
-## Lição 1.3 — Arquivos e formatos: a extensão mente
+## Lesson 1.2 — Text is a number too: encoding
 
-**Conceito-âncora:** um arquivo é só uma sequência de bytes. O que diz o tipo de verdade
-são os primeiros bytes (a assinatura, ou *magic bytes*); a extensão no nome é só uma
-etiqueta que qualquer um pode trocar.
+**Anchor concept:** text is stored as numbers, through an encoding table (ASCII, UTF-8).
+The same byte can become different letters depending on the table used to read it.
 
-### Abertura
+### Opening
 
-1. Se você renomear `foto.png` para `foto.txt`, a imagem vira texto?
-   - Uma boa resposta contém: não, só o nome mudou; o conteúdo continua igual.
-2. Então como um programa pode saber que um arquivo é uma imagem, sem olhar o nome?
-   - Uma boa resposta contém: olhando o conteúdo. Se ele chegar em "algo no começo do
-     arquivo", ótimo.
+1. If everything is a number, how does the computer store the letter "A"?
+   - A good answer contains: some idea of a table that maps each letter to a number.
+2. Have you ever seen text with "Ã§" where there should be "ç"? What do you think
+   happened?
+   - A good answer contains: the text was saved one way and read another. The word
+     "encoding" is not required.
 
-### Missão
+### Mission
 
-Ele constrói com o Claude um mini identificador de arquivos: lê os primeiros bytes de um
-arquivo, mostra esses bytes em hex e diz se o arquivo é PNG, PDF, ZIP ou "desconhecido",
-comparando com as assinaturas.
+With Claude, the student builds a program that receives a word and shows, for each
+character, the character and the bytes that represent it in UTF-8, in hex.
 
-Perguntas de especificação:
-1. Quantos bytes do início você vai ler, e por quê?
-   - Uma boa resposta contém: um número justificado, como "8, porque a assinatura do PNG
-     tem 8 bytes". Ele pode pedir ao Claude as assinaturas, mas precisa decidir quantos
-     bytes ler.
-2. O que o programa faz com um arquivo vazio ou que não existe?
-   - Uma boa resposta contém: uma decisão explícita.
-3. Que arquivos você vai usar para testar?
-   - Uma boa resposta contém: um de cada tipo, mais um com a extensão trocada.
+Specification questions:
+1. Which test word will you use, and why that one?
+   - A good answer contains: a word with an accent or a "ç". If the student picks only
+     unaccented letters, ask what happens with "ação" (Portuguese for "action": 4
+     characters, two of them accented).
+2. In what format does the output show each character?
+   - A good answer contains: an example, such as `ç -> C3 A7`.
 
-### Verificação
+### Verification
 
-1. Renomeie um PNG para `.pdf` e rode o identificador. O que você prevê?
-   - Uma boa resposta contém: o programa diz PNG, porque olha os bytes e não o nome.
-2. Agora crie um arquivo de texto que comece com os bytes da assinatura do PNG e tenha
-   qualquer coisa depois. O que o identificador diz? Ele está certo?
-   - Uma boa resposta contém: diz PNG e está errado; a assinatura também pode ser
-     falsificada. Os primeiros bytes são um indício, não uma prova.
-3. Um site aceita upload de "apenas imagens" e verifica só a extensão. O que um atacante
-   faz?
-   - Uma boa resposta contém: manda um arquivo perigoso (um script, por exemplo) com
-     extensão de imagem. Melhor ainda se ele disser que verificar só os magic bytes
-     também não basta.
+1. Before running with "ação": how many bytes do you predict? Run it and compare.
+   - A good answer contains: a prediction; then the observation that accented letters
+     take 2 bytes in UTF-8, so it is 6 bytes for 4 characters.
+2. Ask Claude to read the bytes of "ação" as if they were Latin-1 (another table). What
+   shows up, and why?
+   - A good answer contains: "aÃ§Ã£o", because each byte was read as a separate character
+     in the other table. It is the explanation for the "Ã§" from the Opening.
+3. Is a password "ação" typed on a UTF-8 system and checked on a Latin-1 system the same
+   password?
+   - A good answer contains: no; the bytes compared are different. Or the student notices
+     it depends on how each side converts, which is already a good intuition.
 
-### Ferramenta
+### Tool
 
-O comando `file`: `file foto.png`. Pergunta: "O `file` olha o nome ou os bytes? Como
-você testaria isso?" Ele testa com o arquivo renomeado.
+The `xxd` command (or `hexdump -C`): `echo -n "ação" | xxd`. Question: "What did `xxd`
+show that your program also shows?"
 
-### Explicar de volta
+### Explain back
 
-"Explique por que confiar na extensão de um arquivo é perigoso." Critério: a extensão é
-só nome e pode ser trocada; o tipo está nos bytes; e mesmo os bytes podem ser forjados.
+"Explain why 'Ã§' sometimes shows up where 'ç' should be." Criterion: text becomes bytes
+through a table; saving with one table and reading with another swaps the characters.
 
-### Para o Socrates
+### For Socrates
 
-- **Erros comuns:** concluir que os magic bytes resolvem tudo. A pergunta 2 da
-  Verificação existe para desfazer isso.
-- **Ponte para segurança:** validação de upload, arquivos poliglotas (válidos em dois
-  formatos ao mesmo tempo), anexos de phishing. Volta em segurança de aplicações (Fase 6).
+- **Common mistakes:** thinking a character is always one byte. Verification question 1
+  undoes this.
+- **Bridge to security:** different encodings are used to bypass filters (a filter looks
+  for `<script>` and the attacker sends the same text encoded another way). Comes back in
+  injection (26) and XSS (28.2).
 
 ---
 
-## Lição 1.4 — Do código ao programa: compilado e interpretado
+## Lesson 1.3 — Files and formats: the extension lies
 
-**Conceito-âncora:** o processador só executa instruções de máquina (bytes). Um
-compilador traduz o código-fonte para essas instruções antes de rodar; um interpretador
-lê o código e executa enquanto lê. Nos dois casos, o que roda é o que o processador
-recebe, não o que está escrito no código-fonte.
+**Anchor concept:** a file is just a sequence of bytes. What tells the real type is the
+first bytes (the signature, or *magic bytes*); the extension in the name is just a label
+anyone can change.
 
-### Abertura
+### Opening
 
-1. Você escreveu `print("oi")` em Python. O processador entende essa linha?
-   - Uma boa resposta contém: não diretamente; alguém traduz para algo que o processador
-     entende.
-2. Qual a diferença entre um tradutor que traduz um livro inteiro antes e um intérprete
-   que traduz uma conversa ao vivo?
-   - Uma boa resposta contém: um faz tudo antes e entrega pronto; o outro traduz
-     enquanto acontece. É a analogia de compilado e interpretado.
+1. If you rename `photo.png` to `photo.txt`, does the image become text?
+   - A good answer contains: no, only the name changed; the content stays the same.
+2. So how can a program know a file is an image without looking at the name?
+   - A good answer contains: by looking at the content. If the student gets to "something
+     at the start of the file", great.
 
-### Missão
+### Mission
 
-Ele escreve com o Claude o mesmo programa pequeno em duas linguagens, C e Python (somar
-dois números e mostrar o resultado). Compila o de C com `gcc` e roda os dois.
+With Claude, the student builds a mini file identifier: it reads the first bytes of a
+file, shows those bytes in hex and says whether the file is PNG, PDF, ZIP or "unknown",
+by comparing with the signatures.
 
-Perguntas de especificação:
-1. Os dois programas precisam fazer exatamente o quê, para a comparação valer?
-   - Uma boa resposta contém: o mesmo comportamento, com a mesma entrada e a mesma
-     saída.
-2. Depois de compilar o C, quais arquivos você espera que existam na pasta?
-   - Uma boa resposta contém: o fonte `.c` e um executável novo.
+Specification questions:
+1. How many bytes from the start will you read, and why?
+   - A good answer contains: a justified number, such as "8, because the PNG signature is
+     8 bytes". The student may ask Claude for the signatures, but must decide how many
+     bytes to read.
+2. What does the program do with an empty file, or one that does not exist?
+   - A good answer contains: an explicit decision.
+3. Which files will you use to test?
+   - A good answer contains: one of each type, plus one with its extension changed.
 
-### Verificação
+### Verification
 
-1. Abra o executável do C com `xxd | head`. O que você vê? Dá para ler o código-fonte
-   ali?
-   - Uma boa resposta contém: bytes, a maioria ilegível, talvez alguns textos soltos; o
-     código-fonte não está lá. Se ele notar `ELF` no início, ligue com os magic bytes da
-     lição 1.3.
-2. Apague o `.c` e rode o executável. Funciona? E se apagar o `.py`, o programa Python
-   roda?
-   - Uma boa resposta contém: o executável roda sem o fonte; o Python precisa do `.py`
-     e do interpretador.
-3. Se alguém te manda só um executável, como você sabe o que ele faz?
-   - Uma boa resposta contém: não dá para saber só olhando o nome; seria preciso
-     analisar os bytes ou executar num ambiente isolado. Ligue com o laboratório do
-     módulo 00.
+1. Rename a PNG to `.pdf` and run the identifier. What do you predict?
+   - A good answer contains: the program says PNG, because it looks at the bytes and not
+     the name.
+2. Now create a text file that starts with the bytes of the PNG signature and has anything
+   after them. What does the identifier say? Is it right?
+   - A good answer contains: it says PNG and it is wrong; the signature can be faked too.
+     The first bytes are a clue, not proof.
+3. A site accepts uploads of "images only" and checks only the extension. What does an
+   attacker do?
+   - A good answer contains: sends a dangerous file (a script, for example) with an image
+     extension. Even better if the student says that checking only the magic bytes is not
+     enough either.
 
-### Ferramenta
+### Tool
 
-O comando `strings` (mostra os textos legíveis dentro de um binário) e o `file` no
-executável. Pergunta: "O que o `strings` te conta sobre um executável desconhecido, e o
-que ele não conta?"
+The `file` command: `file photo.png`. Question: "Does `file` look at the name or the
+bytes? How would you test that?" The student tests it with the renamed file.
 
-### Explicar de volta
+### Explain back
 
-"Explique a diferença entre compilado e interpretado, e por que receber um executável
-desconhecido é arriscado." Critério: compilado é traduzido antes e roda sem o fonte;
-interpretado precisa do fonte e do interpretador; um executável não mostra o que faz.
+"Explain why trusting a file's extension is dangerous." Criterion: the extension is just a
+name and can be changed; the type is in the bytes; and even the bytes can be forged.
 
-### Para o Socrates
+### For Socrates
 
-- **Erros comuns:** achar que Python "não é compilado de jeito nenhum" (ele gera
-  bytecode, o `.pyc`). Só aprofunde se ele perguntar; o conceito-âncora não depende disso.
-- **Ponte para segurança:** análise de malware, `strings` como primeira triagem,
-  supply chain (o binário que você baixou é o mesmo que foi compilado do fonte?). Volta
-  em 30 (supply chain) e 39.3 (modelos e plugins).
+- **Common mistakes:** concluding that magic bytes solve everything. Verification question
+  2 exists to undo this.
+- **Bridge to security:** upload validation, polyglot files (valid in two formats at the
+  same time), phishing attachments. Comes back in application security (Phase 6).
+
+---
+
+## Lesson 1.4 — From code to program: compiled and interpreted
+
+**Anchor concept:** the processor only runs machine instructions (bytes). A compiler
+translates the source code into those instructions before running; an interpreter reads
+the code and runs it as it reads. In both cases, what runs is what the processor receives,
+not what is written in the source code.
+
+### Opening
+
+1. You wrote `print("hi")` in Python. Does the processor understand that line?
+   - A good answer contains: not directly; something translates it into what the processor
+     understands.
+2. What is the difference between a translator who translates a whole book beforehand and
+   an interpreter who translates a conversation live?
+   - A good answer contains: one does everything first and delivers it ready; the other
+     translates while it happens. It is the analogy for compiled and interpreted.
+
+### Mission
+
+With Claude, the student writes the same small program in two languages, C and Python
+(add two numbers and show the result). Compiles the C one with `gcc` and runs both.
+
+Specification questions:
+1. What exactly must the two programs do for the comparison to hold?
+   - A good answer contains: the same behavior, with the same input and the same output.
+2. After compiling the C, which files do you expect to exist in the folder?
+   - A good answer contains: the `.c` source and a new executable.
+
+### Verification
+
+1. Open the C executable with `xxd | head`. What do you see? Can you read the source code
+   there?
+   - A good answer contains: bytes, mostly unreadable, maybe some loose text; the source
+     code is not there. If the student notices `ELF` at the start, connect it to the magic
+     bytes from lesson 1.3.
+2. Delete the `.c` and run the executable. Does it work? And if you delete the `.py`, does
+   the Python program run?
+   - A good answer contains: the executable runs without the source; Python needs the
+     `.py` and the interpreter.
+3. If someone sends you only an executable, how do you know what it does?
+   - A good answer contains: you cannot tell just by looking at the name; you would have
+     to analyze the bytes or run it in an isolated environment. Connect it to the lab from
+     module 00.
+
+### Tool
+
+The `strings` command (shows the readable text inside a binary) and `file` on the
+executable. Question: "What does `strings` tell you about an unknown executable, and what
+does it not tell you?"
+
+### Explain back
+
+"Explain the difference between compiled and interpreted, and why receiving an unknown
+executable is risky." Criterion: compiled is translated beforehand and runs without the
+source; interpreted needs the source and the interpreter; an executable does not show what
+it does.
+
+### For Socrates
+
+- **Common mistakes:** thinking Python "is not compiled at all" (it generates bytecode,
+  the `.pyc`). Only go deeper if the student asks; the anchor concept does not depend on
+  it.
+- **Bridge to security:** malware analysis, `strings` as a first triage, supply chain (is
+  the binary you downloaded the same one that was compiled from the source?). Comes back in
+  30 (supply chain) and 39.3 (models and plugins).

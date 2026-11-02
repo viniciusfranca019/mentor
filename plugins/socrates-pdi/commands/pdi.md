@@ -1,13 +1,13 @@
 ---
-description: Monta o seu PDI com o Socrates ou faz o check-in do PDI que você já tem
+description: Build your PDI with Socrates, or run the check-in of the PDI you already have
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.claude/plugins/cache/socrates/**), Read(~/.socrates/**), Write(~/.socrates/**), Edit(~/.socrates/**), Bash(mkdir -p ~/.socrates:*), Bash(date:*), Bash(ls ~/.socrates:*), Bash(ls -d ~/.mentor:*)
 ---
 
 # PDI
 
-Leia `${CLAUDE_PLUGIN_ROOT}/skills/pdi/SKILL.md` (a skill `socrates-pdi:pdi`) e siga-a.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/pdi/SKILL.md` (the `socrates-pdi:pdi` skill) and follow it.
 
-- Raiz do PDI: `${CLAUDE_PLUGIN_ROOT}`. Os critérios vêm do Socrates: carregue a skill
-  `socrates:criteria` e leia os arquivos que ela indica.
-- Sem `~/.socrates/pdi/pdi.md`: **Workflow: montar o PDI**. Com ele: **Workflow: check-in**.
+- PDI root: `${CLAUDE_PLUGIN_ROOT}`. The criteria come from Socrates: load the
+  `socrates:criteria` skill and read the files it points to.
+- No `~/.socrates/pdi/pdi.md`: **Workflow: build the PDI**. With it: **Workflow: check-in**.

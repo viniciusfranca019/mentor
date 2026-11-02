@@ -1,22 +1,22 @@
 ---
-name: curso
+name: course
 description: >
-  Curso do Socrates: security-engineer. Para quem tem formação em TI mas pouca prática de
-  programação, redes e infraestrutura. Aonde chega: engenheiro de segurança na era da IA.
-  Situação: módulos 00 e 01 disponíveis, de 42. Use only when the Socrates engine
-  (socrates:socrates) lists, diagnoses or teaches this course; never on its own.
+  Socrates course: security-engineer. Who it is for: people with an IT degree but little
+  practice in programming, networks and infrastructure. Where you get to: security engineer
+  in the age of AI. Status: modules 00 and 01 available, of 42. Use only when the Socrates
+  engine (socrates:socrates) lists, diagnoses or teaches this course; never on its own.
 ---
 
-# Curso security-engineer
+# Course security-engineer
 
-Este arquivo é o contrato de curso do Socrates, versão 1. Ele não ensina nada: diz ao
-motor (`socrates:socrates`) onde está o conteúdo deste curso.
+This file is the Socrates course contract, version 2. It teaches nothing: it tells the
+engine (`socrates:socrates`) where this course's content is.
 
-- **Curso:** `security-engineer`
-- **Raiz do curso:** `${CLAUDE_PLUGIN_ROOT}/course`
-- **Trilha, eixos e diagnóstico:** `${CLAUDE_PLUGIN_ROOT}/course/course.md`
-- **Módulos:** `${CLAUDE_PLUGIN_ROOT}/course/modules/<NN-name>.md`
-- **Versão do curso:** a `version` de `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`
+- **Course:** `security-engineer`
+- **Course root:** `${CLAUDE_PLUGIN_ROOT}/course`
+- **Track, axes and diagnosis:** `${CLAUDE_PLUGIN_ROOT}/course/course.md`
+- **Modules:** `${CLAUDE_PLUGIN_ROOT}/course/modules/<NN-name>.md`
+- **Course version:** the `version` in `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`
 
-Nos arquivos do curso, `<course>` significa a raiz do curso acima, e `<root>` significa a
-raiz do plugin `socrates`, que o motor conhece.
+In the course files, `<course>` means the course root above, and `<root>` means the root
+of the `socrates` plugin, which the engine knows.

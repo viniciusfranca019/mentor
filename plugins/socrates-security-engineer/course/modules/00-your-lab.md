@@ -1,210 +1,213 @@
-# Módulo 00 — Seu laboratório
+# Module 00 — Your lab
 
-**Objetivo:** ter um Linux isolado para estudar e saber por que ele precisa ser isolado.
+**Goal:** have an isolated Linux to study in, and know why it needs to be isolated.
 
-**Pré-requisitos:** nenhum. Claude Code instalado e o onboarding feito.
+**Prerequisites:** none. Claude Code installed and onboarding done.
 
-**Por que importa para o curso:** segurança se aprende quebrando coisas. Quebrar coisas
-na máquina onde está o seu banco, o seu e-mail e o seu trabalho é o primeiro erro de
-segurança que dá para cometer. O laboratório é o primeiro controle de segurança do curso.
-
----
-
-## Lição 0.1 — O que é um ambiente de estudo isolado
-
-**Conceito-âncora:** um laboratório é um ambiente separado da máquina principal, onde
-um erro ou um código malicioso não alcança o que importa. Isolar é limitar o estrago
-possível.
-
-### Abertura
-
-1. Imagine que você baixa da internet um programa que promete "testar a segurança da
-   sua rede", e ele é malicioso. O que ele consegue alcançar se você rodar no seu
-   computador do dia a dia?
-   - Uma boa resposta contém: os arquivos do usuário, senhas salvas no navegador, sessões
-     abertas, outras máquinas da rede de casa. Basta citar dois.
-2. Por que um médico que estuda vírus perigosos não faz isso na cozinha de casa?
-   - Uma boa resposta contém: o estrago escapa do lugar onde ele estava contido; o
-     laboratório tem barreiras que limitam o alcance.
-3. Que tipo de "parede" você imagina que dá para criar dentro de um computador?
-   - Uma boa resposta contém: qualquer ideia de separação, como outro usuário, outra
-     máquina, máquina virtual ou container. Não precisa ser precisa: é uma pergunta de
-     curiosidade.
-
-### Missão
-
-Sem código nesta lição. Com o Claude, ele faz um inventário: o que existe hoje na
-máquina dele que um programa malicioso poderia alcançar. Ele dirige a investigação: decide
-onde olhar e pede ao Claude os comandos para olhar.
-
-Perguntas de especificação:
-1. Quais categorias de coisas valiosas você vai procurar?
-   - Uma boa resposta contém: pelo menos três categorias, como documentos, credenciais e
-     sessões, chaves SSH ou tokens, dispositivos na rede.
-2. Como você vai saber que o inventário está bom o suficiente?
-   - Uma boa resposta contém: um critério de parada, como "uma lista com o que existe e
-     onde fica, para cada categoria".
-
-### Verificação
-
-1. Do inventário, qual item seria o pior de vazar e por quê?
-   - Uma boa resposta contém: um item concreto e o impacto: o que alguém faria com ele.
-2. Se o laboratório for uma máquina virtual dentro deste mesmo computador, o que ainda
-   estaria compartilhado entre os dois?
-   - Uma boa resposta contém: o hardware, a rede, e a possibilidade de pastas
-     compartilhadas. O isolamento é forte, mas não é absoluto.
-
-### Ferramenta
-
-Apresente as duas opções de laboratório que a lição 0.2 vai montar: **WSL2** (Linux
-dentro do Windows, leve, menos isolado) e **VirtualBox** ou similar (máquina virtual
-completa, mais pesada, mais isolada). Pergunte: "Pelo que você viu hoje, qual delas
-isola mais, e qual você usaria para rodar um malware de verdade?"
-
-### Explicar de volta
-
-"Explique para um amigo por que você não vai estudar ataques na sua máquina do dia a
-dia." Critério: fala em limitar o alcance do estrago e cita pelo menos uma coisa
-concreta que ficaria protegida.
-
-### Para o Socrates
-
-- **Erros comuns:** achar que antivírus substitui isolamento; achar que "não tenho nada
-  de valor". Desfaça perguntando quais sessões estão logadas no navegador agora.
-- **Ponte para segurança:** isolamento e contenção do estrago (*blast radius*) aparecem
-  de novo em containers (18), cloud e IAM (20) e agentes de IA com sandbox (38.3).
+**Why it matters for the course:** security is learned by breaking things. Breaking things
+on the machine that holds your bank, your email and your work is the first security
+mistake you can make. The lab is the course's first security control.
 
 ---
 
-## Lição 0.2 — Montando o Linux (WSL2 ou VM)
+## Lesson 0.1 — What an isolated study environment is
 
-**Conceito-âncora:** o laboratório é um sistema operacional inteiro rodando sobre o
-seu. Saber em qual dos dois você está e o que passa de um para o outro é a primeira
-habilidade de quem trabalha com isolamento.
+**Anchor concept:** a lab is an environment separated from the main machine, where a
+mistake or malicious code cannot reach what matters. Isolating means limiting the
+possible damage.
 
-### Abertura
+### Opening
 
-1. O que é um sistema operacional? Para que ele serve?
-   - Uma boa resposta contém: o programa que gerencia o hardware e deixa os outros
-     programas usarem CPU, memória, disco e rede sem que cada um precise controlar o
-     hardware sozinho.
-2. Como podem rodar dois sistemas operacionais ao mesmo tempo no mesmo computador?
-   - Uma boa resposta contém: alguma ideia de uma camada que divide o hardware ou finge
-     ser um hardware. A palavra "hipervisor" não é necessária.
+1. Imagine you download a program from the internet that promises to "test the security of
+   your network", and it is malicious. What can it reach if you run it on your everyday
+   computer?
+   - A good answer contains: the user's files, passwords saved in the browser, open
+     sessions, other machines on the home network. Naming two is enough.
+2. Why doesn't a doctor who studies dangerous viruses do it in their home kitchen?
+   - A good answer contains: the damage escapes the place where it was contained; the
+     lab has barriers that limit its reach.
+3. What kind of "wall" do you imagine you can build inside a computer?
+   - A good answer contains: any idea of separation, such as another user, another
+     machine, a virtual machine or a container. It does not need to be precise: it is a
+     curiosity question.
 
-### Missão
+### Mission
 
-Instalar o laboratório, com o Claude como guia, e provar que ele funciona. No Windows,
-a recomendação é o WSL2 com Ubuntu. Se ele já usa Linux, uma VM no VirtualBox. Ele
-pede ao Claude os passos, mas precisa entender o que cada comando faz antes de rodar.
+No code in this lesson. With Claude, the student takes an inventory: what exists on their
+machine today that a malicious program could reach. The student drives the investigation:
+decides where to look and asks Claude for the commands to look.
 
-Perguntas de especificação:
-1. Antes de pedir os passos ao Claude: o que você precisa dizer a ele sobre a sua
-   máquina para que os passos sirvam?
-   - Uma boa resposta contém: o sistema operacional e a versão, e o que ele quer como
-     resultado (qual Linux, para quê).
-2. Como você vai provar que o laboratório está funcionando?
-   - Uma boa resposta contém: um teste concreto, como abrir o terminal do Linux e rodar
-     um comando que mostra o nome do sistema.
+Specification questions:
+1. Which categories of valuable things will you look for?
+   - A good answer contains: at least three categories, such as documents, credentials and
+     sessions, SSH keys or tokens, devices on the network.
+2. How will you know the inventory is good enough?
+   - A good answer contains: a stopping criterion, such as "a list of what exists and
+     where it is, for each category".
 
-Com o laboratório pronto, ele roda dentro dele `uname -a`, `whoami` e `pwd` e explica o
-que cada um mostrou.
+### Verification
 
-### Verificação
+1. From the inventory, which item would be the worst to leak, and why?
+   - A good answer contains: a concrete item and the impact: what someone would do with it.
+2. If the lab is a virtual machine inside this same computer, what would still be shared
+   between the two?
+   - A good answer contains: the hardware, the network, and the possibility of shared
+     folders. The isolation is strong, but not absolute.
 
-1. Crie um arquivo dentro do Linux. Você consegue vê-lo do Windows (ou do sistema
-   principal)? E o contrário? Antes de testar: o que você prevê?
-   - Uma boa resposta contém: uma previsão antes do teste. No WSL2, os dois lados se
-     enxergam (`\\wsl$` de um lado e `/mnt/c` do outro). Ele deve concluir que o WSL2
-     não é um isolamento forte.
-2. Se um programa malicioso rodar dentro do seu WSL2, ele alcança os seus documentos do
-   Windows? Por quê?
-   - Uma boa resposta contém: sim, pelo `/mnt/c`. Por isso o WSL2 serve para estudar,
-     mas não para rodar malware de verdade.
+### Tool
 
-### Ferramenta
+Present the two lab options that lesson 0.2 will set up: **WSL2** (Linux inside Windows,
+light, less isolated) and **VirtualBox** or similar (a full virtual machine, heavier, more
+isolated). Ask: "From what you saw today, which one isolates more, and which one would you
+use to run real malware?"
 
-O comando `wsl` (ou o painel do VirtualBox): listar, parar e exportar a distribuição.
-Pergunta: "Como você voltaria o laboratório a um estado limpo se estragasse tudo?"
-Conecta com snapshot, que volta no módulo 17.
+### Explain back
 
-### Explicar de volta
+"Explain to a friend why you are not going to study attacks on your everyday machine."
+Criterion: talks about limiting the reach of the damage and names at least one concrete
+thing that would stay protected.
 
-"Explique onde o seu Linux está rodando e o que ele compartilha com a sua máquina."
-Critério: diz que é um sistema rodando sobre o outro e cita pelo menos um ponto de
-contato (arquivos, rede).
+### For Socrates
 
-### Para o Socrates
-
-- **Erros comuns:** copiar os comandos de instalação sem ler. Se ele colar um comando
-  sem explicar, pare e peça a explicação daquele comando. Também é comum confundir o
-  terminal do Windows com o do Linux: peça que ele mostre o resultado do `uname`.
-- **Ponte para segurança:** a pergunta "o que atravessa a fronteira?" é a mesma de toda
-  análise de fronteira de confiança (21.3).
+- **Common mistakes:** thinking antivirus replaces isolation; thinking "I have nothing of
+  value". Undo it by asking which sessions are logged in in the browser right now.
+- **Bridge to security:** isolation and damage containment (*blast radius*) come back in
+  containers (18), cloud and IAM (20) and sandboxed AI agents (38.3).
 
 ---
 
-## Lição 0.3 — Primeira conversa com o Claude como arquiteto
+## Lesson 0.2 — Setting up Linux (WSL2 or VM)
 
-**Conceito-âncora:** quem especifica decide. Uma especificação completa diz o que
-entra, o que sai, o que acontece e como saber que funcionou. O que ela não diz, a IA
-decide no lugar dele.
+**Anchor concept:** the lab is a whole operating system running on top of yours. Knowing
+which of the two you are in, and what passes from one to the other, is the first skill of
+anyone who works with isolation.
 
-### Abertura
+### Opening
 
-1. Você pede a um pedreiro "faz um muro". O que pode dar errado?
-   - Uma boa resposta contém: o pedreiro decide altura, material e lugar; o resultado
-     pode não servir para o que ele queria.
-2. Quando você pede algo à IA sem detalhes, quem decide o que ficou faltando?
-   - Uma boa resposta contém: a IA, por suposição. Ele não fica sabendo do que ela
-     decidiu, a não ser que leia o resultado.
+1. What is an operating system? What is it for?
+   - A good answer contains: the program that manages the hardware and lets the other
+     programs use CPU, memory, disk and network without each one having to control the
+     hardware on its own.
+2. How can two operating systems run at the same time on the same computer?
+   - A good answer contains: some idea of a layer that splits the hardware or pretends to
+     be hardware. The word "hypervisor" is not required.
 
-### Missão
+### Mission
 
-Ele pede ao Claude um script de até 20 linhas que conte quantos arquivos existem numa
-pasta. O Socrates não aceita o primeiro pedido se ele for vago: faz as perguntas de
-especificação até o pedido estar completo. Depois, ele lê o script antes de rodar.
+Install the lab, with Claude as a guide, and prove it works. On Windows, the
+recommendation is WSL2 with Ubuntu. If the student already uses Linux, a VM in VirtualBox.
+The student asks Claude for the steps, but must understand what each command does before
+running it.
 
-Perguntas de especificação:
-1. O que o script recebe?
-   - Uma boa resposta contém: uma pasta, e como ela é informada (argumento ou pasta
-     atual).
-2. O que conta como "arquivo"? Pastas entram? E as subpastas?
-   - Uma boa resposta contém: uma decisão explícita. Qualquer uma serve, desde que seja
-     dele.
-3. O que o script mostra no final?
-   - Uma boa resposta contém: o formato da saída, por exemplo só o número ou uma frase.
-4. Como você vai testar?
-   - Uma boa resposta contém: uma pasta com uma quantidade conhecida de arquivos, para
-     comparar com o resultado.
+Specification questions:
+1. Before asking Claude for the steps: what do you need to tell it about your machine so
+   the steps fit?
+   - A good answer contains: the operating system and its version, and what the student
+     wants as a result (which Linux, and what for).
+2. How will you prove the lab is working?
+   - A good answer contains: a concrete test, such as opening the Linux terminal and
+     running a command that shows the system's name.
 
-### Verificação
+With the lab ready, the student runs `uname -a`, `whoami` and `pwd` inside it and explains
+what each one showed.
 
-1. Aponte no script a linha que faz a contagem. O que ela faz?
-   - Uma boa resposta contém: a linha certa e uma explicação aproximada do comando.
-2. O que acontece se você passar uma pasta que não existe? Preveja antes de testar.
-   - Uma boa resposta contém: uma previsão. Depois do teste, ele conclui se o script
-     trata o erro ou não, e se isso estava na especificação.
-3. Que decisão o Claude tomou que você não especificou?
-   - Uma boa resposta contém: algo real do script, como a linguagem escolhida, arquivos
-     ocultos ou mensagem de erro. Esta é a pergunta mais importante da lição.
+### Verification
 
-### Ferramenta
+1. Create a file inside Linux. Can you see it from Windows (or from the main system)? And
+   the other way around? Before testing: what do you predict?
+   - A good answer contains: a prediction before the test. In WSL2, the two sides see each
+     other (`\\wsl$` on one side and `/mnt/c` on the other). The student should conclude
+     that WSL2 is not strong isolation.
+2. If a malicious program runs inside your WSL2, does it reach your Windows documents?
+   Why?
+   - A good answer contains: yes, through `/mnt/c`. That is why WSL2 is fine for studying,
+     but not for running real malware.
 
-O próprio Claude Code: o modo de planejamento (o Claude propõe um plano antes de
-escrever código) e o hábito de pedir "me explique o que você vai fazer antes de fazer".
-Pergunta: "Em que tipo de tarefa você pediria o plano antes do código?"
+### Tool
 
-### Explicar de volta
+The `wsl` command (or the VirtualBox panel): list, stop and export the distribution.
+Question: "How would you bring the lab back to a clean state if you broke everything?"
+Connects to snapshots, which come back in module 17.
 
-"Explique o que uma boa especificação precisa ter, e o que acontece quando ela não tem."
-Critério: cita entrada, saída, comportamento e teste, e diz que o que faltar a IA decide
-por ele.
+### Explain back
 
-### Para o Socrates
+"Explain where your Linux is running and what it shares with your machine." Criterion:
+says it is one system running on top of the other and names at least one point of contact
+(files, network).
 
-- **Erros comuns:** achar que a IA "sabe o que eu quis dizer". A pergunta 3 da
-  Verificação desfaz isso: sempre há uma decisão que ele não tomou.
-- **Ponte para segurança:** código gerado por IA com decisões que ninguém revisou é uma
-  das fontes de vulnerabilidade da era da IA (14.3, 40.2). Revisar o que a IA decidiu é
-  uma tarefa de segurança.
+### For Socrates
+
+- **Common mistakes:** copying the install commands without reading them. If the student
+  pastes a command without explaining it, stop and ask for the explanation of that
+  command. It is also common to confuse the Windows terminal with the Linux one: ask the
+  student to show the output of `uname`.
+- **Bridge to security:** the question "what crosses the boundary?" is the same one in
+  every trust boundary analysis (21.3).
+
+---
+
+## Lesson 0.3 — First conversation with Claude as an architect
+
+**Anchor concept:** whoever specifies decides. A complete specification says what goes in,
+what comes out, what happens and how to know it worked. What it does not say, the AI
+decides in the student's place.
+
+### Opening
+
+1. You ask a builder to "make a wall". What can go wrong?
+   - A good answer contains: the builder decides the height, material and place; the
+     result may not serve what the student wanted.
+2. When you ask the AI for something without details, who decides what was missing?
+   - A good answer contains: the AI, by assumption. The student does not find out what it
+     decided unless they read the result.
+
+### Mission
+
+The student asks Claude for a script of up to 20 lines that counts how many files exist in
+a folder. Socrates does not accept the first request if it is vague: it asks the
+specification questions until the request is complete. Then the student reads the script
+before running it.
+
+Specification questions:
+1. What does the script receive?
+   - A good answer contains: a folder, and how it is given (an argument or the current
+     folder).
+2. What counts as a "file"? Do folders count? And subfolders?
+   - A good answer contains: an explicit decision. Any one works, as long as it is the
+     student's.
+3. What does the script show at the end?
+   - A good answer contains: the output format, for example just the number or a sentence.
+4. How will you test it?
+   - A good answer contains: a folder with a known number of files, to compare with the
+     result.
+
+### Verification
+
+1. Point to the line in the script that does the counting. What does it do?
+   - A good answer contains: the right line and a rough explanation of the command.
+2. What happens if you pass a folder that does not exist? Predict before testing.
+   - A good answer contains: a prediction. After the test, the student concludes whether
+     the script handles the error or not, and whether that was in the specification.
+3. What decision did Claude make that you did not specify?
+   - A good answer contains: something real from the script, such as the language chosen,
+     hidden files or the error message. This is the most important question of the lesson.
+
+### Tool
+
+Claude Code itself: plan mode (Claude proposes a plan before writing code) and the habit
+of asking "explain to me what you are going to do before doing it". Question: "For what
+kind of task would you ask for the plan before the code?"
+
+### Explain back
+
+"Explain what a good specification needs to have, and what happens when it doesn't."
+Criterion: names input, output, behavior and test, and says that whatever is missing, the
+AI decides for the student.
+
+### For Socrates
+
+- **Common mistakes:** thinking the AI "knows what I meant". Verification question 3
+  undoes this: there is always a decision the student did not make.
+- **Bridge to security:** AI-generated code with decisions nobody reviewed is one of the
+  sources of vulnerabilities in the AI era (14.3, 40.2). Reviewing what the AI decided is a
+  security task.

@@ -1,51 +1,51 @@
-# Progresso: <course>
+# Progress: <course>
 
-## Onde parei
+## Where I stopped
 
-- **Módulo:** <NN — nome>
-- **Lição:** <N.N — nome>
-- **Fase:** <Abertura | Missão | Verificação | Ferramenta | Explicar de volta>
-- **Última sessão:** <YYYY-MM-DD>
-- **Próximo passo:** <a primeira coisa a fazer quando voltar, em uma frase>
+- **Module:** <NN — name>
+- **Lesson:** <N.N — name>
+- **Phase:** <Opening | Mission | Verification | Tool | Explain back>
+- **Last session:** <YYYY-MM-DD>
+- **Next step:** <the first thing to do when coming back, in one sentence>
 
-## Níveis por eixo
+## Levels by axis
 
-<Do diagnóstico do onboarding, atualizado na reavaliação de cada fase
+<From the onboarding diagnosis, updated at each phase's reassessment
 (`references/levels.md`).>
 
-| Eixo | Nível | Camadas demonstradas | Próxima camada | Evidência |
-|------|-------|----------------------|----------------|-----------|
-| <eixo> | <1 a 5> | <ex.: 1–3> | <ex.: 4. Diagnóstico> | <YYYY-MM-DD, a pergunta e um resumo da resposta> |
+| Axis | Level | Demonstrated layers | Next layer | Evidence |
+|------|-------|---------------------|------------|----------|
+| <axis> | <1 to 5> | <e.g.: 1–3> | <e.g.: 4. Diagnosis> | <YYYY-MM-DD, the question and a summary of the answer> |
 
-## Trilha
+## Track
 
-<Copiada do course.md no início do curso. Marque [x] ao concluir a lição, ou [v] quando o
-módulo foi validado pela prova de saída.>
+<Copied from course.md at the start of the course. Mark [x] when the lesson is completed, or [v] when the
+module was validated by the exit test.>
 
-### Módulo 00 — <nome> (plugin v<X.Y.Z>)
+### Module 00 — <name> (plugin v<X.Y.Z>)
 
-- [ ] 0.1 <lição>
-- [ ] 0.2 <lição>
+- [ ] 0.1 <lesson>
+- [ ] 0.2 <lesson>
 
-### Módulo 01 — <nome>
+### Module 01 — <name>
 
-- [ ] 1.1 <lição>
+- [ ] 1.1 <lesson>
 
-## Explicações de volta
+## Explain-backs
 
-<Uma entrada por lição concluída: o conceito-âncora explicado com as palavras dele.
-É o caderno dele. Ao revisar, ele lê o que ele mesmo escreveu.>
+<One entry per completed lesson: the anchor concept explained in their own words.
+It is their notebook. When reviewing, they read what they wrote themselves.>
 
-- **1.1 <lição> (<YYYY-MM-DD>):** "<explicação dele>"
+- **1.1 <lesson> (<YYYY-MM-DD>):** "<their explanation>"
 
-## Para revisar
+## To review
 
-<Conceitos em que ele precisou de explicação ou errou mais de uma vez. O aquecimento
-da sessão seguinte sai daqui. Remova o item quando ele acertar sozinho no aquecimento.>
+<Concepts where they needed an explanation or got it wrong more than once. The next session's
+warm-up comes from here. Remove the item when they get it right unaided in the warm-up.>
 
-- [ ] <conceito> — <de qual lição> — <o que ele confundiu>
+- [ ] <concept> — <from which lesson> — <what they confused>
 
-## Combinados
+## Agreements
 
-<Ajustes de ritmo e de método combinados durante o curso, com a data. Ex.: "2026-10-09:
-pula a Abertura quando acertar o aquecimento de primeira".>
+<Pace and method adjustments agreed during the course, with the date. E.g.: "2026-10-09:
+skip the Opening when the warm-up is right on the first try".>
