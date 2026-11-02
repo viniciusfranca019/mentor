@@ -1,4 +1,4 @@
-# Diário: <AAAA-MM-DD> — <curso>
+# Diário: <YYYY-MM-DD> — <course>
 
 ## Sessão <HH:MM>
 

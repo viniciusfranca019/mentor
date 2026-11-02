@@ -11,18 +11,18 @@ Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrate
 
 - Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
 - Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
-  `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
-- Curso pedido: `$ARGUMENTS`. Se vier vazio, use o curso ativo de `~/.socrates/perfil.md`.
+  `references/state.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
+- Curso pedido: `$ARGUMENTS`. Se vier vazio, use o curso ativo de `~/.socrates/profile.md`.
   Se vier preenchido com um curso diferente do ativo, veja primeiro se a skill
-  `socrates-<curso>:curso` existe: sem ela, dê o comando de instalar e pare sem tocar no
-  `perfil.md`. Instalado, confirme a troca antes de mudar o
-  `perfil.md`, e troque como na opção "Voltar para um curso iniciado" da seção Revisão
+  `socrates-<course>:course` existe: sem ela, dê o comando de instalar e pare sem tocar no
+  `profile.md`. Instalado, confirme a troca antes de mudar o
+  `profile.md`, e troque como na opção "Voltar para um curso iniciado" da seção Revisão
   do roteiro de onboarding. Se esse curso ainda não tem diretório em `~/.socrates`, siga a opção
   "Começar um curso novo" da seção Revisão do roteiro de onboarding antes da lição.
-- O curso vem de outro plugin, `socrates-<curso>`: carregue a skill `socrates-<curso>:curso`
+- O curso vem de outro plugin, `socrates-<course>`: carregue a skill `socrates-<course>:course`
   para saber onde estão os arquivos dele. Se ela não existir nesta sessão, o curso não
   está instalado: diga o comando da coluna "Instalar" do catálogo e pare.
-- Sem `~/.socrates/perfil.md`, comece pelo onboarding (`${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/onboarding.md`)
+- Sem `~/.socrates/profile.md`, comece pelo onboarding (`${CLAUDE_PLUGIN_ROOT}/skills/socrates/references/onboarding.md`)
   e só depois abra a primeira lição.
 
 Até o aluno encerrar a sessão, todas as respostas seguem o método da skill: perguntas uma

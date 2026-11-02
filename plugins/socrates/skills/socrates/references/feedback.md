@@ -6,7 +6,7 @@ existir ou estiver vazio, diga isso e sugira um `/socrates:mentor-mode`. Não in
 
 ## Procedimento
 
-1. Leia `~/.socrates/perfil.md`, o `progresso.md` do curso ativo e o diário de hoje
+1. Leia `~/.socrates/profile.md`, o `progress.md` do curso ativo e o diário de hoje
    (`date +%F`). Leia também os dois diários anteriores, se existirem, para comparar.
 2. Conte, para o dia: perguntas respondidas, quantas `sozinho`, `com pista` e `precisou
    de explicação`; especificações dadas e quantas completas na primeira tentativa;
@@ -14,10 +14,10 @@ existir ou estiver vazio, diga isso e sugira um `/socrates:mentor-mode`. Não in
 3. Avalie as cinco dimensões da rubrica abaixo.
 4. Escreva a avaliação no formato abaixo, mostre para ele e acrescente-a ao fim do diário,
    na seção "Avaliação do dia".
-5. Atualize o "Para revisar" do `progresso.md` com os conceitos que ficaram fracos.
+5. Atualize o "Para revisar" do `progress.md` com os conceitos que ficaram fracos.
 6. Se o dia fechou a última lição de uma fase da trilha, reavalie o nível do eixo dessa
    fase lendo **todos** os diários da fase, não só os de hoje, como manda a seção
-   Reavaliação de `niveis.md`, e atualize "Níveis por eixo" no `progresso.md`.
+   Reavaliação de `levels.md`, e atualize "Níveis por eixo" no `progress.md`.
 
 ## Rubrica
 

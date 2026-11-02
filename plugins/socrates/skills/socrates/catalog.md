@@ -6,7 +6,7 @@ O comando vai no Claude Code; depois dele, `/reload-plugins`.
 
 Este catálogo só serve para curso **não instalado**. De um curso instalado, quem diz para
 quem é, aonde chega e o que está disponível é a `description` da skill
-`socrates-<curso>:curso`, que muda junto com o curso. Um curso instalado que não está aqui
+`socrates-<course>:course`, que muda junto com o curso. Um curso instalado que não está aqui
 aparece mesmo assim.
 
 | Curso | Para quem | Aonde chega | Instalar |
@@ -18,7 +18,7 @@ aparece mesmo assim.
 Plugins que não são curso: trazem o próprio método e usam os critérios do Socrates
 (níveis, rubrica, estado). Também se instalam com um comando, e também trazem o
 `socrates` junto. Como nos cursos, uma extensão instalada aparece pela skill dela
-(`socrates-<extensão>:<extensão>`), mesmo que não esteja aqui.
+(`socrates-<extension>:<extension>`), mesmo que não esteja aqui.
 
 | Extensão | O que faz | Como usar | Instalar |
 |----------|-----------|-----------|----------|

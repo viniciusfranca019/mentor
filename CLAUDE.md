@@ -9,21 +9,21 @@ cada um num plugin. Tudo em PT-BR. O repositório se chama `mentor` por históri
   `source: "./plugins/<plugin>"`. O `name` da entrada é igual ao do `plugin.json`.
 - `plugins/socrates/`: o motor, igual para todos os cursos. Método em
   `skills/socrates/references/`, templates do estado do aluno em `templates/`, catálogo
-  de cursos em `skills/socrates/catalogo.md`, as entradas em `commands/`.
-- `plugins/socrates-<curso>/`: um curso. Conteúdo puro em `curso/`, mais a skill `curso`
+  de cursos em `skills/socrates/catalog.md`, as entradas em `commands/`.
+- `plugins/socrates-<course>/`: um curso. Conteúdo puro em `curso/`, mais a skill `curso`
   que diz ao motor onde ele está, e `"dependencies": ["socrates"]`. Curso novo não mexe no
-  motor, só no catálogo. O contrato: `plugins/socrates/skills/socrates/references/contrato-de-curso.md`.
-- `plugins/socrates-<extensão>/`: um plugin que não é curso (o primeiro é `socrates-pdi`).
-  Traz o próprio método e lê os critérios do motor pela skill `socrates:criterios`. O
-  contrato: `plugins/socrates/skills/socrates/references/contrato-de-extensao.md`.
+  motor, só no catálogo. O contrato: `plugins/socrates/skills/socrates/references/course-contract.md`.
+- `plugins/socrates-<extension>/`: um plugin que não é curso (o primeiro é `socrates-pdi`).
+  Traz o próprio método e lê os critérios do motor pela skill `socrates:criteria`. O
+  contrato: `plugins/socrates/skills/socrates/references/extension-contract.md`.
 - O estado do aluno mora em `~/.socrates`, nunca dentro de um plugin.
 
 ## Caminhos
 
 `${CLAUDE_PLUGIN_ROOT}` só é substituído no corpo do `SKILL.md` e dos commands, e vale a
 raiz do plugin **dono** do arquivo. Um plugin não lê o outro por caminho relativo: o motor
-acha um curso carregando a skill `socrates-<curso>:curso`, que diz a raiz absoluta. Em
-`references/` e nos arquivos de curso, escreva `<raiz>` (raiz do `socrates`) ou `<curso>`
+acha um curso carregando a skill `socrates-<course>:course`, que diz a raiz absoluta. Em
+`references/` e nos arquivos de curso, escreva `<root>` (raiz do `socrates`) ou `<course>`
 (raiz do curso). A skill `curso` não leva `allowed-tools`: com ele, carregá-la pede
 aprovação, e no headless ela é negada.
 

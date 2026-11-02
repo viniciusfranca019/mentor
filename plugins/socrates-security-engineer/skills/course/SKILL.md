@@ -13,10 +13,10 @@ Este arquivo é o contrato de curso do Socrates, versão 1. Ele não ensina nada
 motor (`socrates:socrates`) onde está o conteúdo deste curso.
 
 - **Curso:** `security-engineer`
-- **Raiz do curso:** `${CLAUDE_PLUGIN_ROOT}/curso`
-- **Trilha, eixos e diagnóstico:** `${CLAUDE_PLUGIN_ROOT}/curso/curso.md`
-- **Módulos:** `${CLAUDE_PLUGIN_ROOT}/curso/modulos/<NN-nome>.md`
+- **Raiz do curso:** `${CLAUDE_PLUGIN_ROOT}/course`
+- **Trilha, eixos e diagnóstico:** `${CLAUDE_PLUGIN_ROOT}/course/course.md`
+- **Módulos:** `${CLAUDE_PLUGIN_ROOT}/course/modules/<NN-name>.md`
 - **Versão do curso:** a `version` de `${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json`
 
-Nos arquivos do curso, `<curso>` significa a raiz do curso acima, e `<raiz>` significa a
+Nos arquivos do curso, `<course>` significa a raiz do curso acima, e `<root>` significa a
 raiz do plugin `socrates`, que o motor conhece.

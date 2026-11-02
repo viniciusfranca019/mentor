@@ -1,25 +1,25 @@
-# Progresso: <curso>
+# Progresso: <course>
 
 ## Onde parei
 
 - **Módulo:** <NN — nome>
 - **Lição:** <N.N — nome>
 - **Fase:** <Abertura | Missão | Verificação | Ferramenta | Explicar de volta>
-- **Última sessão:** <AAAA-MM-DD>
+- **Última sessão:** <YYYY-MM-DD>
 - **Próximo passo:** <a primeira coisa a fazer quando voltar, em uma frase>
 
 ## Níveis por eixo
 
 <Do diagnóstico do onboarding, atualizado na reavaliação de cada fase
-(`references/niveis.md`).>
+(`references/levels.md`).>
 
 | Eixo | Nível | Camadas demonstradas | Próxima camada | Evidência |
 |------|-------|----------------------|----------------|-----------|
-| <eixo> | <1 a 5> | <ex.: 1–3> | <ex.: 4. Diagnóstico> | <AAAA-MM-DD, a pergunta e um resumo da resposta> |
+| <eixo> | <1 a 5> | <ex.: 1–3> | <ex.: 4. Diagnóstico> | <YYYY-MM-DD, a pergunta e um resumo da resposta> |
 
 ## Trilha
 
-<Copiada do curso.md no início do curso. Marque [x] ao concluir a lição, ou [v] quando o
+<Copiada do course.md no início do curso. Marque [x] ao concluir a lição, ou [v] quando o
 módulo foi validado pela prova de saída.>
 
 ### Módulo 00 — <nome> (plugin v<X.Y.Z>)
@@ -36,7 +36,7 @@ módulo foi validado pela prova de saída.>
 <Uma entrada por lição concluída: o conceito-âncora explicado com as palavras dele.
 É o caderno dele. Ao revisar, ele lê o que ele mesmo escreveu.>
 
-- **1.1 <lição> (<AAAA-MM-DD>):** "<explicação dele>"
+- **1.1 <lição> (<YYYY-MM-DD>):** "<explicação dele>"
 
 ## Para revisar
 

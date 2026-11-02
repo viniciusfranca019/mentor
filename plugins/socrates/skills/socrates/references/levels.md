@@ -2,7 +2,7 @@
 
 O nível do aluno é medido **por eixo do curso**, nunca um nível só: quem já programa mas
 nunca viu redes é praticante num eixo e leigo no outro. Os eixos de cada curso, e a
-escada de perguntas de cada eixo, estão no `curso.md` dele.
+escada de perguntas de cada eixo, estão no `course.md` dele.
 
 ## A escala
 
@@ -45,7 +45,7 @@ camadas de conhecimento e prática: 1, 2, 3, 5 e 9. Do 1 ao 3 sobe uma camada po
 
 ## Diagnóstico (no onboarding)
 
-Cada eixo tem uma escada de três perguntas no `curso.md`:
+Cada eixo tem uma escada de três perguntas no `course.md`:
 
 | Degrau | Pede | Camadas que testa |
 |--------|------|-------------------|
@@ -76,7 +76,7 @@ declaração dele:
 | Nível contestado | Pergunta | Se atingir o critério |
 |------------------|----------|-----------------------|
 | 1 ou 2 | A **M** do eixo, reformulada com outras palavras (degrau 1 da escada de pistas) | Faça a **D** e classifique pela tabela acima |
-| 3 | A **D2** do eixo, no `curso.md`: outro problema de diagnóstico e decisão | Nível 4 |
+| 3 | A **D2** do eixo, no `course.md`: outro problema de diagnóstico e decisão | Nível 4 |
 | 4 | Nenhuma. As camadas 6 a 9 só saem da prova de saída, oferecida no primeiro módulo do eixo | — |
 
 O diagnóstico vai até o nível 4: as camadas 1 a 5 aparecem numa conversa. As camadas 6
@@ -85,7 +85,7 @@ a 9 pedem fazer, ensinar e atacar, e só saem da prova de saída.
 **O resultado para o aluno.** Ao fim do diagnóstico, mostre uma tabela: eixo, nível, a
 próxima camada que falta e o que isso muda na trilha dele (tabela abaixo). Registre o
 nível, as camadas e a resposta que justificou cada uma na seção "Níveis por eixo" do
-`progresso.md`.
+`progress.md`.
 
 ## O que o nível muda na trilha
 
@@ -115,7 +115,7 @@ por vez:
 
 | Resultado | O que acontece |
 |-----------|----------------|
-| As quatro camadas demonstradas | Módulo **validado**: marque as lições como `[v]` no `progresso.md`, com a data, e o eixo vai para o nível 5 |
+| As quatro camadas demonstradas | Módulo **validado**: marque as lições como `[v]` no `progress.md`, com a data, e o eixo vai para o nível 5 |
 | Faltou alguma | O módulo segue normal, sem penalidade, e o eixo continua no nível em que estava |
 
 Validar o módulo dispensa as lições, não o que elas deixam pronto. Se a Missão de uma
@@ -141,5 +141,5 @@ O nível muda com o que ele demonstra durante a trilha, não só no diagnóstico
     demonstradas", e o nível passa a ser o mais alto cujas camadas continuam todas
     demonstradas (regra cumulativa).
   - Atualize "Níveis por eixo" com a data e as respostas que justificaram.
-- **Aluno sem a seção "Níveis por eixo"** no `progresso.md` (começou numa versão anterior
+- **Aluno sem a seção "Níveis por eixo"** no `progress.md` (começou numa versão anterior
   do plugin): faça o diagnóstico de níveis no início da próxima sessão, antes da lição.

@@ -8,7 +8,7 @@ Socrates no dia a dia e como trocar de curso depois, com o diagnóstico feito e 
 método quando for usar: as quatro fases da lição são explicadas na primeira lição, não
 aqui. Conduza em blocos curtos e espere a resposta dele entre um bloco e outro.
 
-Antes de tudo, veja se `~/.socrates/perfil.md` existe:
+Antes de tudo, veja se `~/.socrates/profile.md` existe:
 
 | Situação | Caminho |
 |----------|---------|
@@ -24,10 +24,10 @@ A primeira mensagem tem só isto, nesta ordem:
    o que construiu.
 2. **Os cursos.** Uma tabela só, com curso, para quem é, aonde chega, o que já está
    disponível e se está **instalado**, montada de duas fontes:
-   - cada skill `socrates-<curso>:curso` entre as skills da sessão é um curso
+   - cada skill `socrates-<course>:course` entre as skills da sessão é um curso
      **instalado**, e a `description` dela traz para quem é, aonde chega e o que está
      disponível;
-   - cada linha de `<raiz>/skills/socrates/catalogo.md` cujo curso não está instalado entra
+   - cada linha de `<root>/skills/socrates/catalog.md` cujo curso não está instalado entra
      como **não instalado**, com o comando de instalar no lugar do que está disponível.
 3. **Uma frase sobre como os cursos chegam:** o Socrates é o mentor, e cada curso é um
    plugin à parte que ele conduz. Instalar um curso é um comando só. Não mostre as
@@ -47,7 +47,7 @@ ele precisa dela.
 
 Escolhido o curso, responda numa **mensagem só**, sem parar no meio para perguntar:
 
-1. **A trilha.** Carregue a skill `socrates-<curso>:curso`, leia o `curso.md` da raiz que
+1. **A trilha.** Carregue a skill `socrates-<course>:course`, leia o `course.md` da raiz que
    ela indica e liste as fases: o nome de cada uma e o que
    ele vai saber ao fim dela, em uma linha cada, sem a lista de lições.
 2. **O caminho.** Como o Socrates entra na rotina dele:
@@ -72,7 +72,7 @@ Feche com: "Alguma dúvida? Se não, começo o diagnóstico."
 ## Bloco 3 — Diagnóstico
 
 O diagnóstico mede o nível dele **em cada eixo do curso**, com as escadas da seção "Eixos
-e diagnóstico" do `curso.md` e as regras de `<raiz>/skills/socrates/references/niveis.md`.
+e diagnóstico" do `course.md` e as regras de `<root>/skills/socrates/references/levels.md`.
 Avise antes: "Não é prova, não tem nota. É para eu saber de onde você parte em cada
 assunto."
 
@@ -81,13 +81,13 @@ assunto."
   não ensina.
 - Ao final, mostre a tabela do resultado: eixo, nível, a próxima camada que falta e o que
   isso muda na trilha dele. Se ele contestar um nível, siga a seção Contestação de
-  `niveis.md`.
+  `levels.md`.
 
 ## Bloco 4 — Objetivo e ritmo
 
 Uma pergunta por vez, na ordem, esperando a resposta entre elas.
 
-1. Como ele quer ser chamado. Vai para o `perfil.md`.
+1. Como ele quer ser chamado. Vai para o `profile.md`.
 2. "Por que você quer fazer esse curso? Onde quer estar daqui a um ano?" Anote com as
    palavras dele: o feedback vai lembrar ele disso nos dias difíceis.
 3. Combine o ritmo: quais dias, quanto tempo por sessão. Recomende pelo menos 3 sessões
@@ -97,9 +97,9 @@ Uma pergunta por vez, na ordem, esperando a resposta entre elas.
 
 ## Bloco 5 — Criar o estado e fechar
 
-1. Crie `~/.socrates/perfil.md` a partir do template, com tudo o que foi combinado.
-2. Crie `~/.socrates/<curso>/progresso.md` a partir do template, com a trilha copiada do
-   `curso.md`, o "Onde parei" na primeira lição e a seção "Níveis por eixo" preenchida
+1. Crie `~/.socrates/profile.md` a partir do template, com tudo o que foi combinado.
+2. Crie `~/.socrates/<course>/progress.md` a partir do template, com a trilha copiada do
+   `course.md`, o "Onde parei" na primeira lição e a seção "Níveis por eixo" preenchida
    com o resultado do diagnóstico.
 3. Crie o diário do dia com uma seção "Onboarding" que registra o diagnóstico: cada
    pergunta, a resposta resumida, a camada que ela pedia e as camadas que a resposta
@@ -111,14 +111,14 @@ Uma pergunta por vez, na ordem, esperando a resposta entre elas.
 Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 
 1. **Os cursos, com a situação dele.** Mostre a tabela de cursos do bloco 1 com uma coluna a mais, lida de
-   `~/.socrates/perfil.md` e de cada `~/.socrates/<curso>/progresso.md`:
+   `~/.socrates/profile.md` e de cada `~/.socrates/<course>/progress.md`:
 
    | Situação | Quando |
    |----------|--------|
    | **ativo**, em `<lição>` | É o curso ativo do perfil |
    | **iniciado**, parado em `<lição>` | Tem diretório em `~/.socrates`, mas não é o ativo |
    | **não iniciado** | Não tem diretório em `~/.socrates`, mas o plugin está instalado |
-   | **não instalado** | Está no catálogo, mas o plugin não está instalado (não há a skill `socrates-<curso>:curso`) |
+   | **não instalado** | Está no catálogo, mas o plugin não está instalado (não há a skill `socrates-<course>:course`) |
 
    Um curso iniciado cujo plugin foi desinstalado aparece como **iniciado**, com a nota
    "reinstale para continuar": o progresso dele em `~/.socrates` continua lá.
@@ -130,6 +130,6 @@ Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
 | Opção | O que fazer |
 |-------|-------------|
 | Continuar | Sugira `/socrates:mentor-mode` e encerre |
-| Voltar para um curso iniciado | Se o plugin do curso não está instalado, dê o comando de instalar e pare sem tocar no `perfil.md`. Instalado: troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
-| Começar um curso novo | Se o curso não está instalado, dê o comando de instalar e pare, como no bloco 1. Instalado: faça só o bloco 3 com o diagnóstico desse curso, crie `~/.socrates/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
-| Ajustar o ritmo | Refaça o passo 3 do bloco 4 e atualize o `perfil.md` |
+| Voltar para um curso iniciado | Se o plugin do curso não está instalado, dê o comando de instalar e pare sem tocar no `profile.md`. Instalado: troque o curso ativo no `profile.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
+| Começar um curso novo | Se o curso não está instalado, dê o comando de instalar e pare, como no bloco 1. Instalado: faça só o bloco 3 com o diagnóstico desse curso, crie `~/.socrates/<course>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
+| Ajustar o ritmo | Refaça o passo 3 do bloco 4 e atualize o `profile.md` |

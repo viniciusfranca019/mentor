@@ -19,30 +19,30 @@ cobra evidência; não escolhe o objetivo nem as competências por ele.
 | O quê | Onde |
 |-------|------|
 | Este método e o template | `${CLAUDE_PLUGIN_ROOT}/skills/pdi/` |
-| Critérios (níveis, rubrica, estado) | Carregue a skill `socrates:criterios`: ela diz os caminhos. Leia o `niveis.md` antes de falar de nível |
+| Critérios (níveis, rubrica, estado) | Carregue a skill `socrates:criteria`: ela diz os caminhos. Leia o `levels.md` antes de falar de nível |
 | O PDI do aluno | `~/.socrates/pdi/pdi.md`, criado de `${CLAUDE_PLUGIN_ROOT}/skills/pdi/templates/pdi.md` |
 | Os check-ins | Acrescentados ao fim do próprio `pdi.md`, seção "Check-ins" |
-| Os cursos do aluno | `~/.socrates/perfil.md` e `~/.socrates/<curso>/progresso.md`: **só leitura** |
+| Os cursos do aluno | `~/.socrates/profile.md` e `~/.socrates/<course>/progress.md`: **só leitura** |
 
 Antes de ler ou criar qualquer arquivo em `~/.socrates`, faça a checagem da seção
-Migração do `estado.md` do Socrates.
+Migração do `state.md` do Socrates.
 
 ## Workflow: montar o PDI
 
 Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
 
 1. **Objetivo.** "Onde você quer estar daqui a 12 meses, e como vai saber que chegou?" Se
-   `~/.socrates/perfil.md` tem um Objetivo, mostre-o e pergunte se é o mesmo. O objetivo
+   `~/.socrates/profile.md` tem um Objetivo, mostre-o e pergunte se é o mesmo. O objetivo
    precisa de um sinal observável de chegada; se vier vago ("ser sênior"), pergunte o que
    alguém veria ele fazendo.
 2. **Competências.** "O que você precisa saber fazer para chegar lá?" De 3 a 5. Para cada
    uma, pergunte por que ela importa para o objetivo. Se uma competência corresponde a um
    eixo de um curso que ele faz, anote o curso e o eixo.
-3. **Nível atual, com evidência.** Pela escala de `niveis.md`, com as regras dela
+3. **Nível atual, com evidência.** Pela escala de `levels.md`, com as regras dela
    (cumulativo, na dúvida a camada não conta, pela resposta e nunca pela declaração):
    - competência ligada a um eixo de curso: o nível e as camadas demonstradas vêm dos
-     "Níveis por eixo" do `progresso.md` dele, com a evidência que está lá;
-   - as outras: o **diagnóstico** da seção Diagnóstico de `niveis.md`, sobre a
+     "Níveis por eixo" do `progress.md` dele, com a evidência que está lá;
+   - as outras: o **diagnóstico** da seção Diagnóstico de `levels.md`, sobre a
      competência: a pergunta **M** e, conforme a resposta, a **D** ou a **R**, que você
      formula na hora. Sem corrigir. Nível e camadas saem da tabela de lá. Se ele preferir
      não responder agora, o nível fica `declarado: N`, sem camadas, e o primeiro check-in
@@ -50,7 +50,7 @@ Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
    Registre sempre as **camadas demonstradas**, não só o nível: é delas que o check-in parte.
 4. **Nível alvo e lacuna.** Para cada competência, o nível que o objetivo pede e a próxima
    camada que falta. **Sem curso, o alvo vai até 4:** as camadas 6 a 9 só saem da prova de
-   saída de um módulo de curso (`niveis.md`), e o PDI não tem prova de saída. Se ele quer
+   saída de um módulo de curso (`levels.md`), e o PDI não tem prova de saída. Se ele quer
    o 5 numa competência, ligue-a a um eixo de curso ou deixe o alvo em 4 e diga por quê.
    Se a lacuna total for maior que 12 meses de trabalho, diga isso e pergunte o que sai.
 5. **Ações 70-20-10.** Para cada competência, pelo menos uma ação de cada tipo, cada uma
@@ -65,11 +65,11 @@ Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
 
 ## Workflow: check-in
 
-1. Leia o `pdi.md` e, de cada curso ligado a uma competência, o `progresso.md`.
+1. Leia o `pdi.md` e, de cada curso ligado a uma competência, o `progress.md`.
 2. Para cada ação vencida ou em andamento, pergunte o que foi feito e peça a evidência.
    Ação sem evidência não fecha, mesmo que ele diga que fez.
-3. **Níveis**, por competência, sempre pelas regras de `niveis.md`:
-   - **ligada a um eixo de curso:** copie do `progresso.md` o nível e as camadas da
+3. **Níveis**, por competência, sempre pelas regras de `levels.md`:
+   - **ligada a um eixo de curso:** copie do `progress.md` o nível e as camadas da
      reavaliação mais recente do curso. O PDI não mede o que o curso já mede;
    - **`declarado: N`:** faça o diagnóstico (M e depois D ou R), como no passo 3 do montar.
      A declaração não escolhe a pergunta;
@@ -77,7 +77,7 @@ Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
      demonstrada, registrada no check-in com o resultado (`sozinho`, `com pista` ou
      `precisou de explicação`). Se a revisão desta camada terminou em `precisou de
      explicação` neste check-in e no anterior, a camada sai das demonstradas e o nível
-     recalcula (regra de descida da Reavaliação de `niveis.md`, aplicada às revisões).
+     recalcula (regra de descida da Reavaliação de `levels.md`, aplicada às revisões).
      Depois, pergunte pelas camadas que faltam para o nível seguinte, a partir da
      "Próxima camada", uma por vez, sem pista. A camada que ele demonstrar entra em
      "Camadas demonstradas", e o nível só sobe quando **todas** as camadas até o peso do
@@ -97,7 +97,7 @@ Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
   escolheu é um PDI que ele não cumpre.
 - MUST medir o nível pela resposta ou pelo registro do curso, nunca pela declaração. Por
   quê: é a regra do Socrates, e um plano montado sobre um nível inflado erra a lacuna.
-- MUST NOT escrever no estado de um curso (`progresso.md`, diários). Por quê: é do motor,
+- MUST NOT escrever no estado de um curso (`progress.md`, diários). Por quê: é do motor,
   e a reavaliação de nível depende dele estar intacto.
 - MUST pedir evidência para fechar uma ação. Por quê: sem evidência, o check-in vira lista
   de intenções.

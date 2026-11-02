@@ -32,7 +32,7 @@ claude plugin install socrates-security-engineer@socrates
 ```
 
 O segundo comando instala o curso e o `socrates`. Outro curso, depois, é só mais um
-`claude plugin install socrates-<curso>@socrates`; o `/socrates:onboarding` mostra o
+`claude plugin install socrates-<course>@socrates`; o `/socrates:onboarding` mostra o
 catálogo e o comando de cada um. O PDI também: `claude plugin install socrates-pdi@socrates`.
 
 Instalou quando ele ainda se chamava Mentor? Troque o plugin uma vez e mova o seu
@@ -76,10 +76,10 @@ Fica na sua máquina, em `~/.socrates`, e nunca é apagado por uma atualização
 
 ```
 ~/.socrates/
-├── perfil.md                    # você, o curso ativo e o ritmo combinado
-└── <curso>/
-    ├── progresso.md             # onde parou, o que concluiu, o que revisar
-    └── diario/AAAA-MM-DD.md     # cada pergunta, sua resposta e o feedback
+├── profile.md                    # você, o curso ativo e o ritmo combinado
+└── <course>/
+    ├── progress.md             # onde parou, o que concluiu, o que revisar
+    └── journal/YYYY-MM-DD.md     # cada pergunta, sua resposta e o feedback
 ```
 
 ## Como funciona por dentro
@@ -87,13 +87,13 @@ Fica na sua máquina, em `~/.socrates`, e nunca é apagado por uma atualização
 | Peça | O que é |
 |------|---------|
 | `plugins/socrates/` | O motor: o método socrático, os níveis, a rubrica do feedback, o formato do estado e o catálogo de cursos. É o mesmo para todos os cursos |
-| `plugins/socrates-pdi/` | Uma extensão: traz o próprio método (montar o PDI e fazer o check-in) e lê do Socrates os critérios, pela skill `socrates:criterios` |
-| `plugins/socrates-<curso>/` | Um curso: a trilha (`curso/curso.md`), um arquivo por módulo e a skill `curso`, que diz ao motor onde está o conteúdo |
+| `plugins/socrates-pdi/` | Uma extensão: traz o próprio método (montar o PDI e fazer o check-in) e lê do Socrates os critérios, pela skill `socrates:criteria` |
+| `plugins/socrates-<course>/` | Um curso: a trilha (`curso/course.md`), um arquivo por módulo e a skill `curso`, que diz ao motor onde está o conteúdo |
 | `.claude-plugin/marketplace.json` | A lista de plugins que o `marketplace add` traz |
 
 Para escrever um curso novo, veja o
-[contrato de curso](plugins/socrates/skills/socrates/references/contrato-de-curso.md); para
-uma extensão, o [contrato de extensão](plugins/socrates/skills/socrates/references/contrato-de-extensao.md).
+[contrato de curso](plugins/socrates/skills/socrates/references/course-contract.md); para
+uma extensão, o [contrato de extensão](plugins/socrates/skills/socrates/references/extension-contract.md).
 
 ## Versionamento
 

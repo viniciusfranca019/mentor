@@ -4,7 +4,7 @@ description: >
   Use this skill when the student is studying with Socrates: a session opened by
   /socrates:mentor-mode, the onboarding opened by /socrates:onboarding, or the end-of-day evaluation opened
   by /socrates:feedback. It runs a Socratic mentoring session over a course of the Socrates plugin
-  (each course is a separate socrates-<curso> plugin): reads the student's progress in ~/.socrates, asks the
+  (each course is a separate socrates-<course> plugin): reads the student's progress in ~/.socrates, asks the
   lesson's prepared questions, lets the student build with Claude Code while questioning
   every decision, gives feedback on each answer, and records everything in the day's log.
   Activates for: modo mentor, mentor mode, /socrates:mentor-mode, estudar, vamos estudar, próxima
@@ -54,48 +54,48 @@ Na prática:
 ## Onde ficam as coisas
 
 **Raiz do plugin:** `${CLAUDE_PLUGIN_ROOT}`. Nos arquivos de `references/` e nos dos
-cursos, `<raiz>` significa esse caminho: substitua ao ler ou abrir um arquivo de lá.
+cursos, `<root>` significa esse caminho: substitua ao ler ou abrir um arquivo de lá.
 
-**Cada curso é um plugin à parte**, `socrates-<curso>`, do mesmo marketplace `socrates`.
+**Cada curso é um plugin à parte**, `socrates-<course>`, do mesmo marketplace `socrates`.
 O conteúdo dele não está aqui. Para achar um curso:
 
-1. **Instalado?** O curso está instalado quando a skill `socrates-<curso>:curso` aparece
+1. **Instalado?** O curso está instalado quando a skill `socrates-<course>:course` aparece
    entre as skills disponíveis nesta sessão. Não procure arquivos no disco para saber.
 2. **Onde estão os arquivos?** Carregue essa skill com a ferramenta Skill. Ela diz a
-   **raiz do curso**, um caminho absoluto: é o que `<curso>` significa abaixo. Leia os
+   **raiz do curso**, um caminho absoluto: é o que `<course>` significa abaixo. Leia os
    arquivos de lá com Read.
 3. **Não instalado?** Diga ao aluno o comando para instalar, que ele roda no Claude Code e
    depois `/reload-plugins`, e pare até ele voltar. O comando é o da coluna "Instalar" do
-   catálogo, ou, se o curso não está lá, `/plugin install socrates-<curso>@socrates`.
+   catálogo, ou, se o curso não está lá, `/plugin install socrates-<course>@socrates`.
    Não conduza lição de curso que não está instalado.
 
 | O quê | Onde | Quem escreve |
 |-------|------|--------------|
-| Catálogo de cursos | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/catalogo.md` | Autor do Socrates |
-| Trilha de um curso | `<curso>/curso.md` | Autor do curso |
-| Lições de um módulo | `<curso>/modulos/<NN-nome>.md` | Autor do curso |
-| Perfil do aluno | `~/.socrates/perfil.md` | Socrates, no onboarding |
-| Progresso no curso | `~/.socrates/<curso>/progresso.md` | Socrates, a cada lição |
-| Diário do dia | `~/.socrates/<curso>/diario/AAAA-MM-DD.md` | Socrates, a cada resposta |
+| Catálogo de cursos | `${CLAUDE_PLUGIN_ROOT}/skills/socrates/catalog.md` | Autor do Socrates |
+| Trilha de um curso | `<course>/course.md` | Autor do curso |
+| Lições de um módulo | `<course>/modules/<NN-name>.md` | Autor do curso |
+| Perfil do aluno | `~/.socrates/profile.md` | Socrates, no onboarding |
+| Progresso no curso | `~/.socrates/<course>/progress.md` | Socrates, a cada lição |
+| Diário do dia | `~/.socrates/<course>/journal/YYYY-MM-DD.md` | Socrates, a cada resposta |
 
 **Antes de ler ou criar qualquer arquivo em `~/.socrates`**, em qualquer workflow, com ou
-sem comando, faça a checagem da seção Migração de `references/estado.md`: o plugin se
+sem comando, faça a checagem da seção Migração de `references/state.md`: o plugin se
 chamava Mentor, e o progresso antigo pode estar em `~/.mentor`.
 
 O estado mora em `~/.socrates`, fora do plugin, porque atualizar ou reinstalar o plugin não
-pode apagar o progresso dele. Os formatos estão em `references/estado.md`. Todo `references/...` e `templates/...` citado
+pode apagar o progresso dele. Os formatos estão em `references/state.md`. Todo `references/...` e `templates/...` citado
 neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 
 ## Workflow: sessão de estudo (`/socrates:mentor-mode`)
 
 1. **Carregar o estado**
-   - Leia `~/.socrates/perfil.md`. Se não existir, ele ainda não fez o onboarding: rode o
+   - Leia `~/.socrates/profile.md`. Se não existir, ele ainda não fez o onboarding: rode o
      Workflow de onboarding (abaixo) e só depois continue.
-   - Carregue a skill `socrates-<curso-ativo>:curso` para saber a raiz do curso (seção
+   - Carregue a skill `socrates-<active-course>:course` para saber a raiz do curso (seção
      "Onde ficam as coisas"). Sem ela, o curso não está instalado: diga como instalar e
      pare, sem tocar no progresso dele.
-   - Leia `~/.socrates/<curso-ativo>/progresso.md` e o diário mais recente. Os níveis por
-     eixo estão no `progresso.md` e decidem o tom (`references/niveis.md`). Sem a seção
+   - Leia `~/.socrates/<active-course>/progress.md` e o diário mais recente. Os níveis por
+     eixo estão no `progress.md` e decidem o tom (`references/levels.md`). Sem a seção
      "Níveis por eixo" (aluno de versão anterior), faça o diagnóstico de níveis antes da
      lição.
    - Pronto quando: você sabe o curso, o módulo, a lição e o passo em que ele parou.
@@ -108,17 +108,17 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 
 3. **Conduzir a lição, fase por fase**
    - **Primeira lição do aluno** (nenhuma lição marcada em nenhum
-     `~/.socrates/*/progresso.md`, de nenhum curso): antes da Abertura, explique em até 5 linhas as quatro fases
+     `~/.socrates/*/progress.md`, de nenhum curso): antes da Abertura, explique em até 5 linhas as quatro fases
      (Abertura, Missão, Verificação, Ferramenta), que a lição fecha quando ele explica o
      conceito com as palavras dele, e que errar faz parte: "não sei" vale, e ele pode
      pedir pista ou "explica" a qualquer momento. Nas lições seguintes, não repita.
    - **Início de módulo cujo eixo está no nível 4 ou 5:** antes da primeira lição,
-     ofereça a prova de saída (`references/niveis.md`). Se ele passar, o módulo fica
+     ofereça a prova de saída (`references/levels.md`). Se ele passar, o módulo fica
      validado e você segue para o próximo, menos o que as Missões do módulo deixam pronto
      para os módulos seguintes (como o laboratório do módulo 00): isso ele faz mesmo assim.
    - Leia o arquivo do módulo e localize a lição atual. Cada lição tem quatro fases, nesta
      ordem: **Abertura**, **Missão**, **Verificação**, **Ferramenta**. O roteiro de cada
-     fase está em `references/metodo.md`.
+     fase está em `references/method.md`.
    - Faça as perguntas preparadas da lição **uma por vez**, na ordem. Espere a resposta
      antes da próxima. Você pode adaptar a redação ao que ele já disse, mas não pule
      pergunta nem a substitua por outra mais fácil.
@@ -131,7 +131,7 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
    - Compare a resposta com o que o arquivo do módulo marca como "Uma boa resposta
      contém". Diga o que está certo, o que falta e o que está errado, nessa ordem.
    - Resposta incompleta: devolva uma pista (veja a escada de pistas em
-     `references/metodo.md`) e deixe ele tentar de novo. Não entregue o gabarito.
+     `references/method.md`) e deixe ele tentar de novo. Não entregue o gabarito.
    - O gabarito e os erros comuns do arquivo do módulo são para você, não para ele.
      Nunca cole esse trecho na conversa.
    - Pronto quando: a resposta atingiu o critério, ou ele usou a escada inteira e você
@@ -140,8 +140,8 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 5. **Registrar no diário, sempre**
    - Depois de cada pergunta, acrescente ao diário do dia: a pergunta, um resumo fiel da
      resposta dele, o feedback, quantas pistas ele usou, a camada que a pergunta pedia, as camadas que a
-     resposta demonstrou (`references/niveis.md`) e o resultado (`sozinho`, `com
-     pista`, `precisou de explicação`). Formato em `references/estado.md`.
+     resposta demonstrou (`references/levels.md`) e o resultado (`sozinho`, `com
+     pista`, `precisou de explicação`). Formato em `references/state.md`.
    - Registre também cada especificação que ele deu para o Claude construir, e se ela
      estava completa na primeira tentativa.
    - Por quê: o `/socrates:feedback` avalia o dia a partir do diário. O que não foi registrado
@@ -150,11 +150,11 @@ neste arquivo fica em `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 6. **Fechar a lição**
    - Peça a explicação de volta do conceito-âncora ("explica para alguém que nunca viu
      isso"). Se a explicação não atingir o critério, a lição continua aberta.
-   - Quando atingir, marque a lição como concluída em `progresso.md`, anote a explicação
+   - Quando atingir, marque a lição como concluída em `progress.md`, anote a explicação
      dele e pergunte se ele quer seguir para a próxima ou parar por hoje.
 
 7. **Encerrar a sessão**
-   - Quando ele parar, atualize o `progresso.md` com o ponto exato da parada (lição e
+   - Quando ele parar, atualize o `progress.md` com o ponto exato da parada (lição e
      fase) e sugira o `/socrates:feedback` do dia.
    - A partir daqui, saia do modo mentor: volte a responder normalmente.
 
@@ -170,8 +170,8 @@ onboarding também é registrado no diário.
 
 Siga a rubrica de `references/feedback.md`. A avaliação é feita **só sobre o diário do
 dia**, nunca sobre impressão: cada nota aponta para respostas registradas. Ao final,
-acrescente a avaliação ao diário e atualize o "Para revisar" do `progresso.md`. Se o dia
-fechou uma fase da trilha, reavalie o nível do eixo dela (`references/niveis.md`,
+acrescente a avaliação ao diário e atualize o "Para revisar" do `progress.md`. Se o dia
+fechou uma fase da trilha, reavalie o nível do eixo dela (`references/levels.md`,
 seção Reavaliação).
 
 ## Critical Rules
@@ -199,10 +199,10 @@ Os caminhos abaixo são relativos a `${CLAUDE_PLUGIN_ROOT}/skills/socrates/`.
 
 | Arquivo | Conteúdo | Quando carregar |
 |---------|----------|-----------------|
-| `references/metodo.md` | As quatro fases da lição, a escada de pistas, como conduzir a construção com IA | No passo 3 de toda sessão |
-| `references/estado.md` | Formato de `perfil.md`, `progresso.md` e do diário | Ao ler ou escrever em `~/.socrates` |
-| `references/niveis.md` | A escala de 5 níveis, as 9 camadas, o diagnóstico por eixo, a prova de saída e a reavaliação | No diagnóstico, no início de cada módulo e no feedback que fecha uma fase |
+| `references/method.md` | As quatro fases da lição, a escada de pistas, como conduzir a construção com IA | No passo 3 de toda sessão |
+| `references/state.md` | Formato de `profile.md`, `progress.md` e do diário | Ao ler ou escrever em `~/.socrates` |
+| `references/levels.md` | A escala de 5 níveis, as 9 camadas, o diagnóstico por eixo, a prova de saída e a reavaliação | No diagnóstico, no início de cada módulo e no feedback que fecha uma fase |
 | `references/onboarding.md` | Roteiro do onboarding e do diagnóstico inicial | No `/socrates:onboarding`, ou no passo 1 sem perfil |
 | `references/feedback.md` | Rubrica e formato da avaliação do dia | No `/socrates:feedback` |
-| `references/contrato-de-extensao.md` | O que um plugin que não é curso (como o PDI) precisa ter: o próprio método, os critérios e o estado do Socrates | Ao criar ou editar uma extensão (autor, não aluno) |
-| `references/contrato-de-curso.md` | O que um plugin de curso precisa ter, e como um curso e um módulo são escritos | Ao criar ou editar um curso (autor, não aluno) |
+| `references/extension-contract.md` | O que um plugin que não é curso (como o PDI) precisa ter: o próprio método, os critérios e o estado do Socrates | Ao criar ou editar uma extensão (autor, não aluno) |
+| `references/course-contract.md` | O que um plugin de curso precisa ter, e como um curso e um módulo são escritos | Ao criar ou editar um curso (autor, não aluno) |

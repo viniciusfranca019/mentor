@@ -9,5 +9,5 @@ allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.claude/plugins/cache/soc
 Leia `${CLAUDE_PLUGIN_ROOT}/skills/pdi/SKILL.md` (a skill `socrates-pdi:pdi`) e siga-a.
 
 - Raiz do PDI: `${CLAUDE_PLUGIN_ROOT}`. Os critérios vêm do Socrates: carregue a skill
-  `socrates:criterios` e leia os arquivos que ela indica.
+  `socrates:criteria` e leia os arquivos que ela indica.
 - Sem `~/.socrates/pdi/pdi.md`: **Workflow: montar o PDI**. Com ele: **Workflow: check-in**.
