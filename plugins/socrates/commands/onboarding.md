@@ -1,18 +1,18 @@
 ---
-description: Mostra os cursos, explica o caminho, faz o diagnóstico e combina o ritmo; depois, troca de curso
+description: Shows the courses, explains the path, runs the diagnosis and agrees on the pace; later, switches courses
 disable-model-invocation: true
 allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.claude/plugins/cache/socrates/**), Read(~/.socrates/**), Write(~/.socrates/**), Edit(~/.socrates/**), Bash(mkdir -p ~/.socrates:*), Bash(date:*), Bash(ls ~/.socrates:*), Bash(ls -d ~/.mentor:*)
 ---
 
-# Onboarding do Socrates
+# Socrates onboarding
 
-Leia `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (a skill `socrates:socrates`) e rode o **Workflow: onboarding**, seguindo
-`references/onboarding.md` bloco a bloco, esperando a resposta do aluno entre um bloco e
-outro.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/socrates/SKILL.md` (the skill `socrates:socrates`) and run the **Workflow: onboarding**, following
+`references/onboarding.md` block by block, waiting for the student's answer between one block and
+the next.
 
-- Raiz do plugin: `${CLAUDE_PLUGIN_ROOT}`.
-- Antes de tudo, a migração do nome antigo: rode a checagem da seção Migração de
-  `references/estado.md` (`ls -d ~/.mentor ~/.socrates`) e faça o que a tabela dela manda.
-- Sem `~/.socrates/perfil.md`, é a primeira vez: blocos 1 a 5 do roteiro.
-- Se `~/.socrates/perfil.md` já existir, ele está voltando: siga a seção **Revisão** do
-  roteiro (os cursos com a situação de cada um e as quatro opções).
+- Plugin root: `${CLAUDE_PLUGIN_ROOT}`.
+- First of all, the migration from the old name: run the check in the Migration section of
+  `references/state.md` (`ls -d ~/.mentor ~/.socrates ~/.socrates/perfil.md`) and do what its table says.
+- Without `~/.socrates/profile.md`, it is the first time: blocks 1 to 5 of the script.
+- If `~/.socrates/profile.md` already exists, they are coming back: follow the **Review** section of
+  the script (the courses with the status of each and the four options).

@@ -1,8 +1,9 @@
 ---
 name: pdi
 description: >
-  Use this skill when the student builds or reviews their individual development plan
-  (PDI) with Socrates: opened by /socrates-pdi:pdi, or when they ask about "meu PDI",
+  Use this skill when the student builds or reviews their PDI (Individual Development Plan)
+  with Socrates: opened by /socrates-pdi:pdi, or when they ask about "my PDI",
+  "development plan", "PDI check-in", "where I want to be in a year", "meu PDI",
   "plano de desenvolvimento", "check-in do PDI", "onde quero estar em um ano". It turns a
   career goal into competencies measured on the Socrates level scale, 70-20-10 actions
   with deadlines and evidence, and periodic check-ins, stored in ~/.socrates/pdi.
@@ -10,94 +11,101 @@ description: >
 
 # PDI
 
-O PDI do aluno, conduzido do jeito do Socrates: perguntas em vez de respostas prontas, e
-nível medido por evidência, nunca por declaração. O plano é dele. Você pergunta, organiza e
-cobra evidência; não escolhe o objetivo nem as competências por ele.
+The student's PDI, run the Socrates way: questions instead of ready answers, and level
+measured by evidence, never by declaration. The plan is theirs. You ask, organize and
+demand evidence; you do not choose the goal or the competencies for them.
 
-## Onde ficam as coisas
+## Where things live
 
-| O quê | Onde |
-|-------|------|
-| Este método e o template | `${CLAUDE_PLUGIN_ROOT}/skills/pdi/` |
-| Critérios (níveis, rubrica, estado) | Carregue a skill `socrates:criterios`: ela diz os caminhos. Leia o `niveis.md` antes de falar de nível |
-| O PDI do aluno | `~/.socrates/pdi/pdi.md`, criado de `${CLAUDE_PLUGIN_ROOT}/skills/pdi/templates/pdi.md` |
-| Os check-ins | Acrescentados ao fim do próprio `pdi.md`, seção "Check-ins" |
-| Os cursos do aluno | `~/.socrates/perfil.md` e `~/.socrates/<curso>/progresso.md`: **só leitura** |
+| What | Where |
+|------|-------|
+| This method and the template | `${CLAUDE_PLUGIN_ROOT}/skills/pdi/` |
+| Criteria (levels, rubric, state) | Load the `socrates:criteria` skill: it gives the paths. Read `levels.md` before talking about level |
+| The student's PDI | `~/.socrates/pdi/pdi.md`, created from `${CLAUDE_PLUGIN_ROOT}/skills/pdi/templates/pdi.md` |
+| The check-ins | Appended to the end of `pdi.md` itself, "Check-ins" section |
+| The student's courses | `~/.socrates/profile.md` and `~/.socrates/<course>/progress.md`: **read only** |
 
-Antes de ler ou criar qualquer arquivo em `~/.socrates`, faça a checagem da seção
-Migração do `estado.md` do Socrates.
+Before reading or creating any file in `~/.socrates`, run the check in the Migration
+section of Socrates' `state.md`. Speak the student's language, as its Language section says:
+the `Language` line of `profile.md`, `en-US` by default, switched when the student asks.
 
-## Workflow: montar o PDI
+## Workflow: build the PDI
 
-Um bloco por vez, uma pergunta por vez, esperando a resposta entre elas.
+One block at a time, one question at a time, waiting for the answer between them.
 
-1. **Objetivo.** "Onde você quer estar daqui a 12 meses, e como vai saber que chegou?" Se
-   `~/.socrates/perfil.md` tem um Objetivo, mostre-o e pergunte se é o mesmo. O objetivo
-   precisa de um sinal observável de chegada; se vier vago ("ser sênior"), pergunte o que
-   alguém veria ele fazendo.
-2. **Competências.** "O que você precisa saber fazer para chegar lá?" De 3 a 5. Para cada
-   uma, pergunte por que ela importa para o objetivo. Se uma competência corresponde a um
-   eixo de um curso que ele faz, anote o curso e o eixo.
-3. **Nível atual, com evidência.** Pela escala de `niveis.md`, com as regras dela
-   (cumulativo, na dúvida a camada não conta, pela resposta e nunca pela declaração):
-   - competência ligada a um eixo de curso: o nível e as camadas demonstradas vêm dos
-     "Níveis por eixo" do `progresso.md` dele, com a evidência que está lá;
-   - as outras: o **diagnóstico** da seção Diagnóstico de `niveis.md`, sobre a
-     competência: a pergunta **M** e, conforme a resposta, a **D** ou a **R**, que você
-     formula na hora. Sem corrigir. Nível e camadas saem da tabela de lá. Se ele preferir
-     não responder agora, o nível fica `declarado: N`, sem camadas, e o primeiro check-in
-     faz o diagnóstico.
-   Registre sempre as **camadas demonstradas**, não só o nível: é delas que o check-in parte.
-4. **Nível alvo e lacuna.** Para cada competência, o nível que o objetivo pede e a próxima
-   camada que falta. **Sem curso, o alvo vai até 4:** as camadas 6 a 9 só saem da prova de
-   saída de um módulo de curso (`niveis.md`), e o PDI não tem prova de saída. Se ele quer
-   o 5 numa competência, ligue-a a um eixo de curso ou deixe o alvo em 4 e diga por quê.
-   Se a lacuna total for maior que 12 meses de trabalho, diga isso e pergunte o que sai.
-5. **Ações 70-20-10.** Para cada competência, pelo menos uma ação de cada tipo, cada uma
-   com prazo e a **evidência de conclusão** (o que outra pessoa veria):
-   - **70, prática:** um projeto ou uma responsabilidade no trabalho;
-   - **20, com outras pessoas:** mentoria, par, revisão, ensinar alguém;
-   - **10, estudo:** de preferência um módulo de um curso do Socrates, citado pelo nome; se
-     não houver, o material que ele escolher.
-6. **Ritmo e registro.** Combine a data dos check-ins (sugira uma vez por mês). Crie
-   `~/.socrates/pdi/pdi.md` do template, mostre o caminho e feche com: "No dia do check-in,
-   é só `/socrates-pdi:pdi`."
+1. **Goal.** "Where do you want to be 12 months from now, and how will you know you got
+   there?" If `~/.socrates/profile.md` has a Goal, show it and ask whether it is the same.
+   The goal needs an observable arrival signal; if it comes vague ("be senior"), ask what
+   someone would see them doing.
+2. **Competencies.** "What do you need to be able to do to get there?" From 3 to 5. For
+   each one, ask why it matters for the goal. If a competency matches an axis of a course
+   they take, note the course and the axis.
+3. **Current level, with evidence.** On the `levels.md` scale, with its rules
+   (cumulative, when in doubt the layer does not count, by the answer and never by the
+   declaration):
+   - competency linked to a course axis: the level and the demonstrated layers come from
+     the "Levels by axis" of their `progress.md`, with the evidence recorded there;
+   - the others: the **diagnosis** from the Diagnosis section of `levels.md`, on the
+     competency: the **M** question and, depending on the answer, the **D** or the **R**,
+     which you write on the spot. No correcting. Level and layers come from the table
+     there. If they prefer not to answer now, the level stays `declared: N`, with no
+     layers, and the first check-in runs the diagnosis.
+   Always record the **demonstrated layers**, not just the level: the check-in starts from
+   them.
+4. **Target level and gap.** For each competency, the level the goal requires and the next
+   missing layer. **Without a course, the target goes up to 4:** layers 6 to 9 only come
+   from the exit test of a course module (`levels.md`), and the PDI has no exit test. If
+   they want a 5 in a competency, link it to a course axis or leave the target at 4 and
+   say why. If the total gap is more than 12 months of work, say so and ask what goes.
+5. **70-20-10 actions.** For each competency, at least one action of each type, each with
+   a deadline and the **completion evidence** (what someone else would see):
+   - **70, practice:** a project or a responsibility at work;
+   - **20, with other people:** mentoring, pairing, review, teaching someone;
+   - **10, study:** preferably a module of a Socrates course, cited by name; if there is
+     none, the material they choose.
+6. **Pace and record.** Agree on the check-in date (suggest once a month). Create
+   `~/.socrates/pdi/pdi.md` from the template, show the path and close with: "On check-in
+   day, just run `/socrates-pdi:pdi`."
 
 ## Workflow: check-in
 
-1. Leia o `pdi.md` e, de cada curso ligado a uma competência, o `progresso.md`.
-2. Para cada ação vencida ou em andamento, pergunte o que foi feito e peça a evidência.
-   Ação sem evidência não fecha, mesmo que ele diga que fez.
-3. **Níveis**, por competência, sempre pelas regras de `niveis.md`:
-   - **ligada a um eixo de curso:** copie do `progresso.md` o nível e as camadas da
-     reavaliação mais recente do curso. O PDI não mede o que o curso já mede;
-   - **`declarado: N`:** faça o diagnóstico (M e depois D ou R), como no passo 3 do montar.
-     A declaração não escolhe a pergunta;
-   - **medida, sem curso:** primeiro a **revisão**: uma pergunta da camada mais alta já
-     demonstrada, registrada no check-in com o resultado (`sozinho`, `com pista` ou
-     `precisou de explicação`). Se a revisão desta camada terminou em `precisou de
-     explicação` neste check-in e no anterior, a camada sai das demonstradas e o nível
-     recalcula (regra de descida da Reavaliação de `niveis.md`, aplicada às revisões).
-     Depois, pergunte pelas camadas que faltam para o nível seguinte, a partir da
-     "Próxima camada", uma por vez, sem pista. A camada que ele demonstrar entra em
-     "Camadas demonstradas", e o nível só sobe quando **todas** as camadas até o peso do
-     nível seguinte estão lá (regra cumulativa), no máximo até 4.
-4. **Atualize o plano e registre.** No `pdi.md`, atualize as tabelas para o agora:
-   Situação de cada ação (`aberta`, `fechada` com a evidência, ou `cancelada` com o
-   motivo), Nível atual, Camadas demonstradas, Evidência do nível, Próxima camada e
-   Próximo check-in. Depois acrescente a seção do check-in ao fim (data, ações fechadas
-   com a evidência, camadas e níveis que mudaram e por quê, o que muda no plano). As
-   seções de check-ins antigos nunca são reescritas. Mostre a ele o resumo com o tom da
-   rubrica do Socrates: honesto, específico, comparando com ele mesmo.
-5. Pergunte se o objetivo ainda é o mesmo. Se mudou, refaça os blocos 2 a 5 do montar.
+1. Read `pdi.md` and, for each course linked to a competency, its `progress.md`.
+2. For each action that is due or in progress, ask what was done and ask for the evidence.
+   An action without evidence does not close, even if they say they did it.
+3. **Levels**, by competency, always by the rules of `levels.md`:
+   - **linked to a course axis:** copy from `progress.md` the level and the layers of the
+     course's most recent reassessment. The PDI does not measure what the course already
+     measures;
+   - **`declared: N`:** run the diagnosis (M, then D or R), as in step 3 of building the
+     PDI. The declaration does not choose the question;
+   - **measured, without a course:** first the **review**: one question from the highest
+     layer already demonstrated, recorded in the check-in with the result (`unaided`,
+     `with hint` or `needed explanation`). If the review of this layer ended in `needed
+     explanation` in this check-in and in the previous one, the layer leaves the
+     demonstrated ones and the level is recalculated (the drop rule of Reassessment in
+     `levels.md`, applied to reviews). Then ask about the layers missing for the next
+     level, starting from the "Next layer", one at a time, with no hint. A layer they
+     demonstrate goes into "Demonstrated layers", and the level only rises when **all**
+     the layers up to the weight of the next level are there (cumulative rule), at most
+     up to 4.
+4. **Update the plan and record.** In `pdi.md`, update the tables to the present:
+   Status of each action (`open`, `closed` with the evidence, or `cancelled` with the
+   reason), Current level, Demonstrated layers, Level evidence, Next layer and Next
+   check-in. Then append the check-in section at the end (date, closed actions with the
+   evidence, layers and levels that changed and why, what changes in the plan). The
+   sections of old check-ins are never rewritten. Show them the summary in the tone of
+   the Socrates rubric: honest, specific, comparing them with themselves.
+5. Ask whether the goal is still the same. If it changed, redo blocks 2 to 5 of building
+   the PDI.
 
 ## Critical Rules
 
-- MUST NOT escolher objetivo, competência ou ação por ele. Por quê: um PDI que ele não
-  escolheu é um PDI que ele não cumpre.
-- MUST medir o nível pela resposta ou pelo registro do curso, nunca pela declaração. Por
-  quê: é a regra do Socrates, e um plano montado sobre um nível inflado erra a lacuna.
-- MUST NOT escrever no estado de um curso (`progresso.md`, diários). Por quê: é do motor,
-  e a reavaliação de nível depende dele estar intacto.
-- MUST pedir evidência para fechar uma ação. Por quê: sem evidência, o check-in vira lista
-  de intenções.
+- MUST NOT choose a goal, competency or action for them. Why: a PDI they did not choose
+  is a PDI they do not follow.
+- MUST measure the level by the answer or by the course record, never by the
+  declaration. Why: it is the Socrates rule, and a plan built on an inflated level gets
+  the gap wrong.
+- MUST NOT write to a course's state (`progress.md`, journals). Why: it belongs to the
+  engine, and the level reassessment depends on it being intact.
+- MUST ask for evidence to close an action. Why: without evidence, the check-in becomes a
+  list of intentions.

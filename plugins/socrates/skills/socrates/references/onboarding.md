@@ -1,135 +1,141 @@
 # Onboarding
 
-Primeiro contato do aluno com o Socrates. Ele sai sabendo qual curso vai fazer, como usar o
-Socrates no dia a dia e como trocar de curso depois, com o diagnóstico feito e o
-`~/.socrates` criado.
+The student's first contact with Socrates. They leave knowing which course they will take,
+how to use Socrates day to day and how to switch courses later, with the diagnosis done
+and `~/.socrates` created.
 
-**Mostre o que existe antes de explicar como funciona.** Ele escolhe primeiro e entende o
-método quando for usar: as quatro fases da lição são explicadas na primeira lição, não
-aqui. Conduza em blocos curtos e espere a resposta dele entre um bloco e outro.
+**Show what exists before explaining how it works.** The student chooses first and
+understands the method when they use it: the four phases of the lesson are explained in
+the first lesson, not here. Run it in short blocks and wait for their answer between one
+block and the next.
 
-Antes de tudo, veja se `~/.socrates/perfil.md` existe:
+Before anything else, check whether `~/.socrates/profile.md` exists:
 
-| Situação | Caminho |
-|----------|---------|
-| Não existe | Primeira vez: blocos 1 a 5, em ordem |
-| Existe | Ele está voltando: vá para **Revisão**, no fim deste arquivo |
+| Situation | Path |
+|-----------|------|
+| Does not exist | First time: blocks 1 to 5, in order |
+| Exists | The student is coming back: go to **Review**, at the end of this file |
 
-## Bloco 1 — Os cursos
+## Block 1 — The courses
 
-A primeira mensagem tem só isto, nesta ordem:
+The first message has only this, in this order:
 
-1. **O que é o Socrates, em até 3 linhas.** Um mentor dentro do Claude Code que conduz um
-   curso lição a lição: pergunta em vez de dar a resposta, ele constrói com a IA e explica
-   o que construiu.
-2. **Os cursos.** Uma tabela só, com curso, para quem é, aonde chega, o que já está
-   disponível e se está **instalado**, montada de duas fontes:
-   - cada skill `socrates-<curso>:curso` entre as skills da sessão é um curso
-     **instalado**, e a `description` dela traz para quem é, aonde chega e o que está
-     disponível;
-   - cada linha de `<raiz>/skills/socrates/catalogo.md` cujo curso não está instalado entra
-     como **não instalado**, com o comando de instalar no lugar do que está disponível.
-3. **Uma frase sobre como os cursos chegam:** o Socrates é o mentor, e cada curso é um
-   plugin à parte que ele conduz. Instalar um curso é um comando só. Não mostre as
-   Extensões aqui: elas aparecem no bloco 2.
-4. **Uma pergunta:** qual curso ele quer fazer. Com um curso só na tabela, pergunte se é
-   esse.
+1. **What Socrates is, in up to 3 lines.** A mentor inside Claude Code that runs a course
+   lesson by lesson: it asks instead of giving the answer, and the student builds with the
+   AI and explains what they built.
+2. **The courses.** A single table, with course, who it is for, where you get to, what is
+   already available and whether it is **installed**, built from two sources:
+   - each `socrates-<course>:course` skill among the session's skills is an **installed**
+     course, and its `description` gives who it is for, where you get to and what is
+     available;
+   - each line of `<root>/skills/socrates/catalog.md` whose course is not installed goes in
+     as **not installed**, with the install command in place of what is available.
+3. **One sentence on how courses arrive:** Socrates is the mentor, and each course is a
+   separate plugin that it runs. Installing a course is a single command. Do not show the
+   Extensions here: they appear in block 2.
+4. **One line on language:** the language Socrates is speaking, and that the student can ask
+   for another one at any moment (`references/state.md`, Language).
+5. **One question:** which course they want to take. With only one course in the table, ask
+   whether it is that one.
 
-Se o curso escolhido não está instalado, a resposta seguinte é só esta: o comando da
-coluna "Instalar" do catálogo, para ele rodar no Claude Code, depois `/reload-plugins` e
-`/socrates:onboarding` de novo, que agora mostra o curso instalado. Não
-siga sem o curso: a trilha e o diagnóstico vêm dele.
+If the chosen course is not installed, the next answer is only this: the command from the
+catalog's "Install" column, for them to run in Claude Code, then `/reload-plugins` and
+`/socrates:onboarding` again, which now shows the course installed. Do not
+go on without the course: the track and the diagnosis come from it.
 
-Nada de fases da lição, comandos ou histórico nesta mensagem: cada coisa aparece quando
-ele precisa dela.
+No lesson phases, commands or history in this message: each thing appears when the
+student needs it.
 
-## Bloco 2 — A trilha e o caminho
+## Block 2 — The track and the routine
 
-Escolhido o curso, responda numa **mensagem só**, sem parar no meio para perguntar:
+Once the course is chosen, answer in a **single message**, without stopping midway to ask:
 
-1. **A trilha.** Carregue a skill `socrates-<curso>:curso`, leia o `curso.md` da raiz que
-   ela indica e liste as fases: o nome de cada uma e o que
-   ele vai saber ao fim dela, em uma linha cada, sem a lista de lições.
-2. **O caminho.** Como o Socrates entra na rotina dele:
+1. **The track.** Load the `socrates-<course>:course` skill, read the `course.md` from the
+   root it points to and list the phases: the name of each one and what
+   the student will know at its end, one line each, without the list of lessons.
+2. **The routine.** How Socrates fits into their routine:
 
-| Quando | O que fazer |
-|--------|-------------|
-| **Hoje, uma vez** | Diagnóstico e ritmo, uns 20 minutos. É o que vem agora |
-| **Cada dia de estudo** | `/socrates:mentor-mode`: retoma exatamente de onde ele parou |
-| **Fim do dia** | `/socrates:feedback`: avalia o dia e diz o que revisar |
-| **Plano de carreira, quando quiser** | O PDI é uma extensão do Socrates: monta o plano de desenvolvimento dele com a mesma escala de níveis, e liga as ações aos módulos dos cursos. Mostre a linha da seção Extensões do catálogo, com o comando de instalar, ou `/socrates-pdi:pdi` se a skill `socrates-pdi:pdi` já está instalada |
-| **Outro curso, quando quiser** | `/socrates:onboarding`: mostra o catálogo com a situação de cada curso. Um curso novo é um plugin: instala com o comando do catálogo. Trocar de curso não apaga o progresso do outro |
+| When | What to do |
+|------|------------|
+| **Today, once** | Diagnosis and pace, about 20 minutes. This is what comes next |
+| **Each study day** | `/socrates:mentor-mode`: picks up exactly where they stopped |
+| **End of the day** | `/socrates:feedback`: evaluates the day and says what to review |
+| **Career plan, whenever you want** | The PDI is an extension of Socrates: it builds their development plan with the same level scale, and links the actions to course modules. Show the line from the catalog's Extensions section, with the install command, or `/socrates-pdi:pdi` if the `socrates-pdi:pdi` skill is already installed |
+| **Another course, whenever you want** | `/socrates:onboarding`: shows the catalog with the status of each course. A new course is a plugin: install it with the catalog command. Switching courses does not erase the progress of the other one |
 
-Logo abaixo, o acordo em duas linhas: ele usa o Claude para escrever o código, mas antes
-diz o que quer construir, e depois explica o que recebeu.
+Right below, the agreement in two lines: they use Claude to write the code, but first
+they say what they want to build, and afterwards they explain what they got.
 
-Avise que digitando `/socrates` o menu mostra os três comandos, e que no feedback o
-prefixo importa: o `/feedback` sem `socrates:` é o comando do Claude Code para mandar
-feedback à Anthropic. O histórico dele fica em `~/.socrates`, para abrir quando quiser.
+Mention that typing `/socrates` shows the three commands in the menu, and that for
+feedback the prefix matters: `/feedback` without `socrates:` is the Claude Code command
+for sending feedback to Anthropic. Their history lives in `~/.socrates`, to open whenever
+they want.
 
-Feche com: "Alguma dúvida? Se não, começo o diagnóstico."
+Close with: "Any questions? If not, I'll start the diagnosis."
 
-## Bloco 3 — Diagnóstico
+## Block 3 — Diagnosis
 
-O diagnóstico mede o nível dele **em cada eixo do curso**, com as escadas da seção "Eixos
-e diagnóstico" do `curso.md` e as regras de `<raiz>/skills/socrates/references/niveis.md`.
-Avise antes: "Não é prova, não tem nota. É para eu saber de onde você parte em cada
-assunto."
+The diagnosis measures their level **on each axis of the course**, with the ladders from
+the "Axes and diagnosis" section of `course.md` and the rules in
+`<root>/skills/socrates/references/levels.md`. Say beforehand: "This is not a test, there
+is no grade. It is so I know where you are starting from on each subject."
 
-- Uma pergunta por vez, duas por eixo: a **M** e, conforme a resposta, a **D** ou a **R**.
-- Não corrija as respostas agora. Agradeça e siga. O diagnóstico mede o ponto de partida,
-  não ensina.
-- Ao final, mostre a tabela do resultado: eixo, nível, a próxima camada que falta e o que
-  isso muda na trilha dele. Se ele contestar um nível, siga a seção Contestação de
-  `niveis.md`.
+- One question at a time, two per axis: the **M** and, depending on the answer, the **D**
+  or the **R**.
+- Do not correct the answers now. Thank them and move on. The diagnosis measures the
+  starting point, it does not teach.
+- At the end, show the result table: axis, level, the next missing layer and what that
+  changes in their track. If they challenge a level, follow the Challenge section of
+  `levels.md`.
 
-## Bloco 4 — Objetivo e ritmo
+## Block 4 — Goal and pace
 
-Uma pergunta por vez, na ordem, esperando a resposta entre elas.
+One question at a time, in order, waiting for the answer between them.
 
-1. Como ele quer ser chamado. Vai para o `perfil.md`.
-2. "Por que você quer fazer esse curso? Onde quer estar daqui a um ano?" Anote com as
-   palavras dele: o feedback vai lembrar ele disso nos dias difíceis.
-3. Combine o ritmo: quais dias, quanto tempo por sessão. Recomende pelo menos 3 sessões
-   de 1 hora por semana. Constância vale mais que maratona.
-4. Pergunte qual máquina ele usa (Windows, Linux, macOS). O módulo 00 do curso depende
-   disso.
+1. What they want to be called. It goes into `profile.md`.
+2. "Why do you want to take this course? Where do you want to be a year from now?" Write it
+   down in their words: the feedback will remind them of it on hard days.
+3. Agree on the pace: which days, how long per session. Recommend at least 3 sessions of
+   1 hour per week. Consistency is worth more than a marathon.
+4. Ask which machine they use (Windows, Linux, macOS). The course's module 00 depends on
+   it.
 
-## Bloco 5 — Criar o estado e fechar
+## Block 5 — Create the state and close
 
-1. Crie `~/.socrates/perfil.md` a partir do template, com tudo o que foi combinado.
-2. Crie `~/.socrates/<curso>/progresso.md` a partir do template, com a trilha copiada do
-   `curso.md`, o "Onde parei" na primeira lição e a seção "Níveis por eixo" preenchida
-   com o resultado do diagnóstico.
-3. Crie o diário do dia com uma seção "Onboarding" que registra o diagnóstico: cada
-   pergunta, a resposta resumida, a camada que ela pedia e as camadas que a resposta
-   demonstrou.
-4. Mostre a ele os caminhos criados e feche: "Quando quiser começar, é só `/socrates:mentor-mode`."
+1. Create `~/.socrates/profile.md` from the template, with everything that was agreed and
+   the `Language`: the one the student asked for during the onboarding, or `en-US`.
+2. Create `~/.socrates/<course>/progress.md` from the template, with the track copied from
+   `course.md`, "Where I stopped" at the first lesson and the "Levels by axis" section
+   filled in with the diagnosis result.
+3. Create the day's journal with an "Onboarding" section that records the diagnosis: each
+   question, the summarized answer, the layer it asked for and the layers the answer
+   demonstrated.
+4. Show them the paths created and close: "Whenever you want to start, just run `/socrates:mentor-mode`."
 
-## Revisão — quando o perfil já existe
+## Review — when the profile already exists
 
-Ele voltou ao onboarding para ver os cursos, trocar de curso ou mudar o ritmo.
+The student came back to onboarding to see the courses, switch courses or change the pace.
 
-1. **Os cursos, com a situação dele.** Mostre a tabela de cursos do bloco 1 com uma coluna a mais, lida de
-   `~/.socrates/perfil.md` e de cada `~/.socrates/<curso>/progresso.md`:
+1. **The courses, with their status.** Show the block 1 course table with one more column, read from
+   `~/.socrates/profile.md` and from each `~/.socrates/<course>/progress.md`:
 
-   | Situação | Quando |
-   |----------|--------|
-   | **ativo**, em `<lição>` | É o curso ativo do perfil |
-   | **iniciado**, parado em `<lição>` | Tem diretório em `~/.socrates`, mas não é o ativo |
-   | **não iniciado** | Não tem diretório em `~/.socrates`, mas o plugin está instalado |
-   | **não instalado** | Está no catálogo, mas o plugin não está instalado (não há a skill `socrates-<curso>:curso`) |
+   | Status | When |
+   |--------|------|
+   | **active**, at `<lesson>` | It is the profile's active course |
+   | **started**, stopped at `<lesson>` | Has a directory in `~/.socrates`, but is not the active one |
+   | **not started** | Has no directory in `~/.socrates`, but the plugin is installed |
+   | **not installed** | It is in the catalog, but the plugin is not installed (there is no `socrates-<course>:course` skill) |
 
-   Um curso iniciado cujo plugin foi desinstalado aparece como **iniciado**, com a nota
-   "reinstale para continuar": o progresso dele em `~/.socrates` continua lá.
+   A started course whose plugin was uninstalled shows as **started**, with the note
+   "reinstall to continue": their progress in `~/.socrates` is still there.
 
-2. **Uma pergunta, com quatro opções:** continuar no curso ativo, voltar para um curso
-   iniciado, começar um curso novo, ou ajustar o ritmo. Abaixo das opções, uma linha com
-   as Extensões do catálogo e a situação de cada uma (instalada ou o comando de instalar).
+2. **One question, with four options:** continue the active course, go back to a started
+   course, start a new course, or adjust the pace. Below the options, one line with the
+   catalog's Extensions and the status of each one (installed or the install command).
 
-| Opção | O que fazer |
-|-------|-------------|
-| Continuar | Sugira `/socrates:mentor-mode` e encerre |
-| Voltar para um curso iniciado | Se o plugin do curso não está instalado, dê o comando de instalar e pare sem tocar no `perfil.md`. Instalado: troque o curso ativo no `perfil.md` e a coluna "Situação" da tabela "Cursos" dos dois cursos (`em andamento` e `pausado`). O progresso dele está intacto |
-| Começar um curso novo | Se o curso não está instalado, dê o comando de instalar e pare, como no bloco 1. Instalado: faça só o bloco 3 com o diagnóstico desse curso, crie `~/.socrates/<curso>/` como no bloco 5 (passos 2 e 3), troque o curso ativo, acrescente o curso à tabela "Cursos" do perfil (o anterior passa a `pausado`) e pergunte se o ritmo continua o mesmo. Não refaça objetivo nem máquina, e não toque no diretório do outro curso |
-| Ajustar o ritmo | Refaça o passo 3 do bloco 4 e atualize o `perfil.md` |
+| Option | What to do |
+|--------|------------|
+| Continue | Suggest `/socrates:mentor-mode` and finish |
+| Go back to a started course | If the course plugin is not installed, give the install command and stop without touching `profile.md`. Installed: switch the active course in `profile.md` and the "Status" column of the "Courses" table for both courses (`in progress` and `paused`). Their progress is intact |
+| Start a new course | If the course is not installed, give the install command and stop, as in block 1. Installed: do only block 3 with that course's diagnosis, create `~/.socrates/<course>/` as in block 5 (steps 2 and 3), switch the active course, add the course to the profile's "Courses" table (the previous one becomes `paused`) and ask whether the pace stays the same. Do not redo the goal or the machine, and do not touch the other course's directory |
+| Adjust the pace | Redo step 3 of block 4 and update `profile.md` |

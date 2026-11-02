@@ -1,24 +1,34 @@
 # Changelog: socrates-pdi
 
-Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/), versões
-em [Semantic Versioning](https://semver.org/lang/pt-BR/).
+Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions
+in [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-02
+
+### Changed
+
+- The PDI is in English and speaks the student's language, the `Language` of
+  `profile.md`. It reads the criteria through `socrates:criteria` and the course levels
+  from `<course>/progress.md`. Declares `socrates` `>=0.5.0` in `dependencies`, so it stays disabled on an older engine.
+
 ## [0.1.0] - 2026-11-02
 
-### Adicionado
+### Added
 
-- `/socrates-pdi:pdi`: monta o PDI do aluno (objetivo com sinal de chegada, de 3 a 5
-  competências, nível atual pela escala do Socrates, nível alvo, ações 70-20-10 com prazo
-  e evidência) e, com o PDI já criado, faz o check-in.
-- O nível de uma competência segue a escala do Socrates: vem do registro do curso ou do
-  diagnóstico (M, depois D ou R), com as camadas demonstradas registradas, nunca da
-  declaração. Sem curso, o alvo vai até 4, porque as camadas 6 a 9 só saem da prova de
-  saída de um módulo. Os critérios são lidos do Socrates pela skill `socrates:criterios`.
-- O check-in atualiza as tabelas do plano (ações, níveis, próximo check-in) e acrescenta
-  a seção do dia; os check-ins antigos não mudam.
-- O PDI fica em `~/.socrates/pdi/pdi.md`, com os check-ins acrescentados ao fim.
+- `/socrates-pdi:pdi`: builds the student's PDI (a goal with an arrival signal, 3 to 5
+  competencies, current level on the Socrates scale, target level, 70-20-10 actions with
+  deadline and evidence) and, with the PDI already created, runs the check-in.
+- A competency's level follows the Socrates scale: it comes from the course record or from
+  the diagnosis (M, then D or R), with the demonstrated layers recorded, never from the
+  declaration. Without a course, the target goes up to 4, because layers 6 to 9 only come
+  from a module's exit test. The criteria are read from Socrates through the
+  `socrates:criterios` skill.
+- The check-in updates the plan's tables (actions, levels, next check-in) and appends the
+  day's section; old check-ins do not change.
+- The PDI lives in `~/.socrates/pdi/pdi.md`, with the check-ins appended at the end.
 
-[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.1.0...HEAD
+[Unreleased]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.2.0...HEAD
+[0.2.0]: https://github.com/viniciusfranca019/mentor/compare/socrates-pdi--v0.1.0...socrates-pdi--v0.2.0
 [0.1.0]: https://github.com/viniciusfranca019/mentor/releases/tag/socrates-pdi--v0.1.0

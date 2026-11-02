@@ -1,40 +1,40 @@
 # PDI
 
-- **Começou em:** <AAAA-MM-DD>
-- **Próximo check-in:** <AAAA-MM-DD>
-- **Ritmo:** <ex.: um check-in por mês>
+- **Started on:** <YYYY-MM-DD>
+- **Next check-in:** <YYYY-MM-DD>
+- **Pace:** <e.g. one check-in a month>
 
-## Objetivo
+## Goal
 
-<Onde ele quer estar em 12 meses, com as palavras dele.>
+<Where they want to be in 12 months, in their own words.>
 
-**Como vai saber que chegou:** <o sinal observável>
+**How they will know they got there:** <the observable signal>
 
-## Competências
+## Competencies
 
-<As tabelas refletem o agora: o check-in as atualiza. Sem curso, o nível alvo vai até 4.>
+<The tables reflect the present: the check-in updates them. Without a course, the target level goes up to 4.>
 
-| Competência | Por que importa | Curso e eixo | Nível atual | Camadas demonstradas | Evidência do nível | Nível alvo | Próxima camada |
-|-------------|-----------------|--------------|-------------|----------------------|--------------------|------------|----------------|
-| <competência> | <ligação com o objetivo> | <curso · eixo, ou —> | <1 a 5, ou declarado: N> | <ex.: 1–3, ou — se declarado> | <AAAA-MM-DD, a pergunta ou o registro do curso> | <1 a 5; sem curso, até 4> | <ex.: 4. Diagnóstico> |
+| Competency | Why it matters | Course and axis | Current level | Demonstrated layers | Level evidence | Target level | Next layer |
+|------------|----------------|-----------------|---------------|---------------------|----------------|--------------|------------|
+| <competency> | <link to the goal> | <course · axis, or —> | <1 to 5, or declared: N> | <e.g. 1–3, or — if declared> | <YYYY-MM-DD, the question or the course record> | <1 to 5; without a course, up to 4> | <e.g. 4. Diagnosis> |
 
-## Ações
+## Actions
 
-<Situação: `aberta`, `fechada` (com a evidência no check-in) ou `cancelada` (com o motivo).>
+<Status: `open`, `closed` (with the evidence in the check-in) or `cancelled` (with the reason).>
 
-| Competência | Tipo | Ação | Prazo | Evidência de conclusão | Situação |
-|-------------|------|------|-------|------------------------|----------|
-| <competência> | 70 · prática | <o projeto ou a responsabilidade> | <AAAA-MM-DD> | <o que outra pessoa veria> | aberta |
-| <competência> | 20 · pessoas | <mentoria, par, revisão, ensinar> | <AAAA-MM-DD> | <...> | aberta |
-| <competência> | 10 · estudo | <módulo NN do curso X, ou o material> | <AAAA-MM-DD> | <...> | aberta |
+| Competency | Type | Action | Deadline | Completion evidence | Status |
+|------------|------|--------|----------|---------------------|--------|
+| <competency> | 70 · practice | <the project or the responsibility> | <YYYY-MM-DD> | <what someone else would see> | open |
+| <competency> | 20 · people | <mentoring, pairing, review, teaching> | <YYYY-MM-DD> | <...> | open |
+| <competency> | 10 · study | <module NN of course X, or the material> | <YYYY-MM-DD> | <...> | open |
 
 ## Check-ins
 
-<Um por data, o mais novo no fim. Só esta seção cresce: nunca reescreva um check-in antigo.>
+<One per date, newest at the end. Only this section grows: never rewrite an old check-in.>
 
-### <AAAA-MM-DD>
+### <YYYY-MM-DD>
 
-- **Ações fechadas:** <ação — evidência>
-- **Revisão:** <competência · camada N · sozinho | com pista | precisou de explicação>
-- **Camadas e níveis que mudaram:** <competência: camadas 1–3 → 1–4, nível 3 mantido, por quê>
-- **O que muda no plano:** <...>
+- **Closed actions:** <action — evidence>
+- **Review:** <competency · layer N · unaided | with hint | needed explanation>
+- **Layers and levels that changed:** <competency: layers 1–3 → 1–4, level 3 kept, why>
+- **What changes in the plan:** <...>
