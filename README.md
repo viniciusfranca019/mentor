@@ -26,8 +26,8 @@ claude plugin marketplace add viniciusfranca019/mentor
 claude plugin install socrates@socrates
 ```
 
-Instalou quando ele ainda se chamava Mentor? Troque o plugin uma vez; seu progresso em
-`~/.mentor` é movido para `~/.socrates` no primeiro comando:
+Instalou quando ele ainda se chamava Mentor? Troque o plugin uma vez e mova o seu
+progresso com `mv ~/.mentor ~/.socrates` (o primeiro comando também te lembra disso):
 
 ```bash
 claude plugin uninstall mentor@mentor

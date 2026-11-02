@@ -11,8 +11,9 @@ em [Semantic Versioning](https://semver.org/lang/pt-BR/).
   (`claude plugin install socrates@socrates`), os comandos viram `/socrates:onboarding`,
   `/socrates:mentor-mode` e `/socrates:feedback`, e a skill vira `socrates:socrates`
   (`skills/socrates/`). O repositório continua `viniciusfranca019/mentor`.
-- O estado do aluno muda de `~/.mentor` para `~/.socrates`. Na primeira execução de
-  qualquer comando, a pasta antiga é movida para a nova, sem mudar o formato dos arquivos.
+- O estado do aluno muda de `~/.mentor` para `~/.socrates`, no mesmo formato. Se só a
+  pasta antiga existe, o primeiro comando pede ao aluno que rode
+  `! mv ~/.mentor ~/.socrates` e repita o comando.
 
 ### Corrigido
 

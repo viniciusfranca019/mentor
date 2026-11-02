@@ -2,7 +2,7 @@
 description: Entra no modo mentor e retoma o curso de onde você parou
 argument-hint: "[curso]"
 disable-model-invocation: true
-allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.socrates/**), Write(~/.socrates/**), Edit(~/.socrates/**), Bash(mkdir -p ~/.socrates:*), Bash(date:*), Bash(ls ~/.socrates:*), Bash(ls -d ~/.mentor:*), Bash(mv ~/.mentor ~/.socrates)
+allowed-tools: Read(/${CLAUDE_PLUGIN_ROOT}/**), Read(~/.socrates/**), Write(~/.socrates/**), Edit(~/.socrates/**), Bash(mkdir -p ~/.socrates:*), Bash(date:*), Bash(ls ~/.socrates:*), Bash(ls -d ~/.mentor:*)
 ---
 
 # Modo mentor

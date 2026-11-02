@@ -14,11 +14,14 @@ nunca apaga o progresso. Tudo é Markdown, para ele poder abrir e ler o próprio
 
 ## Migração do Mentor
 
-O plugin se chamava Mentor e guardava o estado em `~/.mentor`. Se `ls -d ~/.mentor`
-encontra a pasta e `~/.socrates` não existe, rode `mv ~/.mentor ~/.socrates` antes de
-ler qualquer estado, e avise o aluno em uma linha: "Seu progresso do Mentor agora fica em
-`~/.socrates`." Os arquivos não mudam de formato, só de lugar. Se as duas pastas
-existirem, não mova nada: use `~/.socrates` e diga a ele que `~/.mentor` ficou para trás.
+O plugin se chamava Mentor e guardava o estado em `~/.mentor`. Antes de ler qualquer
+estado, veja com `ls -d ~/.mentor ~/.socrates` quais existem:
+
+| Existe | O que fazer |
+|--------|-------------|
+| Só `~/.mentor` | Pare e peça ao aluno que mova a pasta ele mesmo, digitando no Claude Code `! mv ~/.mentor ~/.socrates`, e que rode o comando de novo. Os arquivos não mudam de formato, só de lugar. Você não move: escrever fora da pasta da sessão pede uma aprovação que nem sempre aparece |
+| As duas | Não mova nada. Use `~/.socrates` e avise em uma linha que `~/.mentor` ficou para trás e pode ser apagada quando ele quiser |
+| Só `~/.socrates`, ou nenhuma | Nada a migrar. Siga sem falar disso |
 
 ## Templates
 
