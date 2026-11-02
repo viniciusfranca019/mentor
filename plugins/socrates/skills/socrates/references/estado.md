@@ -51,5 +51,5 @@ curso para a seção "Trilha", todas desmarcadas.
 - **Curso novo, diretório novo.** Trocar de curso não apaga o outro; o `perfil.md` muda
   o curso ativo e a situação dos dois na tabela "Cursos" (`em andamento` e `pausado`).
 - **Versão do curso.** Anote no `progresso.md` a versão do plugin em que ele começou
-  cada módulo (`version` em `<raiz>/.claude-plugin/plugin.json`). Se o
+  cada módulo: a versão do plugin do curso, que a skill `socrates-<curso>:curso` indica. Se o
   módulo mudar numa atualização, você sabe que a lição em andamento pode ter mudado.
