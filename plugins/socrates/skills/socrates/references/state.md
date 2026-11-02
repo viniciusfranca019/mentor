@@ -59,7 +59,8 @@ Socrates speaks the student's language, recorded in `profile.md` as `Language`, 
   in English next to the translation the first time it shows up (`vazamento de memória
   (memory leak)`), because that is the word they will find at work.
 - **The state stays in English.** Headings, fields and your own notes in `~/.socrates` are in
-  English whatever the language. The student's answers and explain-backs are recorded in the
+  English whatever the language. What you show the student and also record, such as the day
+  evaluation or the feedback on an answer, is shown in their language and recorded in English. The student's answers and explain-backs are recorded in the
   words they used, in the language they used.
 
 ## Templates

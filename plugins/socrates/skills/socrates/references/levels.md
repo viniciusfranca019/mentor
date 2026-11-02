@@ -140,7 +140,7 @@ diagnosis.
   - **Up** when the layers missing for the next level showed up clearly in the answers,
     up to level 4. Level 5 only comes from the exit test.
   - **Down** when the last two questions that asked for the same layer N, even with other
-    questions between them, ended with Result `needed explanation`, N being a layer
+    questions between them, ended with Outcome `needed explanation`, N being a layer
     already recorded as demonstrated. Layer N leaves the "Demonstrated layers", and the
     level becomes the highest one whose layers all remain demonstrated (cumulative rule).
   - Update "Levels by axis" with the date and the answers that justified it.

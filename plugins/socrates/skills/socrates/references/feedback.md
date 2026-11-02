@@ -12,8 +12,8 @@ or is empty, say so and suggest a `/socrates:mentor-mode`. Do not make up an eva
    explanation`; specs given and how many were complete on the first try; code explained
    before running.
 3. Evaluate the five dimensions of the rubric below.
-4. Write the evaluation in the format below, show it to the student and append it to the
-   end of the journal, in the "Day evaluation" section.
+4. Write the evaluation in the format below, show it to the student in their language and append it, in English, to the
+   end of the journal, in the "Day evaluation" section (`state.md`, Language).
 5. Update "To review" in `progress.md` with the concepts that were weak.
 6. If the day closed the last lesson of a phase of the track, reassess the level of that
    phase's axis by reading **all** the journals of the phase, not just today's, as the

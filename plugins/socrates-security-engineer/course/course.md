@@ -161,7 +161,7 @@ Linux machine from the terminal.
 
 | # | Module | Lessons | Status |
 |---|--------|---------|--------|
-| 00 | Your lab | 0.1 What an isolated study environment is · 0.2 Setting up Linux (WSL2 or VM) · 0.3 First conversation with Claude as the architect | available |
+| 00 | Your lab | 0.1 What an isolated study environment is · 0.2 Setting up Linux (WSL2 or VM) · 0.3 First conversation with Claude as an architect | available |
 | 01 | How the computer represents things | 1.1 Everything is a number: bits, bytes and hexadecimal · 1.2 Text is a number too: encoding · 1.3 Files and formats: the extension lies · 1.4 From code to program: compiled and interpreted | available |
 | 02 | Processes and memory | 2.1 Program vs process · 2.2 A process's memory · 2.3 Processes talking: signals and pipes · 2.4 What a service (daemon) is | planned |
 | 03 | The Linux shell | 3.1 What the shell does with what you type · 3.2 File system and paths · 3.3 Input, output and redirection · 3.4 Environment variables and PATH · 3.5 Find and filter: find, grep, pipes | planned |

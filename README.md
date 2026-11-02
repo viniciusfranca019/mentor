@@ -35,8 +35,10 @@ The second command installs the course and `socrates`. Another course, later, is
 more `claude plugin install socrates-<course>@socrates`; `/socrates:onboarding` shows the
 catalog and the command for each one. The PDI too: `claude plugin install socrates-pdi@socrates`.
 
-Installed it back when it was still called Mentor? Swap the plugin once and move your
-progress with `mv ~/.mentor ~/.socrates` (the first command also reminds you of this):
+Installed it back when it was still called Mentor? Swap the plugin once. Your progress
+moves on the first Socrates command: it stops and gives you a single `!` command that moves
+`~/.mentor` to `~/.socrates` and renames the old Portuguese file names to English (the same
+happens, without the move, if you used Socrates 0.3 or 0.4). Run it as given:
 
 ```bash
 claude plugin uninstall mentor@mentor
